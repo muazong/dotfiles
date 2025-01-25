@@ -11,6 +11,7 @@
     "custom/keyboard",
     "network",
     "bluetooth",
+    "memory",
     "pulseaudio",
     "backlight",
     "battery"
@@ -22,6 +23,10 @@
     "exec": "~/.config/scripts/get-keyboard.sh",
     "tooltip-format": "Keyboard: {}",
     "on-click": "fcitx5-configtool"
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {used:0.1f}G/{total:0.1f}G"
   },
   "hyprland/workspaces": {
     "on-click": "activate",

@@ -52,6 +52,7 @@ button:hover {
 
 #pulseaudio,
 #clock,
+#memory,
 #battery,
 #cpu,
 #memory,
@@ -115,6 +116,11 @@ button:hover {
 #bluetooth {
   color: @sky;
   border-bottom: 2px solid @sky;
+}
+
+#memory {
+  color: @text;
+  border-bottom: 2px solid @text;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
