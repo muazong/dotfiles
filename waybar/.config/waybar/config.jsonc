@@ -21,7 +21,7 @@
   // MODULES
   "custom/keyboard": {
     "interval": 1,
-    "format": "  {}",
+    "format": " {}",
     "exec": "~/.config/scripts/get-keyboard.sh",
     "tooltip-format": "Keyboard: {}",
     "on-click": "fcitx5-configtool"
