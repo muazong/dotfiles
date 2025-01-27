@@ -123,6 +123,16 @@ button:hover {
   border-bottom: 2px solid @text;
 }
 
+#temperature {
+  color: @red;
+  border-bottom: 2px solid @red;
+}
+
+#cpu {
+  color: @rosewater;
+  border-bottom: 2px solid @rosewater;
+}
+
 /* If workspaces is the leftmost module, omit left margin */
 .modules-left > widget:first-child > #workspaces {
   margin-left: 0;

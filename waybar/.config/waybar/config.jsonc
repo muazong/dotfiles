@@ -2,7 +2,9 @@
   "position": "top",
   "modules-left": [
     "hyprland/workspaces",
-    "hyprland/window"
+    "cpu",
+    "memory",
+    "temperature"
   ],
   "modules-center": [
     "clock"
@@ -11,11 +13,12 @@
     "custom/keyboard",
     "network",
     "bluetooth",
-    "memory",
     "pulseaudio",
     "backlight",
     "battery"
   ],
+  //
+  //
   // MODULES
   "custom/keyboard": {
     "interval": 1,
@@ -24,10 +27,8 @@
     "tooltip-format": "Keyboard: {}",
     "on-click": "fcitx5-configtool"
   },
-  "memory": {
-    "interval": 30,
-    "format": " {used:0.1f}G/{total:0.1f}G"
-  },
+  //
+  //
   "hyprland/workspaces": {
     "on-click": "activate",
     "active-only": false,
@@ -48,14 +49,26 @@
   "hyprland/window": {
     "separate-outputs": true
   },
+  "temperature": {
+    "interval": 5,
+    "tooltip": false,
+    "format": " {temperatureC}°C",
+    "max-length": 10,
+    "thermal-zone": 1
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {used:0.1f}G/{total:0.1f}G"
+  },
   "clock": {
-    "format": "<span foreground='#f5c2e7'> </span>{:%a %d %H:%M}",
+    "format": "<span foreground='#f5c2e7'></span>{:%A %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "battery": {
     "states": {
+      "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 20
     },
     "format": "<span size='13000' foreground='#a6e3a1'>{icon} </span> {capacity}%",
     "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
@@ -84,7 +97,7 @@
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "",
+    "format-muted": " muted",
     "format-icons": {
       "default": [
         "",
@@ -92,7 +105,7 @@
         " "
       ]
     },
-    "on-click": "pavucontrol"
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
   },
   "backlight": {
     "format": "<span size='13000' foreground='#b4befe'>{icon} {percent}%</span>",
@@ -118,5 +131,10 @@
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}"
+  },
+  "cpu": {
+    "interval": 5,
+    "format": " {usage}%",
+    "max-length": 10
   }
 }
