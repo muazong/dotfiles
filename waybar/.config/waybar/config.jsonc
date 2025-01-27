@@ -15,7 +15,8 @@
     "bluetooth",
     "pulseaudio",
     "backlight",
-    "battery"
+    "battery",
+    "custom/power"
   ],
   //
   // MODULES
@@ -25,6 +26,18 @@
     "exec": "~/.config/scripts/get-keyboard.sh",
     "tooltip-format": "Keyboard: {}",
     "on-click": "fcitx5-configtool"
+  },
+  "custom/power": {
+    "format": "⏻",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "~/.config/waybar/power_menu.xml",
+    "menu-actions": {
+      "shutdown": "shutdown",
+      "reboot": "reboot",
+      "suspend": "systemctl suspend",
+      "logout": "loginctl lock-session"
+    }
   },
   //
   //
@@ -53,7 +66,12 @@
     "tooltip": false,
     "format": " {temperatureC}°C",
     "max-length": 10,
-    "thermal-zone": 1
+    "thermal-zone": 1,
+    "hwmon-path": [
+      "/sys/class/hwmon/hwmon2/temp1_input",
+      "/sys/class/thermal/thermal_zone0/temp"
+    ],
+    "critical-threshold": 80
   },
   "memory": {
     "interval": 30,
