@@ -20,3 +20,5 @@ alias nv='nvim'
 
 alias neo='neofetch'
 alias fast='fastfetch'
+
+alias lg='lazygit'
