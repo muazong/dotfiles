@@ -21,10 +21,9 @@ return {
       zsh = { "shfmt" },
       sql = { "sql_formatter" },
     },
-    format_on_save = {
+    format_after_save = {
       lsp_fallback = true,
-      async = false,
-      timeout_ms = 1000,
+      timeout_ms = 500,
     },
   },
 }
