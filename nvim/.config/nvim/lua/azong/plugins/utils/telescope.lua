@@ -6,6 +6,9 @@ return {
       {
         "nvim-telescope/telescope-file-browser.nvim",
         lazy = true,
+        keys = {
+          { "<C-b>", "<CMD>Telescope file_browser<CR>" },
+        }
       },
     },
     cmd = { "Telescope" },
@@ -13,7 +16,6 @@ return {
       { "<C-f>", "<CMD>Telescope find_files<CR>" },
       { "<C-g>", "<CMD>Telescope live_grep<CR>" },
       { "<C-s>", "<CMD>:Telescope grep_string<CR>" },
-      { "<C-b>", "<CMD>Telescope file_browser<CR>" },
       { "tb", "<CMD>:Telescope buffers<CR>" },
       { "?", "<CMD>:Telescope help_tags<CR>" },
     },
