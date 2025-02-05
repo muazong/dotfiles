@@ -1,8 +1,8 @@
 return {
-	"MunifTanjim/nui.nvim",
-	"farmergreg/vim-lastplace",
-	{
-		"stevearc/dressing.nvim",
-		opts = {},
-	},
+  "MunifTanjim/nui.nvim",
+  "farmergreg/vim-lastplace",
+  {
+    "stevearc/dressing.nvim",
+    opts = {},
+  },
 }

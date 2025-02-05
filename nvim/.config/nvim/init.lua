@@ -1,4 +1,4 @@
-if vim.loader then 
+if vim.loader then
   vim.loader.enable()
 end
 

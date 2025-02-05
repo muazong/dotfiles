@@ -8,7 +8,7 @@ return {
         lazy = true,
         keys = {
           { "<C-b>", "<CMD>Telescope file_browser<CR>" },
-        }
+        },
       },
     },
     cmd = { "Telescope" },
