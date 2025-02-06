@@ -7,6 +7,15 @@ return {
     local luasnip = require("luasnip")
     local lspkind = require("lspkind")
 
+    -- vscode format
+    require("luasnip.loaders.from_vscode").lazy_load({ exclude = vim.g.vscode_snippets_exclude or {} })
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
+
+    -- snipmate format
+    require("luasnip.loaders.from_snipmate").load()
+    require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
+
+    -- lua format
     require("luasnip.loaders.from_lua").load()
     require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path or "" })
 
@@ -97,7 +106,7 @@ return {
       },
       sources = cmp.config.sources({
         { name = "luasnip" },
-        { name = "codeium" },
+        -- { name = "codeium" },
         { name = "nvim_lsp" },
         { name = "buffer" },
         { name = "async_path" },
@@ -106,16 +115,16 @@ return {
     })
     cmp.setup.cmdline("/", {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = {
+      sources = cmp.config.sources({
         { name = "buffer" },
-      },
+      }),
     })
     cmp.setup.cmdline(":", {
       mapping = cmp.mapping.preset.cmdline(),
-      sources = {
+      sources = cmp.config.sources({
         { name = "path" },
         { name = "cmdline" },
-      },
+      }),
     })
   end,
   dependencies = {
@@ -130,6 +139,7 @@ return {
     },
     { -- Codeium
       "Exafunction/codeium.nvim",
+      enabled = false,
       dependencies = {
         "nvim-lua/plenary.nvim",
         "iguanacucumber/magazine.nvim",
@@ -143,10 +153,8 @@ return {
       "L3MON4D3/LuaSnip",
       version = "v2.*",
       build = "make install_jsregexp",
-    },
-    { -- Cmp LuaSnip
-      "saadparwaiz1/cmp_luasnip",
       dependencies = {
+        "saadparwaiz1/cmp_luasnip",
         "rafamadriz/friendly-snippets",
       },
     },
