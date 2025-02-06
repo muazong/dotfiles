@@ -17,6 +17,7 @@ alias tm='tmux'
 
 alias v='nvim'
 alias nv='nvim'
+alias nvc='z ~/.config/nvim && nvim'
 
 alias neo='neofetch'
 alias fast='fastfetch'
