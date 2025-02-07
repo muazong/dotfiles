@@ -22,9 +22,10 @@ return {
     opts = {
       ensure_installed = {
         "html",
-        -- "ts_ls",
+        "ts_ls",
+        "volar",
         "cssls",
-        -- "jdtls",
+        "jdtls",
         "sqlls",
         "jsonls",
         "eslint",
