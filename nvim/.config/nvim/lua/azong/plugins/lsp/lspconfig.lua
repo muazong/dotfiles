@@ -35,16 +35,23 @@ return {
         })
       end,
 
-      -- VueJs
-      ["volar"] = function()
-        lspconfig["volar"].setup({
+      ["ts_ls"] = function()
+        lspconfig["ts_ls"].setup({
           capabilities = capabilities,
           on_attach = on_attach,
-          filetypes = { "vue" },
           init_options = {
-            vue = {
-              hybridMode = false,
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+                languages = { "javascript", "typescript", "vue" },
+              },
             },
+          },
+          filetypes = {
+            "javascript",
+            "typescript",
+            "vue",
           },
         })
       end,
