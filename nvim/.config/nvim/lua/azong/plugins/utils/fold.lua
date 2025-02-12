@@ -11,7 +11,7 @@ return {
     opts.foldlevelstart = 99
     opts.foldenable = true
 
-    maps("n", "zA", require("ufo").openAllFolds)
+    maps("n", "zO", require("ufo").openAllFolds)
     maps("n", "zM", require("ufo").closeAllFolds)
 
     require("ufo").setup({
