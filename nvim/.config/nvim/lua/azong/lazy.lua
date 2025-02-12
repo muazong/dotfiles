@@ -22,7 +22,6 @@ require("lazy").setup({
   { import = "azong.plugins.utils" },
   { import = "azong.plugins.lsp" },
   { import = "azong.plugins.program" },
-
 }, {
   checker = {
     enabled = true,
@@ -75,4 +74,3 @@ require("lazy").setup({
     },
   },
 })
-
