@@ -129,8 +129,7 @@ return {
   end,
   dependencies = {
     {
-      { "iguanacucumber/mag-nvim-lsp", name = "cmp-nvim-lsp", opts = {} },
-      -- "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lsp",
       { "iguanacucumber/mag-nvim-lua", name = "cmp-nvim-lua" },
       { "iguanacucumber/mag-buffer", name = "cmp-buffer" },
       { "iguanacucumber/mag-cmdline", name = "cmp-cmdline" },
