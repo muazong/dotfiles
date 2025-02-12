@@ -50,12 +50,6 @@ opts.autoread = true
 opts.autowrite = true
 opts.autoindent = true
 
-opts.foldenable = false
-opts.foldmethod = "indent"
-opts.foldlevel = 99
-opts.foldlevelstart = 99
-opts.foldcolumn = "0"
-
 opts.ignorecase = true
 opts.infercase = true
 opts.smartcase = true
