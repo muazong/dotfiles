@@ -20,7 +20,7 @@
     "custom/power"
   ],
   //
-  // MODULES
+  // Custom modules
   "custom/keyboard": {
     "interval": 1,
     "format": " {}",
@@ -46,7 +46,7 @@
     }
   },
   //
-  //
+  // Core modules
   "hyprland/workspaces": {
     "on-click": "activate",
     "active-only": false,
