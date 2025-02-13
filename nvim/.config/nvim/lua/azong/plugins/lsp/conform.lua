@@ -17,7 +17,7 @@ return {
       lua = { "stylua" },
       cpp = { "clang-format" },
       c = { "clang-format" },
-      cs = { "csharpier" },
+      cs = { "clang-format" },
       sh = { "shfmt" },
       zsh = { "shfmt" },
       sql = { "sql_formatter" },

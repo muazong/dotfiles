@@ -45,7 +45,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvimtools/none-ls.nvim", "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "stylua", "prettierd", "shfmt", "clang-format", "sql-formatter", "csharpier" },
+      ensure_installed = { "stylua", "prettierd", "shfmt", "clang-format", "sql-formatter" },
     },
   },
 }
