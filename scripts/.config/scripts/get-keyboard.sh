@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 layout=$(fcitx5-remote -n)
 
