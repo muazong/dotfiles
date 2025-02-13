@@ -31,7 +31,7 @@
   "custom/weather": {
     "interval": 30,
     "format": "{}",
-    "exec": "~/.config/scripts/checking-weather.sh -n 'Hanoi'"
+    "exec": "~/.config/scripts/checking-weather.sh"
   },
   "custom/power": {
     "format": "⏻",
