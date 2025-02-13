@@ -4,7 +4,8 @@
     "hyprland/workspaces",
     "cpu",
     "memory",
-    "temperature"
+    "temperature",
+    "custom/weather"
   ],
   "modules-center": [
     "clock"
@@ -26,6 +27,11 @@
     "exec": "~/.config/scripts/get-keyboard.sh",
     "tooltip-format": "Keyboard: {}",
     "on-click": "fcitx5-configtool"
+  },
+  "custom/weather": {
+    "interval": 30,
+    "format": "{}",
+    "exec": "~/.config/scripts/checking-weather.sh -n 'Hanoi'"
   },
   "custom/power": {
     "format": "⏻",
@@ -78,8 +84,20 @@
     "format": " {used:0.1f}G/{total:0.1f}G"
   },
   "clock": {
-    "format": "<span foreground='#f5c2e7'></span>{:%A, %d - %H:%M}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    "interval": 1,
+    "format": " {:%H:%M:%S}",
+    "format-alt": " {:%H:%M   %Y, %d %B, %A}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+      }
+    }
   },
   "battery": {
     "states": {
@@ -104,22 +122,45 @@
     "tooltip-format": "Battery: {capacity}%"
   },
   "network": {
+    "format": "{ifname}",
+    "format-wifi": "{icon} {essid}",
+    "format-ethernet": "󰤭 Disconnected",
+    "format-disconnected": " Disconnected",
+    "tooltip-format": "{ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "format-linked": "󰈁 {ifname} (No IP)",
+    "tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} 󰌘",
+    "tooltip-format-disconnected": "󰌙 Disconnected",
+    "max-length": 50,
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
     "auto-connect": "true",
-    "on-click": "kitty -e nmtui",
-    "format-wifi": "<span size='13000' foreground='#f5e0dc'>  </span>{essid}: {signalStrength}%",
-    "format-ethernet": "<span size='13000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "<span size='13000' foreground='#f5e0dc'>  </span>Disconnected",
-    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+    "on-click": "kitty -e nmtui"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": " muted",
+    "format-muted": "󰖁 muted",
+    "format-bluetooth": "{icon} 󰂰 {volume}%",
     "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
       "default": [
         "",
         "",
+        "󰕾",
         " "
+      ],
+      "ignored-sinks": [
+        "Easy Effects Sink"
       ]
     },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
@@ -140,10 +181,10 @@
     ]
   },
   "bluetooth": {
-    "on-click": "kitty bluetoothctl",
+    "on-click": "blueman-manager",
     "format-on": "󰂯 {status}",
     "format-off": "󰂲 {status}",
-    "format-disabled": "󰂲",
+    "format-disabled": "󰂲 Disabled",
     "format-connected": "󰂱 {num_connections}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
