@@ -1,16 +1,18 @@
 #!/bin/bash
-# The most sincere thanks to Gemini - Google
+# The most sincere thanks to Gemini - Google :D
 
 # Function to fetch and display weather information
 get_weather() {
+  city=Sontay
+
   # Fetch location (handle potential errors)
-  location=$(curl -s "wttr.in/Hanoi?format=%l" 2>/dev/null | cut -d ',' -f 1)
+  location=$(curl -s "wttr.in/$city?format=%l" 2>/dev/null | cut -d ',' -f 1)
   if [ -z "$location" ]; then
     location="Unknown Location"
   fi
 
   # Fetch temperature and icon (handle potential errors)
-  weather_info=$(curl -s "wttr.in/Hanoi?format=%t+%C+%c" 2>/dev/null)
+  weather_info=$(curl -s "wttr.in/$city?format=%t+%C+%c" 2>/dev/null)
   if [ -z "$weather_info" ]; then
     temperature="Unknown"
   else
