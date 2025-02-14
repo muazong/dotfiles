@@ -1,9 +1,0 @@
----
-Language: Java
-BasedOnStyle: Google
-IndentWidth: 2
-ColumnLimit: 120
-UseTab: Never
-# BreakBeforeBraces: Allman
-AllowShortFunctionsOnASingleLine: false
-...
