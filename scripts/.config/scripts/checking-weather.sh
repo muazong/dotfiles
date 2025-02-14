@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Fetch location
-location=$(curl -s "wttr.in/?format=%l" | cut -d ',' -f 1)
+location=$(curl -s "wttr.in/Hanoi?format=%l" | cut -d ',' -f 1)
 
 # Fetch temperature and icon
-temperature=$(curl -s "wttr.in/?format=%t+%c" | tr -d '+')
+temperature=$(curl -s "wttr.in/Hanoi?format=%t+%c" | tr -d '+')
 
 # Combine location, temperature, and icon with a comma
 result=$(echo "$location, $temperature")
