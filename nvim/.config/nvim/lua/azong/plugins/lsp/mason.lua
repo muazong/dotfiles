@@ -25,18 +25,19 @@ return {
         "ts_ls",
         "volar",
         "cssls",
-        "jdtls",
-        "sqlls",
         "jsonls",
         "eslint",
         "lua_ls",
-        "clangd",
         "omnisharp",
         "typos_lsp",
         "tailwindcss",
         "somesass_ls",
         "css_variables",
         "emmet_language_server",
+
+        -- "jdtls",
+        -- "sqlls",
+        -- "clangd",
       },
     },
   },
@@ -45,7 +46,13 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvimtools/none-ls.nvim", "williamboman/mason.nvim" },
     opts = {
-      ensure_installed = { "stylua", "prettierd", "shfmt", "clang-format", "sql-formatter" },
+      ensure_installed = {
+        "stylua",
+        "prettierd",
+        "shfmt",
+        "clang-format",
+        --[[ "sql-formatter" ]]
+      },
     },
   },
 }
