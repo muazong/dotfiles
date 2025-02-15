@@ -5,12 +5,6 @@
 get_weather() {
   city=Sontay
 
-  # Fetch location (handle potential errors)
-  location=$(curl -s "wttr.in/$city?format=%l" 2>/dev/null | cut -d ',' -f 1)
-  if [ -z "$location" ]; then
-    location="Unknown Location"
-  fi
-
   # Fetch temperature and icon (handle potential errors)
   weather_info=$(curl -s "wttr.in/$city?format=%t+%c" 2>/dev/null)
   if [ -z "$weather_info" ]; then
@@ -20,7 +14,7 @@ get_weather() {
   fi
 
   # Combine location and temperature
-  result="$location, $temperature"
+  result="$city, $temperature"
 
   # Remove trailing whitespace
   result="${result%"${result##*[![:space:]]}"}"
@@ -33,36 +27,58 @@ get_weather() {
 check_network() {
   while true; do
     if ping -c 3 8.8.8.8 &>/dev/null; then
-      # Connected, wait for 30 minutes
-      sleep 1800 # 30 minutes * 60 seconds/minute
+      # Connected
+      # Send signal to the main process
+      kill -USR1 $$
+      return 0 # Exit the check_network function
     else
       # Not connected, wait for 20 seconds
       sleep 20
-    fi
-
-    # Check connectivity again after waiting
-    if ping -c 3 8.8.8.8 &>/dev/null; then
-      # Send signal to the main process if connected
-      kill -USR1 $$
-      return 0
     fi
   done
 }
 
 # Trap USR1 signal
-trap 'get_weather; exit 0' USR1
+trap 'get_weather' USR1 # Only get_weather, don't exit
 
-# Initial network connectivity check
+# Variable to store the check_network process ID
+network_checker_pid=""
+
+# Function to start the network checker in the background
+start_network_checker() {
+  check_network &
+  network_checker_pid=$!
+}
+
+# Function to stop the network checker
+stop_network_checker() {
+  if [ -n "$network_checker_pid" ]; then
+    kill "$network_checker_pid" 2>/dev/null
+    wait "$network_checker_pid" 2>/dev/null # Wait for the process to terminate
+    network_checker_pid=""
+  fi
+}
+
+# Initial check and weather retrieval
 if ping -c 3 8.8.8.8 &>/dev/null; then
   get_weather
-  # Start network check after 30 minutes
-  sleep 1800
-  check_network &
-  wait
+  start_network_checker
 else
   echo "Weather: 󱚵"
-  # Start network check after 20 seconds
-  sleep 20
-  check_network &
-  wait
+  start_network_checker
 fi
+
+# Main loop for periodic weather updates
+while true; do
+  sleep 1200 # 20 minutes * 60 seconds/minute
+
+  # Check if network is still up before trying to get weather
+  if ping -c 3 8.8.8.8 &>/dev/null; then
+    get_weather
+  else
+    echo "Network down, skipping weather update."
+  fi
+done
+
+# Ensure the network checker is stopped when the script exits (optional but good practice)
+trap 'stop_network_checker; exit' INT TERM EXIT
