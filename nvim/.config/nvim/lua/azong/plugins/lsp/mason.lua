@@ -31,7 +31,7 @@ return {
         "eslint",
         "lua_ls",
         "clangd",
-        "csharp_ls",
+        "omnisharp",
         "typos_lsp",
         "tailwindcss",
         "somesass_ls",
