@@ -6,6 +6,8 @@ set fish_greeting
 eval "$(starship init fish)"
 eval "$(zoxide init fish)"
 
+export PATH="$PATH:/home/azong/.dotnet/tools"
+
 # Aliases
 alias suspend='systemctl suspend'
 
