@@ -18,9 +18,9 @@ return {
       cpp = { "clang-format" },
       c = { "clang-format" },
       cs = { "clang-format" },
-      -- java = { "clang-format" },
       sh = { "shfmt" },
       zsh = { "shfmt" },
+      fish = { "shfmt" },
       sql = { "sql_formatter" },
     },
     format_after_save = {
