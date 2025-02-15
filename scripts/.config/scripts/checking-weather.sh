@@ -12,7 +12,7 @@ get_weather() {
   fi
 
   # Fetch temperature and icon (handle potential errors)
-  weather_info=$(curl -s "wttr.in/$city?format=%t+%C+%c" 2>/dev/null)
+  weather_info=$(curl -s "wttr.in/$city?format=%t+%c" 2>/dev/null)
   if [ -z "$weather_info" ]; then
     temperature="Unknown"
   else
