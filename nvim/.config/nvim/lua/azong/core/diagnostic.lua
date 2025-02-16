@@ -35,5 +35,5 @@ diagnostic.config({
   virtual_text = false,
   underline = true,
   update_in_insert = true,
-  severtity_sort = true,
+  severity_sort = true,
 })
