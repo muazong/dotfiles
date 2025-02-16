@@ -29,6 +29,7 @@
     "on-click": "fcitx5-configtool"
   },
   "custom/weather": {
+    "interval": 30,
     "format": "{}",
     "exec": "~/.config/scripts/checking-weather.sh"
   },
