@@ -23,62 +23,36 @@ get_weather() {
   echo "$result"
 }
 
-# Function to continuously check network connectivity
+# Function to continuously check network connectivity and get weather if connected
 check_network() {
   while true; do
     if ping -c 3 8.8.8.8 &>/dev/null; then
       # Connected
-      # Send signal to the main process
-      kill -USR1 $$
+      get_weather
       return 0 # Exit the check_network function
     else
-      # Not connected, wait for 20 seconds
+      # Not connected
+      echo "No Network"
       sleep 20
     fi
   done
 }
 
-# Trap USR1 signal
-trap 'get_weather' USR1 # Only get_weather, don't exit
-
-# Variable to store the check_network process ID
-network_checker_pid=""
-
-# Function to start the network checker in the background
-start_network_checker() {
-  check_network &
-  network_checker_pid=$!
-}
-
-# Function to stop the network checker
-stop_network_checker() {
-  if [ -n "$network_checker_pid" ]; then
-    kill "$network_checker_pid" 2>/dev/null
-    wait "$network_checker_pid" 2>/dev/null # Wait for the process to terminate
-    network_checker_pid=""
-  fi
-}
-
-# Initial check and weather retrieval
+# Initial check and weather retrieval (or "No Network" if offline)
 if ping -c 3 8.8.8.8 &>/dev/null; then
   get_weather
-  start_network_checker
 else
-  echo "Weather: 󱚵"
-  start_network_checker
+  echo "No Network"
 fi
 
-# Main loop for periodic weather updates
-while true; do
-  sleep 1200 # 20 minutes * 60 seconds/minute
+# Start the network checker in the background.  No need for signals or traps.
+check_network &
+network_checker_pid=$!
 
-  # Check if network is still up before trying to get weather
-  if ping -c 3 8.8.8.8 &>/dev/null; then
-    get_weather
-  else
-    echo "Network down, skipping weather update."
-  fi
+# Keep the script running (important: this prevents the background check_network from exiting)
+while true; do
+  sleep 3600 # Sleep for a long time. The background process will handle updates.
 done
 
-# Ensure the network checker is stopped when the script exits (optional but good practice)
-trap 'stop_network_checker; exit' INT TERM EXIT
+# Ensure the background process is stopped when the script exits (optional but good practice)
+trap 'kill "$network_checker_pid" 2>/dev/null; wait "$network_checker_pid" 2>/dev/null; exit' INT TERM EXIT
