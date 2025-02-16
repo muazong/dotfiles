@@ -1,6 +1,6 @@
 return {
   "sschleemilch/slimline.nvim",
-  event = { "BufNewFile", "BufReadPre" },
+  event = "VimEnter",
   config = function()
     require("slimline").setup({
       bold = true, -- makes primary parts and mode bold
