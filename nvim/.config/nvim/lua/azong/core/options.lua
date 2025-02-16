@@ -7,6 +7,8 @@ opts.encoding = "utf-8"
 opts.fileencoding = "utf-8"
 vim.scriptencoding = "utf-8"
 
+opts.laststatus = 3
+
 opts.number = true
 opts.cursorline = true
 opts.breakindent = true
