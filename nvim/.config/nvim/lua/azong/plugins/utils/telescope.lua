@@ -1,16 +1,7 @@
 return {
   { -- Telescope
     "nvim-telescope/telescope.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      {
-        "nvim-telescope/telescope-file-browser.nvim",
-        lazy = true,
-        keys = {
-          { "<C-b>", "<CMD>Telescope file_browser<CR>" },
-        },
-      },
-    },
+    dependencies = { "nvim-lua/plenary.nvim" },
     cmd = { "Telescope" },
     keys = {
       { "<C-f>", "<CMD>Telescope find_files<CR>" },
@@ -22,7 +13,6 @@ return {
     config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
-      local fb_actions = telescope.extensions.file_browser.actions
 
       telescope.setup({
         defaults = {
@@ -80,6 +70,34 @@ return {
             previewer = false,
           },
         },
+      })
+    end,
+  },
+  { -- Telescope Bookmark
+    "MattesGroeger/vim-bookmarks",
+    dependencies = {
+      "tom-anders/telescope-vim-bookmarks.nvim",
+    },
+    keys = {
+      { "mm", "<Cmd> BookmarkToggle <CR>" },
+      { "ma", "<Cmd> lua require('telescope').extensions.vim_bookmarks.all() <CR>" },
+      { "mc", "<Cmd> lua require('telescope').extensions.vim_bookmarks.current_file() <CR>" },
+    },
+    config = function()
+      vim.g.bookmark_sign = "󰟙"
+      vim.g.bookmark_highlight_lines = 1
+
+      require("telescope").load_extension("vim_bookmarks")
+    end,
+  },
+  { -- Telescope File browser
+    "nvim-telescope/telescope-file-browser.nvim",
+    keys = { { "<C-b>", "<CMD>Telescope file_browser<CR>" } },
+    config = function()
+      local telescope = require("telescope")
+      local fb_actions = telescope.extensions.file_browser.actions
+
+      telescope.setup({
         extensions = {
           file_browser = {
             initial_mode = "normal",
@@ -111,24 +129,7 @@ return {
           },
         },
       })
-
       telescope.load_extension("file_browser")
-      telescope.load_extension("vim_bookmarks")
-    end,
-  },
-  { -- Telescope Bookmark
-    "MattesGroeger/vim-bookmarks",
-    dependencies = {
-      "tom-anders/telescope-vim-bookmarks.nvim",
-    },
-    keys = {
-      { "mm", "<Cmd> BookmarkToggle <CR>" },
-      { "ma", "<Cmd> lua require('telescope').extensions.vim_bookmarks.all() <CR>" },
-      { "mc", "<Cmd> lua require('telescope').extensions.vim_bookmarks.current_file() <CR>" },
-    },
-    config = function()
-      vim.g.bookmark_sign = "󰟙"
-      vim.g.bookmark_highlight_lines = 1
     end,
   },
 }

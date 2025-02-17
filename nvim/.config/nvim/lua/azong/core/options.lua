@@ -60,15 +60,6 @@ opts.hlsearch = true
 opts.splitright = true
 opts.splitbelow = true
 
-opts.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  fold = " ",
-  foldsep = " ",
-  diff = "╱",
-  eob = " ",
-}
-
 if vim.fn.has("unix") == 1 or vim.fn.has("mac") == 1 then
   opts.clipboard:append("unnamedplus")
 elseif vim.fn.has("win32") == 1 then
