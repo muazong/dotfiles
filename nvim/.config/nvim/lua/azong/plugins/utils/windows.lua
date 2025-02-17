@@ -6,6 +6,15 @@ return {
     { "<leader>sv", "<cmd>vsplit<cr>" },
   },
   config = function()
-    require("windows").setup()
+    require("windows").setup({
+      autowidth = {
+        enable = true,
+        winwidth = -5,
+      },
+      ignore = {
+        buftype = { "quickfix" },
+        filetype = { "lspsaga" },
+      },
+    })
   end,
 }
