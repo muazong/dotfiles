@@ -10,7 +10,7 @@ return {
         border = "rounded",
         title_pos = "center",
         width = 90,
-        height = vim.o.lines - 4,
+        height = vim.o.lines - 3,
         winblend = 0,
         zindex = 100,
       },
