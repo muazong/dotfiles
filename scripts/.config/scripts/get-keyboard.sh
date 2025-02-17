@@ -4,10 +4,10 @@ layout=$(fcitx5-remote -n)
 
 case "$layout" in
 "keyboard-us")
-  echo "US"
+  echo "EN"
   ;;
 "unikey")
-  echo "VIE"
+  echo "VI"
   ;;
 *)
   echo "$layout"
