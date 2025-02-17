@@ -1,11 +1,17 @@
 #!/bin/bash
 
-if ping -c 3 google.com &>/dev/null; then
-  location=Sontay
-  weather=$(curl -s "wttr.in/$location?format=%t+%c" | tr -d '\r')
-  weather=$(echo "$weather" | tr -d '\n')
+if ping -c 3 8.8.8.8 &>/dev/null; then
+  location="Sontay"
+  weather=$(curl -s "wttr.in/$location?format=%t+%c")
 
-  echo "$location, $weather" | sed 's/[[:space:]]*$//' | tr -d '+'
+  if [[ -n "$weather" ]]; then
+    weather=$(echo "$weather" | tr -d '\r')
+    weather=$(echo "$weather" | tr -d '\n')
+
+    echo "$location, $weather" | sed 's/[[:space:]]*$//' | tr -d '+'
+  else
+    echo "No Information."
+  fi
 else
-  echo "No Internet."
+  echo "No Network."
 fi
