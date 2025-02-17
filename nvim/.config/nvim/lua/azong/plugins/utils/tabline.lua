@@ -8,17 +8,17 @@ return {
         tab.make_tabs(function(info)
           if info.filename and info.modified then
             tab.add(" ")
-            tab.add({ info.index, fg = "#FF9E3B", gui = "bold,underline,italic" })
-            tab.add({ " ", fg = "#FF9E3B", gui = "bold,underline,italic" })
+            tab.add({ info.index, gui = "bold,italic" })
+            tab.add({ " ", gui = "bold,italic" })
 
-            tab.add({ info.filename, fg = "#FF9E3B", gui = "bold,underline,italic" })
+            tab.add({ info.filename, gui = "bold,italic" })
 
             tab.add({
               " " .. tab.icon(info.filename),
               fg = tab.icon_color(info.filename),
             })
 
-            tab.add({ " ", fg = "#FF9E3B", gui = "bold" })
+            tab.add({ " ", gui = "bold" })
 
             tab.add(" ")
           elseif info.filename then
@@ -49,7 +49,7 @@ return {
         tab.add(" ")
       end,
       hl = { fg = "#727169", bg = "#1F1F28" },
-      hl_sel = { fg = "#FEF9D9", bg = "#1F1F28", gui = "italic" },
+      hl_sel = { fg = "#FEF9D9", bg = "#1F1F28", gui = "italic,bold" },
       hl_fill = { fg = "#727169", bg = "#1F1F28" },
     })
   end,
