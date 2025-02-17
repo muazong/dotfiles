@@ -27,9 +27,9 @@ return {
               " " .. tab.icon(info.filename),
               fg = tab.icon_color(info.filename),
             })
-            tab.add(" ")
+            tab.add("  ")
           else
-            tab.add(" " .. info.index .. " [No name] ")
+            tab.add(" " .. info.index .. " [No name]  ")
           end
         end)
 
