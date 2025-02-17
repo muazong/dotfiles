@@ -29,7 +29,7 @@
     "on-click": "fcitx5-configtool"
   },
   "custom/weather": {
-    "interval": 30,
+    "interval": 60,
     "format": "{}",
     "exec": "~/.config/scripts/checking-weather.sh"
   },
@@ -166,7 +166,7 @@
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
   },
   "backlight": {
-    "format": "<span size='13000' foreground='#b4befe'>{icon} {percent}%</span>",
+    "format": "{icon} {percent}%",
     "tooltip-format": "Brightness: {percent}%",
     "format-icons": [
       "",
