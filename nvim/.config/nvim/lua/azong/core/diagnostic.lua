@@ -28,11 +28,10 @@ diagnostic.config({
     -- linehl = diagnosticSigns.Msgs,
     numhl = diagnosticSigns.Msgs,
   },
-  -- virtual_text = {
-  --   prefix = "", -- 󰄛 | 󰩃 | ● | 󰝤
-  --   spacing = 4,
-  -- },
-  virtual_text = false,
+  virtual_text = {
+    prefix = " ", -- 󰄛 | 󰩃 | ● | 󰝤
+    spacing = 4,
+  },
   underline = true,
   update_in_insert = true,
   severity_sort = true,
