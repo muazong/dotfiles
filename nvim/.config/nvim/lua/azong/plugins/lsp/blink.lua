@@ -2,7 +2,8 @@ return {
   "saghen/blink.cmp",
   event = "InsertEnter",
   version = "*",
-  dependencies = "rafamadriz/friendly-snippets",
+  dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
+
   opts = {
     enabled = function()
       return not vim.tbl_contains({}, vim.bo.filetype)
@@ -15,7 +16,7 @@ return {
         ["rip-substitute"] = { "buffer" },
         gitcommit = {},
       },
-
+      default = { "lsp", "snippets", "path", "buffer", "copilot" },
       providers = {
         lsp = {
           fallbacks = {}, -- do not use `buffer` as fallback
@@ -70,6 +71,12 @@ return {
               return recentBufs
             end,
           },
+        },
+        copilot = {
+          name = "copilot",
+          module = "blink-copilot",
+          score_offset = 100,
+          async = true,
         },
       },
     },
@@ -145,6 +152,7 @@ return {
           },
         },
       },
+      ghost_text = { enabled = true },
     },
     appearance = {
       use_nvim_cmp_as_default = false,
@@ -154,6 +162,7 @@ return {
         Text = "󰉿", -- `buffer`
         Snippet = "󰞘", -- `snippets`
         File = "", -- `path`
+        Copilot = "", -- `copilot`,
 
         Folder = "󰉋",
         Method = "󰊕",
