@@ -10,10 +10,6 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.s
   border = _border,
 })
 
-vim.diagnostic.config({
-  float = { border = _border },
-})
-
 local ERROR = severity.ERROR
 local WARN = severity.WARN
 local INFO = severity.INFO
@@ -45,6 +41,7 @@ diagnostic.config({
     prefix = " ", -- 󰄛 | 󰩃 | ● | 󰝤
     spacing = 4,
   },
+  float = { border = _border },
   underline = true,
   update_in_insert = false,
   severity_sort = true,
