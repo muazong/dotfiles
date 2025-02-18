@@ -21,6 +21,7 @@ require("lazy").setup({
   { import = "azong.plugins.ui" },
   { import = "azong.plugins.utils" },
   { import = "azong.plugins.lsp" },
+  { import = "azong.plugins.ai" },
   { import = "azong.plugins.program" },
 }, {
   checker = {
