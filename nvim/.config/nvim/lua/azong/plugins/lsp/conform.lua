@@ -15,13 +15,9 @@ return {
       yaml = { "prettierd" },
       markdown = { "prettierd" },
       lua = { "stylua" },
-      cpp = { "clang-format" },
-      c = { "clang-format" },
       cs = { "clang-format" },
       sh = { "shfmt" },
-      zsh = { "shfmt" },
       fish = { "shfmt" },
-      sql = { "sql_formatter" },
     },
     format_after_save = {
       lsp_fallback = true,
