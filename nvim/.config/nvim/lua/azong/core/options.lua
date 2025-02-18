@@ -10,6 +10,7 @@ vim.scriptencoding = "utf-8"
 opts.laststatus = 3
 
 opts.number = true
+opts.relativenumber = true
 opts.cursorline = true
 opts.breakindent = true
 opts.linebreak = true
