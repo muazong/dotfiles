@@ -35,6 +35,7 @@ return {
         })
       end,
 
+      -- TS/JS
       ["ts_ls"] = function()
         lspconfig["ts_ls"].setup({
           capabilities = capabilities,
