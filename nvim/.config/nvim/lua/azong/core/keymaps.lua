@@ -85,6 +85,8 @@ map("n", "<C-x>", "<Cmd> bd<CR>", opts)
 map("n", "te", "<Cmd> tabnew<CR>", opts)
 map("n", "<C-n>", "<Cmd> tabnext<CR>", opts)
 map("n", "<C-p>", "<Cmd> tabprevious<CR>", opts)
+map("n", "<A-n>", "<Cmd> +tabmove<CR>", opts)
+map("n", "<A-p>", "<Cmd> -tabmove<CR>", opts)
 
 -- Split windows
 map("n", "<Leader>ss", "<Cmd> split<CR>", opts)
