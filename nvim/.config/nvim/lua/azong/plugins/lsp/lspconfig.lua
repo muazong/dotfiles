@@ -15,16 +15,15 @@ return {
       local opts = { noremap = true, silent = true, buffer = bufnr }
 
       map("n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
-      map("n", "<leader>rn", "<cmd>Lspsaga rename<cr>", opts)
-      map("n", "gf", "<cmd>Lspsaga finder<cr>", opts)
-      map("n", "gd", "<cmd>Lspsaga peek_definition<cr>", opts)
-      map("n", "<leader>gd", "<cmd>Lspsaga goto_definition<cr>", opts)
-      map("n", "<leader>ca", "<cmd>Lspsaga code_action<cr>", opts)
-      map("n", "<leader>o", "<cmd>Lspsaga outline<cr>", opts)
-      map("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opts)
-      map("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-      map("n", "<s-k>", "<cmd>Lspsaga hover_doc<cr>", opts)
-      map("n", "<leader>d", "<cmd>Lspsaga show_line_diagnostics<cr>", opts)
+
+      map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
+      map("n", "gf", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
+      map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+      map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
+      map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
+      map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
+      map("n", "<S-k>", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
+      map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
     end
 
     require("mason-lspconfig").setup_handlers({
@@ -35,7 +34,7 @@ return {
         })
       end,
 
-      -- TS/JS
+      -- TS/JS/Vue
       ["ts_ls"] = function()
         lspconfig["ts_ls"].setup({
           capabilities = capabilities,
