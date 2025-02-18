@@ -17,8 +17,8 @@ return {
       map("n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
 
       map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-      map("n", "gf", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-      map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
+      map("n", "gf", "<cmd>Telescope lsp_references<cr>", opts)
+      map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
       map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
       map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
       map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
