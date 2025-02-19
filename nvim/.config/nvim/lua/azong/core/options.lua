@@ -9,6 +9,10 @@ vim.scriptencoding = "utf-8"
 
 opts.laststatus = 3
 
+opts.showmode = false
+opts.showcmd = false
+opts.ruler = false
+
 opts.number = true
 opts.relativenumber = true
 opts.cursorline = true
