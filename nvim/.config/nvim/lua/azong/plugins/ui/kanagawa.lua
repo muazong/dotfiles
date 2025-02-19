@@ -44,8 +44,8 @@ return {
           FloatBorder = { bg = "none" },
           FloatTitle = { bg = "none" },
           NormalDark = { fg = theme.ui.fg_dim, bg = theme.ui.bg_m3 },
-          LazyNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
-          MasonNormal = { bg = theme.ui.bg_m3, fg = theme.ui.fg_dim },
+          LazyNormal = { bg = "none", fg = theme.ui.fg_dim },
+          MasonNormal = { bg = "none", fg = theme.ui.fg_dim },
 
           Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1, blend = vim.o.pumblend },
           PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },

@@ -32,7 +32,7 @@ require("lazy").setup({
     notify = false,
   },
   ui = {
-    size = { width = 0.8, height = 0.8 },
+    size = { width = 0.6, height = 0.8 },
     icons = {
       task = " ",
       ft = "",
@@ -41,6 +41,7 @@ require("lazy").setup({
       not_loaded = "",
     },
     backdrop = 100,
+    border = "rounded",
   },
   performance = {
     rtp = {

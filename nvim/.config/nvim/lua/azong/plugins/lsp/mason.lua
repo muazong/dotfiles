@@ -11,6 +11,10 @@ return {
             package_pending = "➜",
             package_uninstalled = "✗",
           },
+          backdrop = 100,
+          border = "rounded",
+          width = 0.6,
+          height = 0.8,
         },
       })
     end,

@@ -76,8 +76,8 @@ return {
 
       -- Treesitter Context bottom underline
       vim.cmd([[
-        hi TreesitterContextBottom gui=underline guisp=#E6C384
-        hi TreesitterContextLineNumberBottom gui=underline guisp=#E6C384
+        hi TreesitterContextBottom gui=underline guisp=#A594F9
+        hi TreesitterContextLineNumberBottom gui=underline guisp=#A594F9
       ]])
     end,
   },
