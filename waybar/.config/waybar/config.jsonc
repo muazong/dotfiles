@@ -41,8 +41,8 @@
     "menu-actions": {
       "shutdown": "shutdown",
       "reboot": "reboot",
-      "suspend": "systemctl suspend",
-      "logout": "loginctl lock-session"
+      "suspend": "loginctl lock-session && systemctl suspend",
+      "lock": "loginctl lock-session"
     }
   },
   //
