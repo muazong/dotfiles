@@ -7,7 +7,7 @@ eval "$(starship init fish)"
 eval "$(zoxide init fish)"
 
 # Aliases
-alias suspend='systemctl suspend'
+alias suspend='loginctl lock-session && systemctl suspend'
 
 alias cls='clear'
 alias x='exit'
