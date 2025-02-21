@@ -2,8 +2,6 @@ return {
   "saghen/blink.cmp",
   event = "InsertEnter",
   version = "*",
-  dependencies = { "rafamadriz/friendly-snippets", "fang2hou/blink-copilot" },
-
   opts = {
     enabled = function()
       return not vim.tbl_contains({}, vim.bo.filetype)
@@ -16,7 +14,14 @@ return {
         ["rip-substitute"] = { "buffer" },
         gitcommit = {},
       },
-      default = { "lsp", "snippets", "path", "buffer", "copilot" },
+      default = {
+        "lsp",
+        "snippets",
+        "path",
+        "buffer",
+        "codeium",
+        -- "copilot",
+      },
       providers = {
         lsp = {
           fallbacks = {}, -- do not use `buffer` as fallback
@@ -77,6 +82,11 @@ return {
           module = "blink-copilot",
           score_offset = 100,
           async = true,
+        },
+        codeium = {
+          name = "codeium",
+          module = "blink.compat.source",
+          score_offset = 3,
         },
       },
     },
@@ -145,6 +155,7 @@ return {
                   emmet = "",
                   path = "",
                   cmdline = "󰘳",
+                  codeium = "",
                 }
                 return sourceIcons[source] or ctx.kind_icon
               end,
@@ -188,5 +199,13 @@ return {
         TypeParameter = "󰅲",
       },
     },
+  },
+  dependencies = {
+    "rafamadriz/friendly-snippets",
+    {
+      "fang2hou/blink-copilot",
+      enabled = false,
+    },
+    { "saghen/blink.compat", opts = { enable_events = true } },
   },
 }
