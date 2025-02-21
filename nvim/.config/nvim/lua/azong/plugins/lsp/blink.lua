@@ -135,7 +135,7 @@ return {
           align_to = "none", -- keep in place
           treesitter = { "lsp" },
           columns = {
-            { "label", "label_description", "kind_icon", gap = 1 },
+            { "kind_icon", "label_description", "label", gap = 1 },
           },
           components = {
             label = { width = { max = 35 } },
