@@ -16,8 +16,8 @@
     "bluetooth",
     "pulseaudio",
     "backlight",
-    "battery",
-    "custom/power"
+    "battery"
+    // "custom/power"
   ],
   //
   // Custom modules
