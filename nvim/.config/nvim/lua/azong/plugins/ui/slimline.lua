@@ -1,4 +1,4 @@
-local keyboard = require("azong.util.keyboard")
+local keyboard = require("azong.utils.keyboard")
 return {
   "sschleemilch/slimline.nvim",
   event = "VimEnter",

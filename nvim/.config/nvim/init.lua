@@ -3,10 +3,10 @@ if vim.loader then
 end
 
 _G.dd = function(...)
-  require("azong.util.debug").dump(...)
+  require("azong.utils.debug").dump(...)
 end
 vim.print = _G.dd
 
 require("azong.core")
-require("azong.util")
+require("azong.utils")
 require("azong.lazy")
