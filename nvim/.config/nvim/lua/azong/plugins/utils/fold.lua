@@ -16,6 +16,7 @@ return {
       foldsep = " ",
       diff = "╱",
       eob = " ",
+      stl = "─",
     }
   end,
   config = function()
