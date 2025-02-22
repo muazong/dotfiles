@@ -77,12 +77,12 @@ return {
             end,
           },
         },
-        copilot = {
+        --[[ copilot = {
           name = "copilot",
           module = "blink-copilot",
           score_offset = 100,
           async = true,
-        },
+        }, ]]
         codeium = {
           name = "codeium",
           module = "blink.compat.source",
