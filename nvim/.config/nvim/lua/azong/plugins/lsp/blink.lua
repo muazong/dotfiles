@@ -19,7 +19,7 @@ return {
         "snippets",
         "path",
         "buffer",
-        "codeium",
+        -- "codeium",
         -- "copilot",
       },
       providers = {
@@ -83,12 +83,12 @@ return {
           score_offset = 100,
           async = true,
         }, ]]
-        codeium = {
+        --[[ codeium = {
           name = "codeium",
           module = "blink.compat.source",
-          score_offset = 100,
+          score_offset = 10,
           async = true,
-        },
+        }, ]]
       },
     },
     keymap = {
@@ -203,10 +203,7 @@ return {
   },
   dependencies = {
     "rafamadriz/friendly-snippets",
-    {
-      "fang2hou/blink-copilot",
-      enabled = false,
-    },
-    { "saghen/blink.compat", opts = { enable_events = true } },
+    { "fang2hou/blink-copilot", enabled = false },
+    { "saghen/blink.compat", enabled = false, opts = { enable_events = true } },
   },
 }
