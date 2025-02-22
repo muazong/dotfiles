@@ -1,3 +1,4 @@
+local keyboard = require("azong.util.keyboard")
 return {
   "sschleemilch/slimline.nvim",
   event = "VimEnter",
@@ -17,15 +18,27 @@ return {
           "path",
         },
         right = {
+          function()
+            local h = require("slimline.highlights")
+            local c = require("slimline").config
+            local result = " "
+
+            if keyboard.message == keyboard.KEYBOARD_TYPES.telex then
+              result = result .. "Telex"
+            else
+              result = result .. keyboard.KEYBOARD_TYPES.default
+            end
+            return h.hl_component({ primary = result }, h.hls.component, c.sep)
+          end,
           "diagnostics",
           -- "filetype_lsp",
           "progress",
         },
       },
       spaces = {
-        components = "",
-        left = "",
-        right = "",
+        components = "─",
+        left = "─",
+        right = "─",
       },
       sep = {
         hide = {
