@@ -7,11 +7,15 @@ opts.encoding = "utf-8"
 opts.fileencoding = "utf-8"
 vim.scriptencoding = "utf-8"
 
+opts.shell = "/bin/fish"
+
 opts.laststatus = 3
 
 opts.showmode = false
 opts.showcmd = false
 opts.ruler = false
+
+opts.path:append({ "**" })
 
 opts.number = true
 opts.relativenumber = true
@@ -64,6 +68,7 @@ opts.hlsearch = true
 
 opts.splitright = true
 opts.splitbelow = true
+opts.splitkeep = "cursor"
 
 if vim.fn.has("unix") == 1 or vim.fn.has("mac") == 1 then
   opts.clipboard:append("unnamedplus")
