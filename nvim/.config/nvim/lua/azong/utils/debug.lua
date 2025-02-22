@@ -1,3 +1,5 @@
+-- https://github.com/craftzdog/dotfiles-public/blob/master/.config/nvim/lua/util/debug.lua
+
 local M = {}
 
 function M.get_loc()
