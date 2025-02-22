@@ -9,7 +9,15 @@ return {
   config = function()
     local map = vim.keymap.set
     local lspconfig = require("lspconfig")
-    local capabilities = require("blink.cmp").get_lsp_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+    capabilities = vim.tbl_deep_extend("force", capabilities, {
+      workspace = {
+        didChangeWatchedFiles = {
+          relativePatternSupport = true,
+        },
+      },
+    })
 
     local on_attach = function(_, bufnr)
       local opts = { noremap = true, silent = true, buffer = bufnr }

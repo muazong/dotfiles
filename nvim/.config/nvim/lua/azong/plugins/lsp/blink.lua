@@ -1,3 +1,5 @@
+local trigger_text = ";"
+
 return {
   "saghen/blink.cmp",
   event = "InsertEnter",
@@ -10,10 +12,6 @@ return {
         and vim.b.completion ~= false
     end,
     sources = {
-      per_filetype = {
-        ["rip-substitute"] = { "buffer" },
-        gitcommit = {},
-      },
       default = {
         "lsp",
         "snippets",
@@ -24,58 +22,33 @@ return {
       },
       providers = {
         lsp = {
-          fallbacks = {}, -- do not use `buffer` as fallback
-          enabled = function()
-            if vim.bo.ft ~= "lua" then
-              return true
-            end
-
-            -- prevent useless suggestions when typing `--` in lua, but
-            -- keep the useful `---@param;@return` suggestion
-            local col = vim.api.nvim_win_get_cursor(0)[2]
-            local charsBefore = vim.api.nvim_get_current_line():sub(col - 2, col)
-            local luadocButNotComment = not charsBefore:find("^%-%-?$") and not charsBefore:find("%s%-%-?")
-            return luadocButNotComment
-          end,
-        },
-        snippets = {
-          -- don't show when triggered manually (= length 0), useful
-          -- when manually showing completions to see available fields
-          min_keyword_length = 1,
-          score_offset = -1,
-          opts = { clipboard_register = "+" }, -- register to use for `$CLIPBOARD`
+          name = "lsp",
+          enabled = true,
+          module = "blink.cmp.sources.lsp",
+          score_offset = 90,
+          min_keyword_length = 2,
+          async = true,
         },
         path = {
-          ---@diagnostic disable-next-line: undefined-field
-          opts = { get_cwd = vim.uv.cwd },
+          name = "Path",
+          module = "blink.cmp.sources.path",
+          score_offset = 25,
+          fallbacks = { "snippets", "buffer", "lsp" },
+          opts = {
+            trailing_slash = false,
+            label_trailing_slash = true,
+            get_cwd = function(context)
+              return vim.fn.expand(("#%d:p:h"):format(context.bufnr))
+            end,
+            show_hidden_files_by_default = true,
+          },
         },
         buffer = {
-          max_items = 4,
-          min_keyword_length = 4,
-
-          -- with `-7`, typing `then` in lua prioritize the `then .. end`
-          -- snippet, effectively acting as `nvim-endwise`
-          score_offset = -7,
-
-          opts = {
-            -- show completions from all buffers used within the last x minutes
-            get_bufnrs = function()
-              local mins = 15
-              local allOpenBuffers = vim.fn.getbufinfo({ buflisted = 1, bufloaded = 1 })
-              local recentBufs = vim
-                .iter(allOpenBuffers)
-                :filter(function(buf)
-                  local recentlyUsed = os.time() - buf.lastused < (60 * mins)
-                  local nonSpecial = vim.bo[buf.bufnr].buftype == ""
-                  return recentlyUsed and nonSpecial
-                end)
-                :map(function(buf)
-                  return buf.bufnr
-                end)
-                :totable()
-              return recentBufs
-            end,
-          },
+          name = "Buffer",
+          enabled = true,
+          max_items = 3,
+          module = "blink.cmp.sources.buffer",
+          score_offset = 15,
         },
         --[[ copilot = {
           name = "copilot",
@@ -111,6 +84,16 @@ return {
         ["<Tab>"] = { "select_next", "show" },
         ["<S-Tab>"] = { "select_prev" },
       },
+      sources = function()
+        local type = vim.fn.getcmdtype()
+        if type == "/" or type == "?" then
+          return { "buffer" }
+        end
+        if type == ":" then
+          return { "cmdline" }
+        end
+        return {}
+      end,
     },
     completion = {
       trigger = {
