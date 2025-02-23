@@ -30,7 +30,6 @@ return {
         "volar",
         "cssls",
         "jsonls",
-        "eslint",
         "lua_ls",
         "omnisharp",
         "typos_lsp",
@@ -45,18 +44,21 @@ return {
       },
     },
   },
-  {
-    "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "nvimtools/none-ls.nvim", "williamboman/mason.nvim" },
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "prettierd",
-        "shfmt",
-        "clang-format",
-        --[[ "sql-formatter" ]]
-      },
-    },
+  { -- Mason tool installer
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = "williamboman/mason.nvim",
+    lazy = true,
+    config = function()
+      require("mason-tool-installer").setup({
+        ensure_installed = {
+          "stylua",
+          "prettierd",
+          "shfmt",
+          "clang-format",
+          "eslint_d",
+          --[[ "sql-formatter" ]]
+        },
+      })
+    end,
   },
 }
