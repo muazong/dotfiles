@@ -23,9 +23,15 @@ return {
           name = "lsp",
           enabled = true,
           module = "blink.cmp.sources.lsp",
+          score_offset = 100,
+          max_items = 5,
+        },
+        snippets = {
+          name = "snippets",
+          enabled = true,
+          module = "blink.cmp.sources.snippets",
           score_offset = 90,
-          min_keyword_length = 2,
-          async = true,
+          max_items = 5,
         },
         path = {
           name = "Path",

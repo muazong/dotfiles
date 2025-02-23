@@ -28,7 +28,7 @@ return {
         "html",
         "ts_ls",
         "volar",
-        "cssls",
+        -- "cssls",
         "jsonls",
         "lua_ls",
         "omnisharp",
