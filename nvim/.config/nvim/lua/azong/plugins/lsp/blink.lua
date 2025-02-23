@@ -1,5 +1,3 @@
-local trigger_text = ";"
-
 return {
   "saghen/blink.cmp",
   event = "InsertEnter",
@@ -71,8 +69,8 @@ return {
       ["<C-Space>"] = { "show" },
       ["<Tab>"] = { "snippet_forward", "select_next", "fallback" },
       ["<S-Tab>"] = { "snippet_backward", "select_prev", "fallback" },
-      ["<C-n>"] = { "select_next", "fallback" },
-      ["<C-p>"] = { "select_prev", "fallback" },
+      ["<C-n>"] = { "select_next" },
+      ["<C-p>"] = { "select_prev" },
       ["<Down>"] = { "select_next", "fallback" },
       ["<Up>"] = { "select_prev", "fallback" },
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
@@ -97,6 +95,7 @@ return {
     },
     completion = {
       trigger = {
+        prefetch_on_insert = false,
         show_in_snippet = false, -- since we overload `<Tab>` with jumping & selection
       },
       list = {

@@ -121,6 +121,9 @@ map({ "n", "v" }, "<left>", "<Nop>")
 map("i", "<C-v>", "<Nop>")
 map("i", "<C-x>", "<Nop>")
 
+map("i", "<C-u>", "<Nop>")
+map("i", "<C-d>", "<Nop>")
+
 map({ "v" }, "<S-j>", "<Nop>")
 map({ "v", "n" }, "<S-h>", "<Nop>")
 map({ "v", "n" }, "<S-l>", "<Nop>")
