@@ -10,14 +10,11 @@ return {
     end,
   },
   { -- Markdown preview inside neovim
-    "OXY2DEV/markview.nvim",
-    ft = { "markdown", "md" },
-    config = function()
-      require("markview").setup({
-        preview = {
-          icon_provider = "devicons",
-        },
-      })
-    end,
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {},
   },
 }
