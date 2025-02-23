@@ -1,8 +1,9 @@
-local keyboard = require("azong.utils.keyboard")
 return {
   "sschleemilch/slimline.nvim",
   event = "VimEnter",
   config = function()
+    local keyboard = require("azong.utils.keyboard")
+
     require("slimline").setup({
       bold = true,
       verbose_mode = false,
