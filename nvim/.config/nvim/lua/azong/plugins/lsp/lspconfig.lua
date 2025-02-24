@@ -32,7 +32,7 @@ return {
       -- TS/JS/Vue
       ["ts_ls"] = function()
         lspconfig["ts_ls"].setup({
-          root_dir = lspconfig.util.root_pattern(".git"),
+          -- root_dir = lspconfig.util.root_pattern(".git"),
           capabilities = capabilities,
           init_options = {
             plugins = {
