@@ -103,6 +103,7 @@ return {
       trigger = {
         prefetch_on_insert = false,
         show_in_snippet = false, -- since we overload `<Tab>` with jumping & selection
+        show_on_trigger_character = false,
       },
       list = {
         cycle = { from_top = false }, -- cycle at bottom, but not at the top
