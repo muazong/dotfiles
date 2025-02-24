@@ -32,6 +32,7 @@ return {
       -- TS/JS/Vue
       ["ts_ls"] = function()
         lspconfig["ts_ls"].setup({
+          root_dir = lspconfig.util.root_pattern(".git"),
           capabilities = capabilities,
           init_options = {
             plugins = {
@@ -39,10 +40,6 @@ return {
                 name = "@vue/typescript-plugin",
                 location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
                 languages = {
-                  "js",
-                  "jsx",
-                  "ts",
-                  "tsx",
                   "javascript",
                   "typescript",
                   "javascriptreact",
@@ -53,16 +50,23 @@ return {
             },
           },
           filetypes = {
-            "js",
-            "jsx",
-            "ts",
-            "tsx",
             "javascript",
             "typescript",
             "javascriptreact",
             "typescriptreact",
             "vue",
           },
+        })
+      end,
+
+      -- Tailwindcss
+      ["tailwindcss"] = function()
+        lspconfig["tailwindcss"].setup({
+          capabilities = capabilities,
+          root_dir = function(fname)
+            return lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")(fname)
+              or lspconfig.util.root_pattern("postcss.config.js", "postcss.config.ts")(fname)
+          end,
         })
       end,
 
