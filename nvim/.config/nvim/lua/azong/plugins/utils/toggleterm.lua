@@ -1,6 +1,12 @@
 return {
   "akinsho/toggleterm.nvim",
-  keys = { { "<C-t>", "<Cmd>ToggleTerm<CR>" } },
+  keys = {
+    { "<C-t>", "<cmd>ToggleTerm<CR>" },
+    {
+      "<leader>lg",
+      "<cmd>lua require('toggleterm.terminal').Terminal:new({ cmd = 'lazygit', hidden = true }):toggle()<CR>",
+    },
+  },
   config = function()
     vim.keymap.set({ "n", "t" }, "<C-t>", '<Cmd>exe v:count1 . "ToggleTerm"<CR>')
 
