@@ -8,9 +8,9 @@ eval "$(zoxide init fish)"
 
 # Aliases
 alias suspend='loginctl lock-session & systemctl suspend'
-alias logout='loginctl kill-session $XDG_SESSION_ID'
-alias shutdown='systemctl poweroff'
-alias reboot='systemctl reboot'
+alias logout='sudo loginctl kill-session $XDG_SESSION_ID'
+alias shutdown='sudo systemctl poweroff'
+alias reboot='sudo systemctl reboot'
 alias lock='loginctl lock-session'
 
 alias cls='clear'
