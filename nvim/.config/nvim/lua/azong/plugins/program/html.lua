@@ -42,13 +42,6 @@ return {
           enable_rename = true,
           enable_close_on_slash = true,
         },
-        per_filetype = {
-          ["html"] = {
-            enable_close = false,
-            enable_rename = false,
-            enable_close_on_slash = false,
-          },
-        },
       })
     end,
   },
