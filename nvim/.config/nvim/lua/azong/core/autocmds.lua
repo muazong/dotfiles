@@ -31,6 +31,7 @@ vim.cmd([[
   augroup END
 ]])
 
--- Set handlebars file as html
+-- Set filetype
 vim.cmd([[autocmd BufNewFile,BufRead *.handlebars set filetype=html]])
 vim.cmd([[autocmd BufNewFile,BufRead *.hbs set filetype=html]])
+vim.cmd([[autocmd BufNewFile,BufRead *.http set filetype=http]])
