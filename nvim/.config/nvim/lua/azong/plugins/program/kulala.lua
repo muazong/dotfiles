@@ -6,4 +6,5 @@ return {
     { "<leader>ra", '<cmd>lua require("kulala").run_all()<cr>' },
     { "<leader>rl", '<cmd>lua require("kulala").replay()<cr>' },
   },
+  opts = {},
 }
