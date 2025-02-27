@@ -31,6 +31,11 @@ return {
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
     },
     cmdline = {
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+      },
       keymap = {
         ["<CR>"] = { "fallback" },
         ["<Tab>"] = { "select_next", "show" },
