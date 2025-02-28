@@ -3,8 +3,13 @@ set --erase fish_greeting
 set fish_greeting
 
 # Set fish startup
-eval "$(starship init fish)"
-eval "$(zoxide init fish)"
+if command -v starship > /dev/null
+    starship init fish | source
+end
+
+if command -v zoxide > /dev/null
+    zoxide init fish | source
+end
 
 # Aliases
 alias suspend='loginctl lock-session & systemctl suspend'
