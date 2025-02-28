@@ -39,9 +39,13 @@ alias fast='fastfetch'
 
 alias lg='lazygit'
 
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH
+# Bun
+if [ -d "$HOME/.bun" ]
+  set --export BUN_INSTALL "$HOME/.bun"
+  set --export PATH $BUN_INSTALL/bin $PATH
+end
 
 # Dotnet
-export PATH="$PATH:/home/azong/.dotnet/tools"
+if [ -d "/home/azong/.dotnet/tools" ]
+  set --export PATH $PATH:/home/azong/.dotnet/tools
+end
