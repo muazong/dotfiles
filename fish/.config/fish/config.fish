@@ -42,3 +42,6 @@ alias lg='lazygit'
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# Dotnet
+export PATH="$PATH:/home/azong/.dotnet/tools"
