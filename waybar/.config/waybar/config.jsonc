@@ -8,7 +8,8 @@
     "custom/weather"
   ],
   "modules-center": [
-    "clock"
+    "clock",
+    "custom/notification"
   ],
   "modules-right": [
     "custom/keyboard",
@@ -44,6 +45,12 @@
       "suspend": "loginctl lock-session && systemctl suspend",
       "lock": "loginctl lock-session"
     }
+  },
+  "custom/notification": {
+    "interval": 1,
+    "format": "{}",
+    "on-click": "swaync-client -t -sw",
+    "exec": "~/.config/scripts/checking-notification.sh",
   },
   //
   // Core modules

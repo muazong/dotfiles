@@ -66,6 +66,7 @@ button:hover {
 #mode,
 #custom-keyboard,
 #custom-weather,
+#custom-notification,
 #custom-power,
 #scratchpad {
   margin-top: 2px;
@@ -166,6 +167,11 @@ button:hover {
   padding-right: 8px;
   color: @sapphire;
   border-top: 2px solid @sapphire;
+}
+
+#custom-notification {
+  color: @text;
+  border-bottom: 2px solid @text;
 }
 
 menu {
