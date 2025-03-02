@@ -3,6 +3,13 @@ return {
   event = "InsertEnter",
   version = "*",
   build = "cargo build --release",
+  dependencies = {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
   opts = {
     enabled = function()
       return not vim.tbl_contains({}, vim.bo.filetype)
@@ -10,8 +17,9 @@ return {
         and vim.bo.buftype ~= "prompt"
         and vim.b.completion ~= false
     end,
+    snippets = { preset = "luasnip" },
     sources = {
-      default = { "lsp", "path", "buffer" },
+      default = { "lsp", "path", "buffer", "snippets" },
     },
     keymap = {
       preset = "none",
