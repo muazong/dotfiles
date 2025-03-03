@@ -70,7 +70,7 @@ return {
           max_height = 20,
         },
       },
-      ghost_text = { enabled = false },
+      ghost_text = { enabled = true },
     },
     appearance = {
       use_nvim_cmp_as_default = true,
