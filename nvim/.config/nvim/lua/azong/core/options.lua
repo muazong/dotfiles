@@ -18,7 +18,7 @@ opts.ruler = false
 opts.path:append({ "**" })
 
 opts.number = true
-opts.relativenumber = true
+opts.relativenumber = false
 opts.cursorline = true
 opts.breakindent = true
 opts.linebreak = true
