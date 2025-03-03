@@ -42,6 +42,7 @@ return {
         menu = {
           auto_show = true,
         },
+        ghost_text = { enabled = false },
       },
       keymap = {
         ["<CR>"] = { "fallback" },
