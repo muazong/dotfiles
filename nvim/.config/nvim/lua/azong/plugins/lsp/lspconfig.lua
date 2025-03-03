@@ -72,6 +72,7 @@ return {
           root_dir = function(fname)
             return lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")(fname)
               or lspconfig.util.root_pattern("postcss.config.js", "postcss.config.ts")(fname)
+              or lspconfig.util.root_pattern("node_modules/tailwindcss")(fname)
           end,
         })
       end,
