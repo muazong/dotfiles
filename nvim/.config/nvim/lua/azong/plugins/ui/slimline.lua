@@ -63,13 +63,13 @@ return {
       },
       icons = {
         diagnostics = {
-          ERROR = " ",
-          WARN = " ",
-          HINT = " ",
-          INFO = " ",
+          ERROR = " ",
+          WARN = " ",
+          HINT = "󱩎 ",
+          INFO = " ",
         },
         git = {
-          branch = "",
+          branch = "",
         },
         folder = " ",
         lines = " ",
