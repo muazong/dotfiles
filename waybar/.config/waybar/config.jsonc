@@ -50,7 +50,7 @@
     "interval": 1,
     "format": "{}",
     "on-click": "swaync-client -t -sw",
-    "exec": "~/.config/scripts/checking-notification.sh",
+    "exec": "~/.config/scripts/checking-notification.sh"
   },
   //
   // Core modules
