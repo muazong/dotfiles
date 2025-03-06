@@ -28,6 +28,8 @@ return {
         ["Before"] = "After",
         ["Relative"] = "Absolute",
         ["relative"] = "absolute",
+        ["horizontal"] = "vertical",
+        ["Horizontal"] = "Vertical",
         [">"] = "<",
         ["}"] = "{",
         ["]"] = "[",
