@@ -42,7 +42,7 @@ return {
         menu = {
           auto_show = true,
         },
-        ghost_text = { enabled = false },
+        ghost_text = { enabled = true },
       },
       keymap = {
         ["<CR>"] = { "fallback" },
@@ -62,7 +62,7 @@ return {
       },
       documentation = {
         auto_show = true,
-        auto_show_delay_ms = 500,
+        auto_show_delay_ms = 300,
         window = {
           scrollbar = false,
           border = "rounded",

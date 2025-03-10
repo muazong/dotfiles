@@ -6,6 +6,8 @@ return {
       inverses = {
         ["==="] = "!==",
         ["=="] = "!=",
+        ["min"] = "max",
+        ["Min"] = "Max",
         ["yes"] = "no",
         ["Yes"] = "No",
         ["on"] = "off",
