@@ -8,6 +8,7 @@ return {
         ["=="] = "!=",
         ["min"] = "max",
         ["Min"] = "Max",
+        ["MIN"] = "MAX",
         ["yes"] = "no",
         ["Yes"] = "No",
         ["on"] = "off",
