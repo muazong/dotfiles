@@ -12,7 +12,7 @@ map("n", "<CR>", "<cmd>noh<cr>", opts)
 
 -- Insert leave
 map({ "n", "v", "s", "i" }, "<C-c>", "<ESC>", opts)
-map({ "i", "s" }, "jk", "<ESC>", opts)
+map({ "i" }, "jk", "<ESC>", opts)
 map({ "v", "s" }, "q", "<ESC>", opts)
 map("c", "<C-c>", "<C-u><Esc>", opts)
 

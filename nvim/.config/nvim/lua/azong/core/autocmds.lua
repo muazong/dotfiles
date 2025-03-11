@@ -1,6 +1,3 @@
--- Insert leave
-vim.cmd("autocmd VimEnter * ino <C-c> <ESC>")
-
 -- Disable auto comment
 vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
 
