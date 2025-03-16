@@ -2,7 +2,7 @@ return {
   "saghen/blink.cmp",
   event = "InsertEnter",
   build = "cargo build --release",
-  version = "*",
+  -- version = "*",
   dependencies = {
     "L3MON4D3/LuaSnip",
     dependencies = { "rafamadriz/friendly-snippets" },
@@ -28,25 +28,11 @@ return {
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
       ["<Tab>"] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
         "snippet_forward",
         "select_next",
         "fallback",
       },
       ["<S-Tab>"] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
         "snippet_backward",
         "select_prev",
         "fallback",
