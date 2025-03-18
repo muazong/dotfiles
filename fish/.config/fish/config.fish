@@ -37,6 +37,7 @@ alias tm='tmux'
 
 alias v='nvim'
 alias nv='nvim'
+alias vim='nvim -u ~/.config/nvim-basic/init.lua'
 alias nvc='z ~/.config/nvim && nvim'
 
 alias gp='git push'
