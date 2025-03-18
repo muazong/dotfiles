@@ -8,7 +8,7 @@ M.KEYBOARD_TYPES = {
 M.message = M.KEYBOARD_TYPES.default
 local telex_enabled = false
 
-M.toggle_telex = function()
+M.toggle_keyboard = function()
   telex_enabled = not telex_enabled
 
   if telex_enabled then
@@ -24,6 +24,6 @@ M.toggle_telex = function()
   })
 end
 
-vim.keymap.set("n", "<Leader>v", M.toggle_telex, { noremap = true, silent = true })
+vim.keymap.set("n", "<Leader>v", M.toggle_keyboard, { noremap = true, silent = true })
 
 return M
