@@ -1,6 +1,6 @@
 return {
   "MunifTanjim/nui.nvim",
-  "farmergreg/vim-lastplace",
+  "echasnovski/mini.nvim",
   {
     "stevearc/dressing.nvim",
     opts = {},
