@@ -40,7 +40,8 @@ opts.inccommand = "split"
 
 opts.history = 30
 opts.updatetime = 50
-opts.timeoutlen = 800
+opts.timeout = true
+opts.timeoutlen = 200
 
 opts.tabstop = 2
 opts.smarttab = true
