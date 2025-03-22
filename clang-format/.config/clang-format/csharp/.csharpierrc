@@ -1,0 +1,16 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "includeGenerated": false,
+  "preprocessorDirectivePositioning": "MoveToOwnLine",
+  "newLine": "Auto",
+  "lineEndings": "Native",
+  "trailingCommas": "Always",
+  "spaceBeforeGenericArgument": false,
+  "spaceAfterMethodDeclarationName": false,
+  "maxColumnWidth": 100,
+  "keepSimplePropertyLambdasOnSameLine": true,
+  "keepSimpleLambdasOnSameLine": true,
+  "keepSimpleLocalFunctionsOnSameLine": true,
+  "allowShortFunctionsOnASingleLine": true
+}
