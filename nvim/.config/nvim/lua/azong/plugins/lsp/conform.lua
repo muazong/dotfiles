@@ -2,6 +2,13 @@ return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = {
+    formatters = {
+      csharpier = {
+        command = "dotnet-csharpier",
+        args = { "$FILENAME" },
+        stdin = false,
+      },
+    },
     formatters_by_ft = {
       javascript = { "prettierd" },
       typescript = { "prettierd" },
@@ -15,7 +22,7 @@ return {
       yaml = { "prettierd" },
       markdown = { "prettierd" },
       lua = { "stylua" },
-      cs = { "clang-format" },
+      cs = { "csharpier" },
       sh = { "shfmt" },
       fish = { "shfmt" },
     },
