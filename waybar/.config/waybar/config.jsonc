@@ -50,6 +50,7 @@
     "interval": 1,
     "format": "{}",
     "on-click": "swaync-client -t -sw",
+    "tooltip-format": "Notification",
     "exec": "~/.config/scripts/checking-notification.sh"
   },
   //
