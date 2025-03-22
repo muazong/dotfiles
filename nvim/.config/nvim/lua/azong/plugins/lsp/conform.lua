@@ -15,6 +15,7 @@ return {
       yaml = { "prettierd" },
       markdown = { "prettierd" },
       lua = { "stylua" },
+      cs = { "clang-format" },
       sh = { "shfmt" },
       fish = { "shfmt" },
     },
