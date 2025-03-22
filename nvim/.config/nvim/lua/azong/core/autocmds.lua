@@ -2,7 +2,7 @@
 vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
 
 -- Rebember folds
-vim.cmd([[ 
+vim.cmd([[
   augroup remember_folds
     autocmd!
     autocmd BufWinLeave *.* if &ft !=# 'help' | mkview | endif
@@ -32,3 +32,9 @@ vim.cmd([[
 vim.cmd([[autocmd BufNewFile,BufRead *.handlebars set filetype=html]])
 vim.cmd([[autocmd BufNewFile,BufRead *.hbs set filetype=html]])
 vim.cmd([[autocmd BufNewFile,BufRead *.http set filetype=http]])
+
+-- Auto remove whitespace at end of line
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  command = ":%s/\\s\\+$//e",
+})
