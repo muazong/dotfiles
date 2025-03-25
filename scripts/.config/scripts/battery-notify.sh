@@ -16,7 +16,7 @@ while true; do
       ;;
     esac
     if [ -n "$MESSAGE" ]; then
-      notify-send -u normal -t 2000 -r 9999 -h string:x-canonical-private-synchronous:battery "$MESSAGE"
+      notify-send -u normal -t 3000 "$MESSAGE"
     fi
     PREV_STATUS="$STATUS"
   fi
