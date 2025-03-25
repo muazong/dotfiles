@@ -1,0 +1,24 @@
+#!/bin/bash
+
+PREV_STATUS=""
+BATTERY_PATH="/sys/class/power_supply/BAT0/status"
+
+while true; do
+  STATUS=$(<"$BATTERY_PATH")
+  if [ "$STATUS" != "$PREV_STATUS" ]; then
+    MESSAGE=""
+    case "$STATUS" in
+    "Charging")
+      MESSAGE="🔋 Charging: The device is currently charging."
+      ;;
+    "Discharging")
+      MESSAGE="⚡ Not Connected: The charger is not plugged in."
+      ;;
+    esac
+    if [ -n "$MESSAGE" ]; then
+      notify-send -u normal -t 2000 -r 9999 -h string:x-canonical-private-synchronous:battery "$MESSAGE"
+    fi
+    PREV_STATUS="$STATUS"
+  fi
+  sleep 0.1
+done
