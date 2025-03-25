@@ -59,7 +59,7 @@ return {
           Keyword = { fg = "#FDAF75" },
           Statement = { fg = "#8967B3" },
           Operator = { fg = "#E85C0D" },
-          Special = { fg = "#A0DEFF" },
+          Special = { fg = "#A0DEFF", italic = true },
 
           SomePluginHl = { fg = colors.theme.syn.type, bold = true },
 
