@@ -25,14 +25,14 @@
   "custom/keyboard": {
     "interval": 1,
     "format": " {}",
-    "exec": "~/.config/scripts/get-keyboard.sh",
+    "exec": "~/dotfiles/scripts/.config/scripts/get-keyboard.sh",
     "tooltip-format": "Keyboard: {}",
     "on-click": "fcitx5-configtool"
   },
   "custom/weather": {
     "interval": 60,
     "format": "{}",
-    "exec": "~/.config/scripts/checking-weather.sh"
+    "exec": "~/dotfiles/scripts/.config/scripts/checking-weather.sh"
   },
   "custom/power": {
     "format": "⏻",
@@ -51,7 +51,7 @@
     "format": "{}",
     "on-click": "swaync-client -t -sw",
     "tooltip-format": "Notification",
-    "exec": "~/.config/scripts/checking-notification.sh"
+    "exec": "~/dotfiles/scripts/.config/scripts/checking-notification.sh"
   },
   //
   // Core modules
