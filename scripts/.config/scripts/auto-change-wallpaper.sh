@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WALLPAPERS=($(ls -1 ~/dotfiles/wallpapers/*))
+WALLPAPERS=($(ls -1 ~/Pictures/wallpapers/*))
 INDEX=0
 
 while true; do
