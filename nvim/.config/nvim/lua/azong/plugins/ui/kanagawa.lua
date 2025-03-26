@@ -61,8 +61,6 @@ return {
           Operator = { fg = "#E85C0D" },
           Special = { fg = "#A0DEFF", italic = true },
 
-          SomePluginHl = { fg = colors.theme.syn.type, bold = true },
-
           -- Virtual text
           DiagnosticVirtualTextHint = makeDiagnosticColor(theme.diag.hint),
           DiagnosticVirtualTextInfo = makeDiagnosticColor(theme.diag.info),
