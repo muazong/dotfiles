@@ -7,5 +7,5 @@ while true; do
   hyprctl hyprpaper wallpaper "eDP-1,${WALLPAPERS[$INDEX]}"
   INDEX=$(((INDEX + 1) % ${#WALLPAPERS[@]}))
 
-  sleep 300 # 5 minutes
+  sleep 420 # 7min
 done
