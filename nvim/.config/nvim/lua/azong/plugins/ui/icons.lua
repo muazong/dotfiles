@@ -51,6 +51,18 @@ return {
         cterm_color = "227",
         name = "Env",
       },
+      ["vite.config.ts"] = {
+        icon = "",
+        color = "#F6DC43",
+        cterm_color = "227",
+        name = "Vite",
+      },
+      ["vite.config.js"] = {
+        icon = "",
+        color = "#F6DC43",
+        cterm_color = "227",
+        name = "Vite",
+      },
       norg = {
         icon = "",
         color = "#b04799",
