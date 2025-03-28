@@ -54,7 +54,7 @@ return {
     completion = {
       trigger = { show_on_trigger_character = false },
       menu = {
-        auto_show = false,
+        auto_show = true,
         draw = {
           columns = {
             { "kind_icon", "label_description", "label", gap = 1 },
