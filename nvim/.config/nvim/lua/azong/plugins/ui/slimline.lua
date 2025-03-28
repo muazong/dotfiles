@@ -2,8 +2,6 @@ return {
   "sschleemilch/slimline.nvim",
   event = "VimEnter",
   config = function()
-    local keyboard = require("azong.utils.keyboard")
-
     require("slimline").setup({
       bold = true,
       verbose_mode = false,
@@ -22,13 +20,15 @@ return {
           function()
             local h = require("slimline.highlights")
             local c = require("slimline").config
+            local keyboard = require("azong.utils.keyboard")
             local result = " "
 
-            if keyboard.message == keyboard.KEYBOARD_TYPES.telex then
+            if keyboard.message == keyboard.layouts.telex then
               result = result .. "Telex"
             else
-              result = result .. keyboard.KEYBOARD_TYPES.default
+              result = result .. keyboard.layouts.default
             end
+
             return h.hl_component({ primary = result }, h.hls.component, c.sep)
           end,
           "diagnostics",

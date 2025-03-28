@@ -1,27 +1,20 @@
 local M = {}
 
-M.KEYBOARD_TYPES = {
+M.layouts = {
   default = "Default",
   telex = "Vietnamese Telex",
 }
 
-M.message = M.KEYBOARD_TYPES.default
-local telex_enabled = false
+M.message = M.layouts.default
+M.telex_enabled = false
 
 M.toggle_keyboard = function()
-  telex_enabled = not telex_enabled
+  M.telex_enabled = not M.telex_enabled
 
-  if telex_enabled then
-    vim.o.keymap = "vietnamese-telex_utf-8"
-    M.message = M.KEYBOARD_TYPES.telex
-  else
-    vim.o.keymap = ""
-    M.message = M.KEYBOARD_TYPES.default
-  end
+  vim.o.keymap = M.telex_enabled and "vietnamese-telex_utf-8" or ""
+  M.message = M.telex_enabled and M.layouts.telex or M.layouts.default
 
-  vim.notify(M.message, vim.log.levels.INFO, {
-    title = "Keyboard Layout",
-  })
+  vim.schedule_wrap(vim.notify)(M.message, vim.log.levels.INFO, { title = "⌨️ Typing Mode" })
 end
 
 vim.keymap.set("n", "<Leader>v", M.toggle_keyboard, { noremap = true, silent = true })
