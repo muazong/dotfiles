@@ -20,7 +20,7 @@ return {
       end
 
       if max_len > 0 then
-        pcall(vim.api.nvim_win_set_width, win, max_len + 2) -- Thêm 2 ký tự padding nhỏ
+        pcall(vim.api.nvim_win_set_width, win, max_len + 2)
       end
     end,
   },
