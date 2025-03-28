@@ -59,6 +59,28 @@ return {
           columns = {
             { "kind_icon", "label_description", "label", gap = 1 },
           },
+          components = {
+            label = { width = { max = 35 } },
+            label_description = { width = { max = 20 } },
+            kind_icon = {
+              text = function(ctx)
+                local source, client = ctx.item.source_id, ctx.item.client_id
+                local lspName = client and vim.lsp.get_client_by_id(client).name
+                if lspName == "emmet_language_server" then
+                  source = "emmet"
+                end
+
+                local sourceIcons = {
+                  snippets = "󰩫",
+                  buffer = "󰦨",
+                  emmet = "",
+                  path = "",
+                  cmdline = "󰘳",
+                }
+                return sourceIcons[source] or ctx.kind_icon
+              end,
+            },
+          },
         },
       },
       documentation = {
@@ -74,6 +96,35 @@ return {
     },
     appearance = {
       nerd_font_variant = "mono",
+      kind_icons = {
+        -- different icons of the corresponding source
+        Text = "󰉿", -- `buffer`
+        Snippet = "󰞘", -- `snippets`
+        File = "", -- `path`
+
+        Folder = "󰉋",
+        Method = "󰊕",
+        Function = "󰡱",
+        Constructor = "",
+        Field = "󰇽",
+        Variable = "󰀫",
+        Class = "󰜁",
+        Interface = "",
+        Module = "",
+        Property = "󰜢",
+        Unit = "",
+        Value = "󰎠",
+        Enum = "",
+        Keyword = "󰌋",
+        Color = "󰏘",
+        Reference = "",
+        EnumMember = "",
+        Constant = "󰏿",
+        Struct = "󰙅",
+        Event = "",
+        Operator = "󰆕",
+        TypeParameter = "󰅲",
+      },
     },
   },
   opts_extend = { "sources.default" },
