@@ -9,16 +9,7 @@ return {
   config = function()
     local map = vim.keymap.set
     local lspconfig = require("lspconfig")
-    local capabilities = {
-      textDocument = {
-        foldingRange = {
-          dynamicRegistration = false,
-          lineFoldingOnly = true,
-        },
-      },
-    }
-
-    capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+    local capabilities = require("blink.cmp").get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
     local on_attach = function(_, bufnr)
       local opts = { noremap = true, silent = true, buffer = bufnr }
