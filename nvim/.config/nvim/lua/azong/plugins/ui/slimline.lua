@@ -18,18 +18,11 @@ return {
         },
         right = {
           function()
+            local keyboard = require("azong.utils.keyboard")
             local h = require("slimline.highlights")
             local c = require("slimline").config
-            local keyboard = require("azong.utils.keyboard")
-            local result = " "
 
-            if keyboard.message == keyboard.layouts.telex then
-              result = result .. "Telex"
-            else
-              result = result .. keyboard.layouts.default
-            end
-
-            return h.hl_component({ primary = result }, h.hls.component, c.sep)
+            return h.hl_component({ primary = " " .. keyboard.layout }, h.hls.component, c.sep)
           end,
           "diagnostics",
           -- "filetype_lsp",
