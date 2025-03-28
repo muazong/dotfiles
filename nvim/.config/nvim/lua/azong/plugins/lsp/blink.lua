@@ -43,7 +43,6 @@ return {
         menu = {
           auto_show = true,
         },
-        ghost_text = { enabled = true },
       },
       keymap = {
         ["<CR>"] = { "fallback" },
@@ -52,6 +51,7 @@ return {
       },
     },
     completion = {
+      ghost_text = { enabled = true },
       trigger = { show_on_trigger_character = false },
       menu = {
         auto_show = true,
@@ -71,7 +71,6 @@ return {
           max_height = 20,
         },
       },
-      ghost_text = { enabled = true },
     },
     appearance = {
       use_nvim_cmp_as_default = true,
