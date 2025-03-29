@@ -12,8 +12,8 @@ if ping -c 3 -W 1 8.8.8.8 &>/dev/null; then
     weather=$(process_weather "$weather_raw")
     printf "%s, %s\n" "$location" "$weather" | tr -d '+'
   else
-    echo "No Information."
+    echo "󰅘 No Information"
   fi
 else
-  echo "No Internet."
+  echo "󰖪 No Internet"
 fi
