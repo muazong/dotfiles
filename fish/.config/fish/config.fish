@@ -13,7 +13,7 @@ end
 
 # Aliases
 alias suspend='loginctl lock-session & systemctl suspend'
-alias logout='sudo loginctl kill-session $XDG_SESSION_ID'
+alias logout='sudo loginctl terminate-user $USER'
 alias shutdown='sudo systemctl poweroff'
 alias reboot='sudo systemctl reboot'
 alias lock='loginctl lock-session'
