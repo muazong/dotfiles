@@ -57,7 +57,13 @@ return {
     },
     completion = {
       ghost_text = { enabled = true },
-      trigger = { show_on_trigger_character = false },
+      trigger = {
+        show_on_trigger_character = false,
+        show_on_insert_on_trigger_character = true,
+        show_on_accept_on_trigger_character = true,
+        show_on_blocked_trigger_characters = { " ", "\n", "\t" },
+        show_on_x_blocked_trigger_characters = { "'", '"', "(", "{", "[" },
+      },
       menu = {
         auto_show = true,
         draw = {
@@ -132,5 +138,4 @@ return {
       },
     },
   },
-  opts_extend = { "sources.default" },
 }
