@@ -4,10 +4,8 @@ return {
   config = function()
     require("slimline").setup({
       bold = true,
-      verbose_mode = false,
       style = "fg", -- or "bg"
-      mode_follow_style = true,
-      workspace_diagnostics = true,
+
       components = {
         left = {
           "mode",
@@ -17,18 +15,65 @@ return {
           "path",
         },
         right = {
+          -- Show keyboard input
           function()
             local keyboard = require("azong.utils.keyboard")
             local h = require("slimline.highlights")
             local c = require("slimline").config
 
-            return h.hl_component({ primary = " " .. keyboard.layout }, h.hls.component, c.sep)
+            return h.hl_component({ primary = " " .. keyboard.layout }, h.hls.components["path"], c.sep)
           end,
           "diagnostics",
           -- "filetype_lsp",
           "progress",
         },
       },
+
+      configs = {
+        mode = {
+          verbose = false,
+          hl = {
+            normal = "Type",
+            insert = "Function",
+            pending = "Boolean",
+            visual = "Keyword",
+            command = "String",
+          },
+        },
+        git = {
+          hl = {
+            primary = "Function",
+          },
+          icons = {
+            branch = "",
+            added = "+",
+            modified = "~",
+            removed = "-",
+          },
+        },
+        path = {
+          directory = true,
+          icons = {
+            folder = " ",
+            modified = "",
+            read_only = "",
+          },
+        },
+        diagnostics = {
+          workspace = true,
+          icons = {
+            ERROR = " ",
+            WARN = " ",
+            HINT = "󱩎 ",
+            INFO = " ",
+          },
+        },
+        progress = {
+          follow = "mode",
+          icon = " ",
+        },
+      },
+
       spaces = {
         components = "─",
         left = "─",
@@ -43,34 +88,9 @@ return {
         right = "",
       },
       hl = {
-        modes = {
-          normal = "Type", -- highlight base of modes
-          insert = "Function",
-          pending = "Boolean",
-          visual = "Keyword",
-          command = "String",
-        },
-        base = "Comment", -- highlight of everything in in between components
-        primary = "Normal", -- highlight of primary parts (e.g. filename)
-        secondary = "Comment", -- highlight of secondary parts (e.g. filepath)
-      },
-      icons = {
-        diagnostics = {
-          ERROR = " ",
-          WARN = " ",
-          HINT = "󱩎 ",
-          INFO = " ",
-        },
-        git = {
-          branch = "",
-        },
-        folder = " ",
-        lines = " ",
-        recording = " ",
-        buffer = {
-          modified = "",
-          read_only = "",
-        },
+        base = "Comment",
+        primary = "Normal",
+        secondary = "Comment",
       },
     })
   end,
