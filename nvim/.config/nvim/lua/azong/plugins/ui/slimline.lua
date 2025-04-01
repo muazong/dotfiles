@@ -15,21 +15,18 @@ return {
           "path",
         },
         right = {
-          -- Show keyboard input
+          -- Show keyboard input and wrap state
           function()
             local keyboard = require("azong.utils.keyboard")
-            local h = require("slimline.highlights")
-            local c = require("slimline").config
-
-            return h.hl_component({ primary = " " .. keyboard.layout }, h.hls.components["path"], c.sep)
-          end,
-          -- Wrap state
-          function()
             local wrap = require("azong.utils.wrap")
             local h = require("slimline.highlights")
             local c = require("slimline").config
 
-            return h.hl_component({ primary = " " .. wrap.state }, h.hls.components["path"], c.sep)
+            return h.hl_component(
+              { primary = " " .. keyboard.layout, secondary = " " .. wrap.state },
+              h.hls.components["path"],
+              c.sep
+            )
           end,
           "diagnostics",
           "progress",
