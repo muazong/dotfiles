@@ -23,6 +23,14 @@ return {
 
             return h.hl_component({ primary = " " .. keyboard.layout }, h.hls.components["path"], c.sep)
           end,
+          -- Wrap state
+          function()
+            local wrap = require("azong.utils.wrap")
+            local h = require("slimline.highlights")
+            local c = require("slimline").config
+
+            return h.hl_component({ primary = " " .. wrap.state }, h.hls.components["path"], c.sep)
+          end,
           "diagnostics",
           "progress",
         },

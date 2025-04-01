@@ -37,16 +37,6 @@ map("v", "<C-a>", "<Nop>")
 -- Replace word under cursor
 map("n", "<Leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- On/Off wrap
-map("n", "<Leader>nw", function()
-  print("No Wrap")
-  vim.cmd("set nowrap")
-end)
-map("n", "<Leader>sw", function()
-  print("Wrap")
-  vim.cmd("set wrap")
-end)
-
 -- Move to begin/end of line
 map({ "n", "v" }, "<Leader>a", "$", opts)
 map({ "n", "v" }, "<Leader>i", "0", opts)
