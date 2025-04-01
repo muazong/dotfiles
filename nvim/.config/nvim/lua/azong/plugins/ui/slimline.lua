@@ -24,7 +24,6 @@ return {
             return h.hl_component({ primary = " " .. keyboard.layout }, h.hls.components["path"], c.sep)
           end,
           "diagnostics",
-          -- "filetype_lsp",
           "progress",
         },
       },
