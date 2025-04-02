@@ -18,7 +18,7 @@ M.toggle_keyboard = function()
     require("notify").dismiss(M.notify_id)
   end
 
-  M.notify_id = vim.notify("Current: " .. M.layout, vim.log.levels.INFO, { title = "⌨️ Typing Mode" })
+  M.notify_id = vim.notify("Current: " .. M.layout, vim.log.levels.INFO, { title = "🖮Typing Mode" })
 end
 
 vim.keymap.set("n", "<Leader>v", M.toggle_keyboard, { noremap = true, silent = true })

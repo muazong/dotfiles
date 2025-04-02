@@ -17,13 +17,13 @@ end
 map("n", "<Leader>nw", function()
   vim.cmd("set nowrap")
   M.state = "No Wrap"
-  notify_with_clear("No Wrap", "Wrap Toggle", "❎")
+  notify_with_clear("No Wrap", "Wrap Toggle", "↠")
 end)
 
 map("n", "<Leader>sw", function()
   vim.cmd("set wrap")
   M.state = "Wrap"
-  notify_with_clear("Wrap", "Wrap Toggle", "📖")
+  notify_with_clear("Wrap", "Wrap Toggle", "↩")
 end)
 
 return M
