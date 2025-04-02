@@ -34,10 +34,10 @@ return {
         "omnisharp",
         "typos_lsp",
         "tailwindcss",
-        "somesass_ls",
         "css_variables",
         "emmet_language_server",
 
+        -- "somesass_ls",
         -- "jdtls",
         -- "sqlls",
         -- "clangd",
