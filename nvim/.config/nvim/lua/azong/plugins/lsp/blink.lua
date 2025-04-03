@@ -56,7 +56,7 @@ return {
       },
     },
     completion = {
-      ghost_text = { enabled = false },
+      ghost_text = { enabled = true },
       trigger = {
         show_on_trigger_character = false,
         show_on_insert_on_trigger_character = true,
