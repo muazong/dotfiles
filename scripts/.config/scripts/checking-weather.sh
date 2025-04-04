@@ -33,7 +33,7 @@ if ping -c 3 -W 1 8.8.8.8 &>/dev/null; then
 
       printf "%s, %s°C %s\n" "$location" "$temperature" "$weather_icon"
     else
-      echo "󰅘 No Weather Information (Both APIs Failed)"
+      echo "󰅘 No Weather Information"
     fi
   else
     weather=$(process_weather "$weather_raw")
