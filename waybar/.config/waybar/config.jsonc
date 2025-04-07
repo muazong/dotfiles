@@ -132,7 +132,8 @@
   },
   "network": {
     "format": "{ifname}",
-    "format-wifi": "{icon} {essid}",
+    // "format-wifi": "{icon} {essid}",
+    "format-wifi": "{icon} Wifi",
     "format-ethernet": "󰤭 Disconnected",
     "format-disconnected": " Disconnected",
     "tooltip-format": "{ipaddr}  {bandwidthUpBytes}  {bandwidthDownBytes}",
