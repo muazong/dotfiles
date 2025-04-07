@@ -45,6 +45,14 @@ return {
         },
         opts = { skip = true },
       },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "lua_print",
+          find = "^nil$",
+        },
+        opts = { skip = true },
+      },
     },
     presets = {
       bottom_search = true,

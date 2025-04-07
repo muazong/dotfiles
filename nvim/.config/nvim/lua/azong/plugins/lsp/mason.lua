@@ -16,6 +16,10 @@ return {
           width = 0.6,
           height = 0.8,
         },
+        registries = {
+          "github:mason-org/mason-registry",
+          "github:crashdummyy/mason-registry",
+        },
       })
     end,
   },
@@ -31,12 +35,14 @@ return {
         "cssls",
         "jsonls",
         "lua_ls",
-        "omnisharp",
+        "rzls",
+        "roslyn",
         "typos_lsp",
         "tailwindcss",
         "css_variables",
         "emmet_language_server",
 
+        -- "omnisharp",
         -- "somesass_ls",
         -- "jdtls",
         -- "sqlls",

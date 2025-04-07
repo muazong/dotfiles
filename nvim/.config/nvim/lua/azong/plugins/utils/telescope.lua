@@ -56,6 +56,7 @@ return {
               "macos/",
               "windows/",
               "web/",
+              "%__virtual.cs$",
               -- "build/",
             },
             initial_mode = "insert",
