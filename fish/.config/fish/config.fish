@@ -12,11 +12,11 @@ if command -v zoxide > /dev/null
 end
 
 # Aliases
-alias suspend='loginctl lock-session & systemctl suspend'
+alias suspend='hyprlock & systemctl suspend'
 alias logout='sudo loginctl terminate-user $USER'
 alias shutdown='sudo systemctl poweroff'
 alias reboot='sudo systemctl reboot'
-alias lock='loginctl lock-session'
+alias lock='hyprlock'
 
 alias cls='clear'
 alias x='exit'
