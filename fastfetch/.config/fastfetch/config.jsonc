@@ -26,6 +26,10 @@
       "key": "{#separator}│  {#keys}󰣇 OS"
     },
     {
+      "type": "host",
+      "key": "{#separator}│  {#keys}󰍹 Hostname"
+    },
+    {
       "type": "kernel",
       "key": "{#separator}│  {#keys}󰒋 Kernel"
     },
