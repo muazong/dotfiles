@@ -8,15 +8,38 @@ return {
 
         local current = vim.fn.tabpagenr()
         local total_tabs = vim.fn.tabpagenr("$")
-        local max_tab_display = 9
+        local max_tab_display = 6
         local visible_tabs = {}
 
-        for i = math.max(1, current - math.floor(max_tab_display / 2)), math.min(current + math.floor(max_tab_display / 2), total_tabs) do
+        local half_display = math.floor(max_tab_display / 2)
+        local start = math.max(1, current - half_display)
+        local finish = math.min(total_tabs, start + max_tab_display - 1)
+
+        if finish - start + 1 < max_tab_display then
+          start = math.max(1, finish - max_tab_display + 1)
+        end
+
+        for i = start, finish do
           table.insert(visible_tabs, i)
+        end
+        if not vim.tbl_contains(visible_tabs, current) then
+          table.insert(visible_tabs, current)
+          table.sort(visible_tabs)
+          if #visible_tabs > max_tab_display then
+            if current <= half_display then
+              table.remove(visible_tabs, #visible_tabs)
+            else
+              table.remove(visible_tabs, 1)
+            end
+          end
+        end
+
+        if start > 1 then
+          tab.add({ "  ", gui = "bold" })
         end
 
         tab.make_tabs(function(info)
-          if not vim.tbl_contains(visible_tabs, info.index) then
+          if not vim.tbl_contains(visible_tabs, info.index) and info.index ~= current then
             return
           end
 
@@ -27,7 +50,6 @@ return {
 
           local icon = ""
           local icon_color = "#FFFFFF"
-
           if info.filename then
             icon = tab.icon(info.filename) or ""
             icon_color = tab.icon_color(info.filename) or "#FFFFFF"
@@ -36,31 +58,27 @@ return {
             icon_color = "#888888"
           end
 
-          tab.add(" ")
-
           if info.index == current then
-            tab.add({ tostring(info.index), gui = "bold,italic" })
-            tab.add(" ")
+            tab.add({ " " .. info.index .. " ", gui = "bold,italic" })
             tab.add({ filename, gui = "bold,italic" })
             tab.add({ " " .. icon, fg = icon_color })
-
             if info.modified then
               tab.add({ " ", gui = "bold" })
             end
-
-            tab.add(" ")
           else
-            tab.add(" " .. tostring(info.index) .. " ")
+            tab.add(" " .. info.index .. " ")
             tab.add(filename)
             tab.add({ " " .. icon, fg = icon_color })
-
             if info.modified then
               tab.add(" ")
             end
-
-            tab.add("  ")
           end
+          tab.add(" ")
         end)
+
+        if finish < total_tabs then
+          tab.add({ "  ", gui = "bold" })
+        end
 
         tab.add_spacer()
 
