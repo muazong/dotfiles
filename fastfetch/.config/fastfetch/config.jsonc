@@ -101,6 +101,10 @@
       "key": "{#separator}│  {#keys}󰍛 Memory"
     },
     {
+      "type": "swap",
+      "key": "{#separator}│  {#keys}󰏗 Swap"
+    },
+    {
       "type": "disk",
       "key": "{#separator}│  {#keys}󰋊 Disk (/)",
       "folders": "/"
