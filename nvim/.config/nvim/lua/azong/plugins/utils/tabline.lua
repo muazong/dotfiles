@@ -35,7 +35,7 @@ return {
         end
 
         if start > 1 then
-          tab.add({ "  ", gui = "bold" })
+          tab.add({ "  ", gui = "bold", fg = "#E6C384" })
         end
 
         tab.make_tabs(function(info)
@@ -77,7 +77,7 @@ return {
         end)
 
         if finish < total_tabs then
-          tab.add({ "  ", gui = "bold" })
+          tab.add({ "  ", gui = "bold", fg = "#7E9CD8" })
         end
 
         tab.add_spacer()
