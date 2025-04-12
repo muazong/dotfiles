@@ -77,6 +77,9 @@ map("n", "<C-n>", "<Cmd> tabnext<CR>", opts)
 map("n", "<C-p>", "<Cmd> tabprevious<CR>", opts)
 map("n", "<A-n>", "<Cmd> +tabmove<CR>", opts)
 map("n", "<A-p>", "<Cmd> -tabmove<CR>", opts)
+for i = 1, 9 do
+  map("n", "<C-" .. i .. ">", i .. "gt", { noremap = true, silent = true })
+end
 
 -- Split windows
 map("n", "<Leader>ss", "<Cmd> split<CR>", opts)
