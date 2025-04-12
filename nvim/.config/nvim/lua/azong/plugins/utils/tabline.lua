@@ -8,7 +8,8 @@ return {
 
         local current = vim.fn.tabpagenr()
         local total_tabs = vim.fn.tabpagenr("$")
-        local max_tab_display = vim.o.columns < 100 and 4 or 6 -- Adjust based on terminal width
+        local columns = vim.o.columns
+        local max_tab_display = columns < 80 and 3 or (columns < 100 and 4 or 5)
         local visible_tabs = {}
 
         local half_display = math.floor(max_tab_display / 2)
@@ -22,6 +23,7 @@ return {
         for i = start, finish do
           table.insert(visible_tabs, i)
         end
+
         if not vim.tbl_contains(visible_tabs, current) then
           table.insert(visible_tabs, current)
           table.sort(visible_tabs)
@@ -44,8 +46,11 @@ return {
           end
 
           local filename = info.filename or "[No name]"
-          if #filename > 20 then
-            filename = "…" .. string.sub(filename, -17)
+
+          if columns < 100 and info.index ~= current and #filename > 8 then
+            filename = "…" .. string.sub(filename, -7)
+          elseif columns >= 100 and info.index ~= current and #filename > 13 then
+            filename = "…" .. string.sub(filename, -12)
           end
 
           local icon = ""
@@ -73,6 +78,7 @@ return {
               tab.add(" ")
             end
           end
+
           tab.add(" ")
         end)
 
