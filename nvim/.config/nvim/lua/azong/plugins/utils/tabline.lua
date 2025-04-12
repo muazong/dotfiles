@@ -46,12 +46,10 @@ return {
           end
 
           local filename = info.filename or "[No name]"
-
-          if columns < 100 and info.index ~= current and #filename > 8 then
-            filename = "…" .. string.sub(filename, -7)
-          elseif columns >= 100 and info.index ~= current and #filename > 13 then
-            filename = "…" .. string.sub(filename, -12)
-          end
+          local full_filename = vim.fn.fnamemodify(filename, ":t")
+          local base, ext = full_filename:match("^(.*)%.(.*)$")
+          base = base or full_filename
+          ext = ext and ("." .. ext) or ""
 
           local icon = ""
           local icon_color = "#FFFFFF"
@@ -63,16 +61,29 @@ return {
             icon_color = "#888888"
           end
 
+          local display_name
+
+          if info.index == current then
+            display_name = base .. ext
+          else
+            local max_len = columns >= 100 and 10 or 8
+            if #base > max_len then
+              display_name = base:sub(1, max_len) .. "…"
+            else
+              display_name = base
+            end
+          end
+
           if info.index == current then
             tab.add({ " " .. info.index .. " ", gui = "bold,italic" })
-            tab.add({ filename, gui = "bold,italic" })
+            tab.add({ display_name, gui = "bold,italic" })
             tab.add({ " " .. icon, fg = icon_color })
             if info.modified then
               tab.add({ " ", gui = "bold" })
             end
           else
             tab.add(" " .. info.index .. " ")
-            tab.add(filename)
+            tab.add(display_name)
             tab.add({ " " .. icon, fg = icon_color })
             if info.modified then
               tab.add(" ")
@@ -88,7 +99,6 @@ return {
 
         tab.add_spacer()
 
-        -- Diagnostics (LSP)
         local diagnostics = {
           {
             icon = "  ",
