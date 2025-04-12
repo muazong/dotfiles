@@ -7,10 +7,16 @@ return {
         tab.add(" ")
 
         local current = vim.fn.tabpagenr()
-        local max_tab_display = 5
+        local total_tabs = vim.fn.tabpagenr("$")
+        local max_tab_display = 9
+        local visible_tabs = {}
+
+        for i = math.max(1, current - math.floor(max_tab_display / 2)), math.min(current + math.floor(max_tab_display / 2), total_tabs) do
+          table.insert(visible_tabs, i)
+        end
 
         tab.make_tabs(function(info)
-          if math.abs(info.index - current) > max_tab_display then
+          if not vim.tbl_contains(visible_tabs, info.index) then
             return
           end
 
