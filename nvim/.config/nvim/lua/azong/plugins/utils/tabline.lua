@@ -62,15 +62,13 @@ return {
           end
 
           local display_name
-
           if info.index == current then
             display_name = base .. ext
           else
-            local max_len = columns >= 100 and 10 or 8
-            if #base > max_len then
-              display_name = base:sub(1, max_len) .. "…"
-            else
-              display_name = base
+            display_name = base .. ext
+            local limit = columns >= 100 and 10 or 8
+            if #display_name > limit then
+              display_name = display_name:sub(1, limit) .. "…"
             end
           end
 
