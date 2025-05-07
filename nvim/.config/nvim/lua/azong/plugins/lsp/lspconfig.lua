@@ -3,8 +3,8 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "saghen/blink.cmp",
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason.nvim",
+    "mason-org/mason-lspconfig.nvim",
   },
   config = function()
     local map = vim.keymap.set

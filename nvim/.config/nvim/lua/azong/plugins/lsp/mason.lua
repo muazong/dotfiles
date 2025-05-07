@@ -1,6 +1,7 @@
 return {
   { -- Mason
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
+    version = "1.11.0",
     cmd = "Mason",
     build = ":MasonUpdate",
     config = function()
@@ -24,7 +25,8 @@ return {
     end,
   },
   { -- Mason lspconfig
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
+    version = "1.32.0",
     dependencies = "williamboman/mason.nvim",
     lazy = true,
     opts = {
