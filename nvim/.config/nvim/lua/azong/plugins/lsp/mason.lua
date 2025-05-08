@@ -27,7 +27,7 @@ return {
   { -- Mason lspconfig
     "mason-org/mason-lspconfig.nvim",
     version = "1.32.0",
-    dependencies = "williamboman/mason.nvim",
+    dependencies = "mason-org/mason.nvim",
     lazy = true,
     opts = {
       ensure_installed = {
@@ -54,7 +54,7 @@ return {
   },
   { -- Mason tool installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
-    dependencies = "williamboman/mason.nvim",
+    dependencies = "mason-org/mason.nvim",
     lazy = true,
     config = function()
       require("mason-tool-installer").setup({
