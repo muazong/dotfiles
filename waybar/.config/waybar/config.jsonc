@@ -202,7 +202,7 @@
     "on-click": "blueman-manager",
     "format-on": "󰂯 {status}",
     "format-off": "󰂲 {status}",
-    "format-disabled": "󰂲 Disabled",
+    "format-disabled": "󰂲 off",
     "format-connected": "󰂱  {device_alias}",
     "tooltip-format": "{controller_alias}\t{controller_address}",
     "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
