@@ -14,6 +14,7 @@
   "modules-right": [
     "custom/keyboard",
     "network",
+    "custom/airplane",
     "bluetooth",
     "pulseaudio",
     "backlight",
@@ -52,6 +53,13 @@
     "on-click": "swaync-client -t -sw",
     "tooltip-format": "Notification {}",
     "exec": "~/.config/scripts/checking-notification.sh"
+  },
+  "custom/airplane": {
+    "format": "{}",
+    "tooltip": false,
+    "exec": "~/.config/scripts/airplane-mode.sh status",
+    "on-click": "~/.config/scripts/airplane-mode.sh toggle",
+    "interval": 1
   },
   //
   // Core modules
