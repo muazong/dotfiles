@@ -9,6 +9,12 @@ return {
         cterm_color = "22",
         name = "Vim",
       },
+      css = {
+        icon = "",
+        color = "#007acc",
+        cterm_color = "24",
+        name = "CSS",
+      },
       js = {
         icon = "",
         color = "#F0DB4F",
