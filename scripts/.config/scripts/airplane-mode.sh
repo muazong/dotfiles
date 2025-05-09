@@ -1,14 +1,16 @@
 #!/bin/bash
 
 check_status() {
-  rfkill list | grep -q "Soft blocked: yes"
+  total=$(rfkill list | grep -c "Soft blocked")
+  blocked=$(rfkill list | grep "Soft blocked: yes" | wc -l)
+  [[ "$total" -gt 0 && "$blocked" -eq "$total" ]]
 }
 
 status() {
   if check_status; then
-    echo "󰀝 on" # Airplane (on)
+    echo "󰀝 on"
   else
-    echo " off" # Airplane (off)
+    echo " off"
   fi
 }
 
