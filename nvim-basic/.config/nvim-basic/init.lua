@@ -271,7 +271,7 @@ map({ "n", "v" }, "<C-=>", "<Nop>")
 vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]])
 
 -- Rebember folds
-vim.cmd([[ 
+vim.cmd([[
   augroup remember_folds
     autocmd!
     autocmd BufWinLeave *.* if &ft !=# 'help' | mkview | endif
