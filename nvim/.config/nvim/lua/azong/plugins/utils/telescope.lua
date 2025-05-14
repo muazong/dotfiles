@@ -56,6 +56,7 @@ return {
               "macos/",
               "windows/",
               "web/",
+              "venv/",
               "%__virtual.cs$",
               -- "build/",
             },
