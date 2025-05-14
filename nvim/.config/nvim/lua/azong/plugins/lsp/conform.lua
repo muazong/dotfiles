@@ -14,6 +14,7 @@ return {
       vue = { "prettierd" },
       yaml = { "prettierd" },
       markdown = { "prettierd" },
+      python = { "black" },
       lua = { "stylua" },
       cs = { "clang-format" },
       sh = { "shfmt" },
