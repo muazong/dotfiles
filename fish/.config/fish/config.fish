@@ -11,6 +11,8 @@ if command -v zoxide > /dev/null
     zoxide init fish | source
 end
 
+export EDITOR="nvim"
+
 # Aliases
 alias suspend='hyprlock & systemctl suspend'
 alias logout='sudo loginctl terminate-user $USER'
