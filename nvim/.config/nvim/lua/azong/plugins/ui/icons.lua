@@ -81,6 +81,12 @@ return {
         cterm_color = "202",
         name = "Hbs",
       },
+      pem = {
+        icon = "",
+        color = "#67AE6E",
+        cterm_color = "22",
+        name = "Pem",
+      },
     },
     color_icons = true,
     default = false,
