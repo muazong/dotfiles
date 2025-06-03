@@ -3,6 +3,7 @@ return {
   event = "InsertEnter",
   build = "cargo build --release",
   -- version = "*",
+  commit = "e7cdf1ac0be3acfce2a718bc921768ac747db5d9",
   dependencies = {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
