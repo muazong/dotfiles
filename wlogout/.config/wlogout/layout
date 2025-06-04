@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "hyprlock",
+    "action" : "hyprctl dispatch workspace 10 && hyprlock",
     "text" : "Lock (l)",
     "keybind" : "l"
 }
@@ -17,10 +17,10 @@
     "keybind" : "e"
 }
 {
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown (s)",
-    "keybind" : "s"
+    "label" : "suspend",
+    "action" : "hyprctl dispatch workspace 10 && hyprlock && systemctl suspend",
+    "text" : "Suspend (u)",
+    "keybind" : "u"
 }
 {
     "label" : "suspend",
