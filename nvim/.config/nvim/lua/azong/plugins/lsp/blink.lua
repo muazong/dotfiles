@@ -70,12 +70,30 @@ return {
       menu = {
         auto_show = true,
         draw = {
-          columns = {
-            { "kind_icon", "label_description", "label", gap = 1 },
-          },
+          columns = { { "kind_icon" }, { "label", gap = 1 } },
           components = {
-            label = { width = { max = 35 } },
-            label_description = { width = { max = 20 } },
+            label = {
+              width = { fill = true, max = 60 },
+              text = function(ctx)
+                local highlights_info = require("colorful-menu").blink_highlights(ctx)
+                if highlights_info ~= nil then
+                  return highlights_info.label
+                else
+                  return ctx.label
+                end
+              end,
+              highlight = function(ctx)
+                local highlights = {}
+                local highlights_info = require("colorful-menu").blink_highlights(ctx)
+                if highlights_info ~= nil then
+                  highlights = highlights_info.highlights
+                end
+                for _, idx in ipairs(ctx.label_matched_indices) do
+                  table.insert(highlights, { idx, idx + 1, group = "BlinkCmpLabelMatch" })
+                end
+                return highlights
+              end,
+            },
             kind_icon = {
               text = function(ctx)
                 local source, client = ctx.item.source_id, ctx.item.client_id
