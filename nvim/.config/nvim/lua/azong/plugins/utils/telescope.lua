@@ -59,6 +59,7 @@ return {
               "venv/",
               "Migrations/",
               "%__virtual.cs$",
+              "dist/",
               -- "build/",
             },
             initial_mode = "insert",
