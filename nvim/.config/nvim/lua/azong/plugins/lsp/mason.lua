@@ -1,7 +1,6 @@
 return {
   { -- Mason
     "mason-org/mason.nvim",
-    version = "1.11.0",
     cmd = "Mason",
     build = ":MasonUpdate",
     config = function()
@@ -29,28 +28,6 @@ return {
     version = "1.32.0",
     dependencies = "mason-org/mason.nvim",
     lazy = true,
-    opts = {
-      ensure_installed = {
-        "html",
-        "ts_ls",
-        "volar",
-        "cssls",
-        "jsonls",
-        "lua_ls",
-        "typos_lsp",
-        "tailwindcss",
-        "css_variables",
-        "emmet_language_server",
-
-        -- "rzls",
-        -- "roslynv4",
-        -- "omnisharp",
-        -- "somesass_ls",
-        -- "jdtls",
-        -- "sqlls",
-        -- "clangd",
-      },
-    },
   },
   { -- Mason tool installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
