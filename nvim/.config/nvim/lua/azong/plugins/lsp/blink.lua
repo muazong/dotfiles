@@ -27,6 +27,44 @@ return {
     snippets = { preset = "luasnip" },
     sources = {
       default = { "lsp", "path", "buffer", "snippets" },
+      providers = {
+        snippets = {
+          name = "snippets",
+          max_items = 5,
+        },
+        lsp = {
+          name = "lsp",
+          module = "blink.cmp.sources.lsp",
+          async = true,
+          timeout_ms = 2000,
+          max_items = 5,
+          transform_items = function(_, items)
+            return vim.tbl_filter(function(item)
+              return item.kind ~= require("blink.cmp.types").CompletionItemKind.Keyword
+            end, items)
+          end,
+        },
+        buffer = {
+          name = "buffer",
+          max_items = 5,
+          opts = {
+            get_bufnrs = function()
+              return vim.tbl_filter(function(bufnr)
+                return vim.bo[bufnr].buftype == ""
+              end, vim.api.nvim_list_bufs())
+            end,
+          },
+        },
+        path = {
+          name = "path",
+          max_items = 1,
+          opts = {
+            get_cwd = function(_)
+              return vim.fn.getcwd()
+            end,
+          },
+        },
+      },
     },
     keymap = {
       preset = "none",
@@ -60,6 +98,7 @@ return {
     },
     completion = {
       ghost_text = { enabled = true },
+      keyword = { range = "prefix" },
       trigger = {
         show_on_trigger_character = false,
         show_on_insert_on_trigger_character = true,

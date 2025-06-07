@@ -43,13 +43,14 @@ return {
           })
         end,
 
-        -- TS/JS/Vue
+        -- TypeScript / Vue LSP
         ["ts_ls"] = function()
           lspconfig["ts_ls"].setup({
-            -- root_dir = lspconfig.util.root_pattern(".git"),
             on_attach = on_attach,
             capabilities = capabilities,
             init_options = {
+              hostInfo = "neovim",
+              maxTsServerMemory = 4096, -- Maximum RAM for tsserver
               plugins = {
                 {
                   name = "@vue/typescript-plugin",
@@ -64,26 +65,47 @@ return {
                 },
               },
             },
+            filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" },
+            root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
+          })
+        end,
+
+        -- Tailwind CSS LSP
+        ["tailwindcss"] = function()
+          lspconfig["tailwindcss"].setup({
+            on_attach = on_attach,
+            capabilities = capabilities,
+            root_dir = function(fname)
+              return lspconfig.util.root_pattern(
+                "tailwind.config.js",
+                "tailwind.config.ts",
+                "postcss.config.js",
+                "postcss.config.ts",
+                "package.json"
+              )(fname) or vim.fn.getcwd()
+            end,
+            settings = {
+              tailwindCSS = {
+                experimental = {
+                  classRegex = {
+                    { "tw`([^`]*)", 1 },
+                    { 'tw="([^"]*)"', 1 },
+                    { 'tw={"([^"}]*)"}', 1 },
+                    { "tw\\.\\w+`([^`]*)", 1 },
+                  },
+                },
+              },
+            },
             filetypes = {
+              "html",
+              "css",
+              "scss",
               "javascript",
               "typescript",
               "javascriptreact",
               "typescriptreact",
               "vue",
             },
-          })
-        end,
-
-        -- Tailwindcss
-        ["tailwindcss"] = function()
-          lspconfig["tailwindcss"].setup({
-            on_attach = on_attach,
-            capabilities = capabilities,
-            root_dir = function(fname)
-              return lspconfig.util.root_pattern("tailwind.config.js", "tailwind.config.ts")(fname)
-                or lspconfig.util.root_pattern("postcss.config.js", "postcss.config.ts")(fname)
-                or lspconfig.util.root_pattern("node_modules/tailwindcss")(fname)
-            end,
           })
         end,
 
