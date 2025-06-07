@@ -36,13 +36,8 @@ return {
           name = "lsp",
           module = "blink.cmp.sources.lsp",
           async = true,
-          timeout_ms = 2000,
+          timeout_ms = 500,
           max_items = 5,
-          transform_items = function(_, items)
-            return vim.tbl_filter(function(item)
-              return item.kind ~= require("blink.cmp.types").CompletionItemKind.Keyword
-            end, items)
-          end,
         },
         buffer = {
           name = "buffer",
