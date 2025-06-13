@@ -50,7 +50,8 @@ return {
             capabilities = capabilities,
             init_options = {
               hostInfo = "neovim",
-              maxTsServerMemory = 4096, -- Maximum RAM for tsserver
+              maxTsServerMemory = 4096,
+              disableAutomaticTypeAcquisition = true,
               plugins = {
                 {
                   name = "@vue/typescript-plugin",
@@ -65,8 +66,41 @@ return {
                 },
               },
             },
-            filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" },
+            filetypes = {
+              "javascript",
+              "typescript",
+              "javascriptreact",
+              "typescriptreact",
+              "vue",
+            },
             root_dir = lspconfig.util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git"),
+
+            settings = {
+              typescript = {
+                disableAutomaticTypeAcquisition = true,
+                inlayHints = {
+                  includeInlayParameterNameHints = "literal",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayVariableTypeHints = false,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayEnumMemberValueHints = true,
+                },
+              },
+              javascript = {
+                disableAutomaticTypeAcquisition = true,
+                inlayHints = {
+                  includeInlayParameterNameHints = "all",
+                  includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+                  includeInlayFunctionParameterTypeHints = true,
+                  includeInlayVariableTypeHints = true,
+                  includeInlayPropertyDeclarationTypeHints = true,
+                  includeInlayFunctionLikeReturnTypeHints = true,
+                  includeInlayEnumMemberValueHints = true,
+                },
+              },
+            },
           })
         end,
 
@@ -81,7 +115,8 @@ return {
                 "tailwind.config.ts",
                 "postcss.config.js",
                 "postcss.config.ts",
-                "package.json"
+                "package.json",
+                ".git"
               )(fname) or vim.fn.getcwd()
             end,
             settings = {
