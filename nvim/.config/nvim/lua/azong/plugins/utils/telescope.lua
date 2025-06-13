@@ -1,7 +1,10 @@
 return {
   { -- Telescope
     "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    },
     cmd = { "Telescope" },
     keys = {
       { "<C-f>", "<CMD>Telescope find_files<CR>" },
@@ -104,6 +107,12 @@ return {
 
       telescope.setup({
         extensions = {
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
           file_browser = {
             initial_mode = "normal",
             hidden = true,
@@ -135,6 +144,7 @@ return {
         },
       })
       telescope.load_extension("file_browser")
+      telescope.load_extension("fzf")
     end,
   },
 }
