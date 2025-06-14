@@ -10,4 +10,6 @@
 sudo pacman -S pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
 
 systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
+
+alias gdisplay "env XDG_CURRENT_DESKTOP=gnome gnome-control-center display"
 ```
