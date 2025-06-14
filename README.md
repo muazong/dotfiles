@@ -11,5 +11,6 @@ sudo pacman -S pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprla
 
 systemctl --user restart pipewire wireplumber xdg-desktop-portal xdg-desktop-portal-hyprland
 
+yay -S xdg-desktop-portal-hyprland-git
 alias gdisplay "env XDG_CURRENT_DESKTOP=gnome gnome-control-center display"
 ```
