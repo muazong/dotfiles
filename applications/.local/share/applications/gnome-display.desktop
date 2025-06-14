@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=GNOME Display
+Exec=env XDG_CURRENT_DESKTOP=gnome gnome-control-center display
+Icon=preferences-system
+Type=Application
+Categories=Settings;

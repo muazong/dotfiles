@@ -52,6 +52,8 @@ alias fast='fastfetch'
 
 alias lg='lazygit'
 
+alias gdisplay "env XDG_CURRENT_DESKTOP=gnome gnome-control-center display"
+
 # Bun
 if [ -d "$HOME/.bun" ]
   set --export BUN_INSTALL "$HOME/.bun"
