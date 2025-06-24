@@ -2,7 +2,7 @@ return {
   "saghen/blink.cmp",
   event = "InsertEnter",
   build = "cargo build --release",
-  commit = "04b8325bfa97f99eb3aedde53c77af663746ceb5",
+  commit = "3513b27d1565d09927ccb8c81731ee06dab6c1c7",
   dependencies = {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
