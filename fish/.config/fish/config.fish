@@ -11,6 +11,11 @@ if command -v zoxide > /dev/null
     zoxide init fish | source
 end
 
+
+if test -f ~/.env.fish
+    source ~/.env.fish
+end
+
 export EDITOR="nvim"
 
 # Aliases
