@@ -1,6 +1,6 @@
 return {
   "axelvc/template-string.nvim",
-  ft = { "js", "jsx", "javascript", "ts", "tsx", "typescript", "javascriptreact", "typescriptreact" },
+  ft = { "js", "jsx", "javascript", "ts", "tsx", "typescript", "javascriptreact", "typescriptreact", "vue" },
   opts = {
     filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "vue", "svelte" },
     jsx_brackets = true,
