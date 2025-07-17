@@ -1,6 +1,6 @@
 return {
   "sontungexpt/bim.nvim",
-  event = "InsertEnter",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("bim").setup()
   end,
