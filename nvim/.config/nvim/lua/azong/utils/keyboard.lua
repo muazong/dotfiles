@@ -15,7 +15,7 @@ M.toggle_keyboard = function()
   vim.o.keymap = M.telex_enabled and "vietnamese-telex_utf-8" or ""
 
   if M.notify_id then
-    require("notify").dismiss(M.notify_id)
+    Snacks.notifier.hide(M.notify_id)
   end
 
   M.notify_id = vim.notify("Current: " .. M.layout, vim.log.levels.INFO, { title = "🖮Typing Mode" })

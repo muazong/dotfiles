@@ -50,7 +50,7 @@ return {
         },
         path = {
           name = "path",
-          max_items = 1,
+          max_items = 5,
           opts = {
             get_cwd = function(_)
               return vim.fn.getcwd()
