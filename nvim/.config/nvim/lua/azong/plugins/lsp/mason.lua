@@ -46,7 +46,6 @@ return {
   { -- Mason tool installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = "mason-org/mason.nvim",
-    lazy = true,
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {
