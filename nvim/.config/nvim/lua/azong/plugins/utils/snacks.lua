@@ -2,6 +2,7 @@ return {
   "folke/snacks.nvim",
   priority = 1000,
   lazy = false,
+  keys = { { "<leader>su", "<cmd>lua Snacks.picker.undo()<cr>" } },
   opts = {
     scroll = { enabled = false },
     dashboard = { enabled = false },
