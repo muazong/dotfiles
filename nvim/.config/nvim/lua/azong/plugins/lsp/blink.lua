@@ -35,11 +35,11 @@ return {
           module = "blink.cmp.sources.lsp",
           async = true,
           timeout_ms = 500,
-          max_items = 5,
+          max_items = 10,
         },
         buffer = {
           name = "buffer",
-          max_items = 5,
+          max_items = 10,
           opts = {
             get_bufnrs = function()
               return vim.tbl_filter(function(bufnr)
