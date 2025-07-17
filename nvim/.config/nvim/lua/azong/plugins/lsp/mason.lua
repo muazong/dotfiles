@@ -25,9 +25,23 @@ return {
   },
   { -- Mason lspconfig
     "mason-org/mason-lspconfig.nvim",
-    version = "1.32.0",
     dependencies = "mason-org/mason.nvim",
     lazy = true,
+    opts = {
+      ensure_installed = {
+        "html",
+        "vue_ls",
+        "vtsls",
+        "cssls",
+        "jsonls",
+        "lua_ls",
+        "typos_lsp",
+        "tailwindcss",
+        "css_variables",
+        "emmet_language_server",
+      },
+      automatic_installation = true,
+    },
   },
   { -- Mason tool installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -41,7 +55,6 @@ return {
           "shfmt",
           "clang-format",
           "eslint_d",
-          --[[ "sql-formatter" ]]
         },
       })
     end,
