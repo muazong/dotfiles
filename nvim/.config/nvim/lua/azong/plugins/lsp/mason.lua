@@ -1,7 +1,7 @@
 return {
-  { -- Mason
+  {
     "mason-org/mason.nvim",
-    cmd = "Mason",
+    event = "BufReadPre",
     build = ":MasonUpdate",
     config = function()
       require("mason").setup({
@@ -23,10 +23,10 @@ return {
       })
     end,
   },
-  { -- Mason lspconfig
+  {
     "mason-org/mason-lspconfig.nvim",
     dependencies = "mason-org/mason.nvim",
-    lazy = true,
+    event = "BufReadPre",
     opts = {
       ensure_installed = {
         "html",
@@ -43,9 +43,10 @@ return {
       automatic_installation = true,
     },
   },
-  { -- Mason tool installer
+  {
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = "mason-org/mason.nvim",
+    event = "BufReadPre",
     config = function()
       require("mason-tool-installer").setup({
         ensure_installed = {

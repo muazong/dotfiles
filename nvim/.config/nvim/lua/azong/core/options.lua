@@ -9,7 +9,7 @@ vim.scriptencoding = "utf-8"
 
 opts.shell = "/bin/fish"
 
-opts.laststatus = 3
+opts.laststatus = 0
 
 opts.showmode = false
 opts.showcmd = false
