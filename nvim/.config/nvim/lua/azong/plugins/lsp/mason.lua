@@ -3,6 +3,7 @@ return {
     "mason-org/mason.nvim",
     event = "BufReadPre",
     build = ":MasonUpdate",
+    cmd = { "Mason" },
     config = function()
       require("mason").setup({
         ui = {
