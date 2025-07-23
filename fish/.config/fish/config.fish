@@ -69,6 +69,7 @@ if [ -d "/home/azong/.dotnet/tools" ]
     set --export PATH $PATH /home/azong/.dotnet/tools
 end
 
+# Ruby
 if [ -d /root/.local/share/gem/ruby/3.4.0/bin ]
     set --export PATH /root/.local/share/gem/ruby/3.4.0/bin $PATH
 end
