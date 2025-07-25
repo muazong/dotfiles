@@ -15,6 +15,7 @@ M.toggle_keyboard = function()
   vim.o.keymap = M.telex_enabled and "vietnamese-telex_utf-8" or ""
 
   if M.notify_id then
+    ---@diagnostic disable-next-line: undefined-global
     Snacks.notifier.hide(M.notify_id)
   end
 
