@@ -1,6 +1,9 @@
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
+      hint = {
+        enable = true,
+      },
       runtime = {
         version = "LuaJIT",
       },
