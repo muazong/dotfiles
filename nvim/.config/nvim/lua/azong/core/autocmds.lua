@@ -38,3 +38,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   command = ":%s/\\s\\+$//e",
 })
+
+-- Enable inlay hint
+vim.api.nvim_create_autocmd("LspAttach", {
+  pattern = "*",
+  command = ":lua vim.lsp.inlay_hint.enable()",
+})
