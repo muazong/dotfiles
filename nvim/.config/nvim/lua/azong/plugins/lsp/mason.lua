@@ -35,6 +35,7 @@ return {
         "vtsls",
         "cssls",
         "jsonls",
+        "pylyzer",
         "lua_ls",
         "typos_lsp",
         "tailwindcss",
@@ -56,6 +57,8 @@ return {
           "shfmt",
           "clang-format",
           "eslint_d",
+          "black",
+          "isort",
         },
       })
     end,
