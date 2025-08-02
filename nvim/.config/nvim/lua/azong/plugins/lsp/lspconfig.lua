@@ -1,11 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    "saghen/blink.cmp",
-    "mason-org/mason.nvim",
-    "mason-org/mason-lspconfig.nvim",
-  },
+  dependencies = { "saghen/blink.cmp" },
   config = function()
     local map = vim.keymap.set
     local capabilities = vim.lsp.protocol.make_client_capabilities()
