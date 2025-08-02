@@ -13,6 +13,37 @@ return {
       {
         filter = {
           event = "msg_show",
+          kind = "",
+          find = "Error executing lua",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+          find = "Invalid 'end_row'",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "",
+          find = "Invalid 'end_col'",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
+          kind = "emsg",
+        },
+        opts = { skip = true },
+      },
+      {
+        filter = {
+          event = "msg_show",
           any = {
             { find = "%d+L, %d+B" },
             { find = "; after #%d+" },
