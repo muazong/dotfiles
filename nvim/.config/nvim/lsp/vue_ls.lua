@@ -1,4 +1,4 @@
-local vue_ls_config = {
+vim.lsp.config("vue_ls", {
   on_init = function(client)
     client.handlers["tsserver/request"] = function(_, result, context)
       local clients = vim.lsp.get_clients({ bufnr = context.bufnr, name = "vtsls" })
@@ -24,6 +24,4 @@ local vue_ls_config = {
       end)
     end
   end,
-}
-
-vim.lsp.config("vue_ls", vue_ls_config)
+})
