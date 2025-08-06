@@ -1,9 +1,12 @@
 #!/bin/bash
 
-WALLPAPERS=($(ls -1 ~/Pictures/wallpapers/4k/*))
+# mapfile -t WALLPAPERS < <(find ~/Pictures/wallpapers/4k/ -type f)
+mapfile -t WALLPAPERS < <(find ~/Pictures/wallpapers/pets/ -type f)
+
 INDEX=0
 
 while true; do
+  hyprctl hyprpaper preload "${WALLPAPERS[$INDEX]}"
   hyprctl hyprpaper wallpaper "eDP-1,${WALLPAPERS[$INDEX]}"
   INDEX=$(((INDEX + 1) % ${#WALLPAPERS[@]}))
 
