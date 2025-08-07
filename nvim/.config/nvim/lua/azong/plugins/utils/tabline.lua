@@ -9,7 +9,7 @@ return {
         local current = vim.fn.tabpagenr()
         local total_tabs = vim.fn.tabpagenr("$")
         local columns = vim.o.columns
-        local max_tab_display = columns < 80 and 3 or (columns < 100 and 4 or 5)
+        local max_tab_display = columns < 80 and 3 or (columns < 100 and 4 or 9)
         local visible_tabs = {}
 
         local half_display = math.floor(max_tab_display / 2)
