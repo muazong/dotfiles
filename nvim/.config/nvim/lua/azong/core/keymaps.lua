@@ -35,11 +35,11 @@ map("n", "<C-a>", "ggVG")
 map("v", "<C-a>", "<Nop>")
 
 -- Replace word under cursor
-map("n", "<Leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<Leader>rw", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], { desc = "Replace word" })
 
 -- Move to begin/end of line
-map({ "n", "v" }, "<Leader>a", "$", opts)
-map({ "n", "v" }, "<Leader>i", "0", opts)
+map({ "n", "v" }, "<Leader>a", "$", { desc = "Move to begin of line", unpack(opts) })
+map({ "n", "v" }, "<Leader>i", "0", { desc = "Move to end of line", unpack(opts) })
 
 -- Better up/down
 map({ "n", "x" }, "j", "v:count || mode(1)[0:1] == 'no' ? 'j' : 'gj'", { expr = true, silent = true })
@@ -83,8 +83,8 @@ for i = 1, 9 do
 end
 
 -- Split windows
-map("n", "<Leader>ss", "<Cmd> split<CR>", opts)
-map("n", "<Leader>sv", "<Cmd> vsplit<CR>", opts)
+map("n", "<Leader>ss", "<Cmd> split<CR>", { desc = "Split Horizontal", unpack(opts) })
+map("n", "<Leader>sv", "<Cmd> vsplit<CR>", { desc = "Split Vertical", unpack(opts) })
 
 -- Resize windows
 map("n", "<A-l>", "<C-w>>")

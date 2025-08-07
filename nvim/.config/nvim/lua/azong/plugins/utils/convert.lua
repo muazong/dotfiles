@@ -3,7 +3,7 @@ return {
   dependencies = {
     "MunifTanjim/nui.nvim",
   },
-  keys = { { "<leader>cc", "<cmd>ConvertFindCurrent<CR>" } },
+  keys = { { "<leader>cc", "<cmd>ConvertFindCurrent<CR>", desc = "Convert" } },
   config = function()
     local convert = require("convert")
     convert.setup({

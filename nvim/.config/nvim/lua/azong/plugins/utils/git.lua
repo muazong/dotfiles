@@ -29,19 +29,19 @@ return {
     },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
-      local map = function(mode, key, func)
-        vim.keymap.set(mode, key, func, { buffer = bufnr, silent = true })
+      local map = function(mode, key, func, desc)
+        vim.keymap.set(mode, key, func, { buffer = bufnr, silent = true, desc = desc })
       end
 
-      map("n", "<C-]>", gs.next_hunk)
-      map("n", "<C-[>", gs.prev_hunk)
-      map("n", "<leader>hp", gs.preview_hunk)
+      map("n", "<C-]>", gs.next_hunk, "Go to next Git hunk")
+      map("n", "<C-[>", gs.prev_hunk, "Go to previous Git hunk")
+      map("n", "<leader>hp", gs.preview_hunk, "Preview current Git hunk")
       map("n", "<leader>hb", function()
         gs.blame_line({ full = true })
-      end)
-      map("n", "<leader>tb", gs.toggle_current_line_blame)
-      map("n", "<leader>hd", gs.diffthis)
-      map("n", "<leader>td", gs.toggle_deleted)
+      end, "Show full git blame for current line")
+      map("n", "<leader>tb", gs.toggle_current_line_blame, "Toggle inline Git blame for current line")
+      map("n", "<leader>hd", gs.diffthis, "View diff for current file")
+      map("n", "<leader>td", gs.toggle_deleted, "Toggle display of deleted lines")
     end,
   },
 }

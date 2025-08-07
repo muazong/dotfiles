@@ -5,6 +5,7 @@ return {
     {
       "<leader>lg",
       "<cmd>lua require('toggleterm.terminal').Terminal:new({ cmd = 'lazygit', hidden = true }):toggle()<CR>",
+      desc = "Lazygit",
     },
   },
   config = function()

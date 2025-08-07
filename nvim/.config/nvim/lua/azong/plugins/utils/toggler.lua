@@ -1,6 +1,6 @@
 return {
   "nguyenvukhang/nvim-toggler",
-  keys = { { "<Leader><Leader>", '<cmd> lua require("nvim-toggler").toggle() <cr>' } },
+  keys = { { "<Leader><Leader>", '<cmd> lua require("nvim-toggler").toggle() <cr>', "Toggler" } },
   config = function()
     require("nvim-toggler").setup({
       inverses = {

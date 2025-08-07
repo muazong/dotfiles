@@ -13,6 +13,6 @@ return {
   },
   cmd = "Trouble",
   keys = {
-    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>" },
+    { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Toggle Trouble Diagnostics" },
   },
 }

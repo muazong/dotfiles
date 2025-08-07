@@ -2,9 +2,9 @@ return {
   "mistweaverco/kulala.nvim",
   ft = { "http", "rest" },
   keys = {
-    { "<leader>rr", '<cmd>lua require("kulala").run()<cr>' },
-    { "<leader>ra", '<cmd>lua require("kulala").run_all()<cr>' },
-    { "<leader>rl", '<cmd>lua require("kulala").replay()<cr>' },
+    { "<leader>rr", '<cmd>lua require("kulala").run()<cr>', desc = "Kulala run" },
+    { "<leader>ra", '<cmd>lua require("kulala").run_all()<cr>', desc = "Kulala run all" },
+    { "<leader>rl", '<cmd>lua require("kulala").replay()<cr>', desc = "Kulala replay" },
   },
   opts = {
     ui = {
