@@ -16,7 +16,7 @@ return {
       float_opts = {
         border = "rounded",
         title_pos = "center",
-        width = 90,
+        width = 126,
         height = vim.o.lines - 3,
         winblend = 0,
         zindex = 100,
