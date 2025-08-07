@@ -15,17 +15,24 @@ return {
       },
     })
     local on_attach = function(_, bufnr)
-      local opts = { noremap = true, silent = true, buffer = bufnr }
+      local opts = function(description)
+        return { desc = description, buffer = bufnr, noremap = true }
+      end
 
-      map("n", "<leader>lr", "<cmd>LspRestart<cr>", opts)
-      map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-      map("n", "gf", "<cmd>Telescope lsp_references<cr>", opts)
-      map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-      map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
-      map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts)
-      map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts)
-      map("n", "<S-k>", "<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-      map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts)
+      map("n", "<leader>lr", "<cmd>LspRestart<cr>", opts("Restart LSP"))
+      map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts("Resname"))
+      map("n", "gf", "<cmd>Telescope lsp_references<cr>", opts("Goto References"))
+      map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts("Goto Definitions"))
+      map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts("LSP Code Action"))
+      map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts("Goto Previous Diagnostic"))
+      map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts("Goto Next Diagnostic"))
+      map("n", "<S-k>", "<cmd>lua vim.lsp.buf.hover()<cr>", opts("Hover"))
+      map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts("Open Diagnostic Window Float"))
+      map("n", "<leader>lh", function()
+        local enabled = vim.lsp.inlay_hint.is_enabled()
+        vim.lsp.inlay_hint.enable(not enabled)
+        vim.notify("Inlay hints " .. (enabled and "disabled" or "enabled"))
+      end, opts("Toggle LSP Inlay Hint"))
     end
 
     vim.lsp.config("*", {
