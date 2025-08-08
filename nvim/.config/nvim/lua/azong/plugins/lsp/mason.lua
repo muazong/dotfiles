@@ -35,7 +35,7 @@ return {
         "vtsls",
         "cssls",
         "jsonls",
-        "pylyzer",
+        "pylsp",
         "lua_ls",
         "typos_lsp",
         "tailwindcss",
