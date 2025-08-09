@@ -35,7 +35,7 @@ return {
           module = "blink.cmp.sources.lsp",
           async = true,
           timeout_ms = 500,
-          max_items = 10,
+          max_items = 20,
         },
         buffer = {
           name = "buffer",
