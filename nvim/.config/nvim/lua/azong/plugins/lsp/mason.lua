@@ -1,5 +1,5 @@
 return {
-  {
+  { -- Mason
     "mason-org/mason.nvim",
     event = "BufReadPre",
     build = ":MasonUpdate",
@@ -24,7 +24,7 @@ return {
       })
     end,
   },
-  {
+  { -- Mason lspconfig
     "mason-org/mason-lspconfig.nvim",
     dependencies = "mason-org/mason.nvim",
     event = "BufReadPre",
@@ -45,7 +45,7 @@ return {
       automatic_installation = true,
     },
   },
-  {
+  { -- Mason tool installer
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     dependencies = "mason-org/mason.nvim",
     event = "BufReadPre",
