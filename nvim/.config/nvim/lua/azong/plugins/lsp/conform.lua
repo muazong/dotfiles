@@ -2,6 +2,7 @@ return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   opts = {
+    async = true,
     formatters_by_ft = {
       javascript = { "prettierd" },
       typescript = { "prettierd" },
@@ -16,7 +17,6 @@ return {
       markdown = { "prettierd" },
       python = { "black" },
       lua = { "stylua" },
-      cs = { "clang-format" },
       sh = { "shfmt" },
       fish = { "shfmt" },
     },

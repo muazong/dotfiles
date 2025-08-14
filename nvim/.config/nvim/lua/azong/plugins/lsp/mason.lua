@@ -55,7 +55,7 @@ return {
           "stylua",
           "prettierd",
           "shfmt",
-          "clang-format",
+          -- "clang-format",
           "eslint_d",
           "black",
           "isort",
