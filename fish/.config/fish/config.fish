@@ -21,6 +21,7 @@ set --export EDITOR nvim
 alias suspend 'hyprlock & systemctl suspend'
 alias logout 'sudo loginctl terminate-user $USER'
 alias shutdown 'sudo systemctl poweroff'
+alias poweroff 'sudo systemctl poweroff'
 alias reboot 'sudo systemctl reboot'
 alias lock 'hyprlock'
 
