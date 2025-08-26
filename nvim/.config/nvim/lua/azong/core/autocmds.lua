@@ -32,6 +32,7 @@ vim.cmd([[
 vim.cmd([[autocmd BufNewFile,BufRead *.handlebars set filetype=html]])
 vim.cmd([[autocmd BufNewFile,BufRead *.hbs set filetype=html]])
 vim.cmd([[autocmd BufNewFile,BufRead *.http set filetype=http]])
+vim.cmd([[autocmd BufNewFile,BufRead *.env.* set filetype=sh]])
 
 -- Auto remove whitespace at end of line
 vim.api.nvim_create_autocmd("BufWritePre", {
