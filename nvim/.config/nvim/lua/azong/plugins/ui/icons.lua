@@ -57,6 +57,12 @@ return {
         cterm_color = "227",
         name = "Env",
       },
+      [".env.example"] = {
+        icon = "",
+        color = "#faf743",
+        cterm_color = "227",
+        name = "Env",
+      },
       ["vite.config.ts"] = {
         icon = "",
         color = "#F6DC43",
