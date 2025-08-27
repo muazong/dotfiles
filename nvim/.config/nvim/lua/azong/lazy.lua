@@ -19,6 +19,7 @@ vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
 require("lazy").setup({
   { import = "azong.plugins" },
   { import = "azong.plugins.ui" },
+  { import = "azong.plugins.ai" },
   { import = "azong.plugins.utils" },
   { import = "azong.plugins.lsp" },
   { import = "azong.plugins.programming-tools" },
