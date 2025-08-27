@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
   build = "make",
-  cmd = "AvanteChat",
+  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
