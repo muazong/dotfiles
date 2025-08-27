@@ -2,7 +2,7 @@ return {
   "sschleemilch/slimline.nvim",
   event = "BufReadPre",
   config = function()
-    vim.opt.laststatus = 3
+    vim.opt.laststatus = 4
     require("slimline").setup({
       bold = true,
       style = "fg", -- or "bg"
