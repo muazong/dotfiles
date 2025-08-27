@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
   build = "make",
-  event = "VeryLazy",
+  cmd = "AvanteChat",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
@@ -22,6 +22,12 @@ return {
           },
         },
       },
+    },
+    behaviour = {
+      auto_set_keymaps = false,
+    },
+    selection = {
+      enabled = false,
     },
   },
 }
