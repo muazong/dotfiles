@@ -2,6 +2,7 @@ return {
   "yetone/avante.nvim",
   build = "make",
   event = "VeryLazy",
+  keys = { { "<leader>mt", "<cmd>AvanteToggle<cr>", desc = "Avante Toggle" } },
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
@@ -19,6 +20,14 @@ return {
           generationConfig = {
             temperature = 0.75,
           },
+        },
+      },
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o-mini",
+        extra_request_body = {
+          temperature = 0.7,
+          max_tokens = 4096,
         },
       },
     },
