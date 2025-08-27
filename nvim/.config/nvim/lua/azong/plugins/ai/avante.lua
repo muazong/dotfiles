@@ -7,12 +7,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   opts = {
-    instructions_file = "avante.md",
     provider = "gemini",
     providers = {
       gemini = {
         endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        model = "gemini-2.5-flash",
+        model = "gemini-2.5-flash-lite",
         timeout = 30000,
         context_window = 1048576,
         use_ReAct_prompt = true,
