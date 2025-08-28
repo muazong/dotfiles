@@ -11,11 +11,13 @@ return {
   },
   { -- Markdown preview inside neovim
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown" },
+    ft = { "markdown", "Avante" },
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons",
     },
-    opts = {},
+    opts = {
+      file_types = { "markdown", "Avante" },
+    },
   },
 }
