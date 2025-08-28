@@ -25,7 +25,7 @@ opts.linebreak = true
 opts.wrap = false
 opts.textwidth = 80
 opts.colorcolumn = "0"
-opts.signcolumn = "yes"
+opts.signcolumn = "auto:2"
 
 opts.undofile = true
 opts.swapfile = false
