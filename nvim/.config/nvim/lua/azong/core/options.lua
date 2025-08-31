@@ -23,7 +23,7 @@ opts.cursorline = true
 opts.breakindent = true
 opts.linebreak = true
 opts.wrap = false
-opts.textwidth = 80
+-- opts.textwidth = 80
 opts.colorcolumn = "0"
 opts.signcolumn = "auto:2"
 

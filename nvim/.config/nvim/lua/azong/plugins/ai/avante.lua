@@ -46,7 +46,7 @@ return {
       windows = {
         input = {
           prefix = "",
-          height = 5,
+          height = 6,
         },
       },
     })
