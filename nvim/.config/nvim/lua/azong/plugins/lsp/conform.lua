@@ -15,7 +15,7 @@ return {
       vue = { "prettierd" },
       yaml = { "prettierd" },
       markdown = { "prettierd" },
-      python = { "black" },
+      python = { "black", "isort" },
       lua = { "stylua" },
       sh = { "shfmt" },
       fish = { "shfmt" },
