@@ -17,7 +17,18 @@ return {
         and vim.bo.buftype ~= "prompt"
         and vim.b.completion ~= false
     end,
-    snippets = { preset = "luasnip" },
+    snippets = {
+      preset = "luasnip",
+      expand = function(snippet)
+        vim.snippet.expand(snippet)
+      end,
+      active = function(filter)
+        return vim.snippet.active(filter)
+      end,
+      jump = function(direction)
+        vim.snippet.jump(direction)
+      end,
+    },
     sources = {
       default = { "lsp", "path", "buffer", "snippets" },
       providers = {
