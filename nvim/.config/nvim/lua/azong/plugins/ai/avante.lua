@@ -1,7 +1,7 @@
 return {
   "yetone/avante.nvim",
   build = "make",
-  event = "VeryLazy",
+  cmd = "AvanteToggle",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "MunifTanjim/nui.nvim",
