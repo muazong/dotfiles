@@ -8,30 +8,9 @@ return {
       style = "fg", -- or "bg"
 
       components = {
-        left = {
-          "mode",
-          "git",
-        },
-        center = {
-          "path",
-        },
-        right = {
-          -- Show keyboard input and wrap state
-          function()
-            local keyboard = require("azong.utils.keyboard")
-            local wrap = require("azong.utils.wrap")
-            local h = require("slimline.highlights")
-            local c = require("slimline").config
-
-            return h.hl_component(
-              { primary = " " .. keyboard.layout, secondary = " " .. wrap.state },
-              h.hls.components["path"],
-              c.sep
-            )
-          end,
-          "diagnostics",
-          "progress",
-        },
+        left = { "mode", "git", "searchcount", "selectioncount" },
+        center = { "path" },
+        right = { "filetype_lsp", "diagnostics", "progress" },
       },
 
       configs = {
