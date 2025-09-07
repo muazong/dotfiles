@@ -13,7 +13,10 @@ return {
     current_line_blame_opts = {
       virt_text = true,
       virt_text_pos = "eol",
-      delay = 200,
+      delay = 1000,
+      use_focus = true,
+      ignore_whitespace = false,
+      virt_text_priority = 100,
     },
     watch_gitdir = {
       follow_files = true,
