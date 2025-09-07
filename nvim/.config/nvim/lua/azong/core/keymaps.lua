@@ -118,6 +118,10 @@ map("i", "<C-x>", "<Nop>")
 map("i", "<C-u>", "<Nop>")
 map("i", "<C-d>", "<Nop>")
 
+map("i", "<C-q>", "<Nop>")
+map("i", "<C-z>", "<Nop>")
+map("i", "<C-b>", "<Nop>")
+
 map({ "v" }, "<S-j>", "<Nop>")
 map({ "v", "n" }, "<S-h>", "<Nop>")
 map({ "v", "n" }, "<S-l>", "<Nop>")
