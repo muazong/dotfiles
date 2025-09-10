@@ -189,6 +189,7 @@ return {
                   emmet = "",
                   path = "",
                   cmdline = "󰘳",
+                  supermaven = "󱙺",
                 }
                 return sourceIcons[source] or ctx.kind_icon
               end,
