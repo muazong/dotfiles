@@ -5,16 +5,36 @@ return {
   dependencies = {
     {
       "supermaven-inc/supermaven-nvim",
-      opts = {
-        disable_inline_completion = false,
-        disable_keymaps = false,
-        keymaps = {
-          accept_suggestion = "<C-o>",
-          clear_suggestion = "<C-]>",
-          accept_word = "<C-j>",
-        },
-        ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
-      },
+      opts = function()
+        local supermavenIsRunning = true
+
+        vim.keymap.set("n", "<leader>sm", function()
+          if supermavenIsRunning then
+            vim.cmd("SupermavenStop")
+            vim.notify("󰜺 Supermaven stopped", vim.log.levels.INFO, {
+              title = "Supermaven",
+            })
+            supermavenIsRunning = false
+          else
+            vim.cmd("SupermavenStart")
+            vim.notify("󰚩 Supermaven started", vim.log.levels.INFO, {
+              title = "Supermaven",
+            })
+            supermavenIsRunning = true
+          end
+        end, { desc = "Toggle Supermaven" })
+
+        return {
+          disable_inline_completion = false,
+          disable_keymaps = false,
+          keymaps = {
+            accept_suggestion = "<C-o>",
+            clear_suggestion = "<C-]>",
+            accept_word = "<C-j>",
+          },
+          ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+        }
+      end,
     },
     {
       "huijiro/blink-cmp-supermaven",
@@ -119,7 +139,7 @@ return {
       },
     },
     completion = {
-      ghost_text = { enabled = false },
+      ghost_text = { enabled = true },
       keyword = { range = "prefix" },
       trigger = {
         show_on_trigger_character = false,

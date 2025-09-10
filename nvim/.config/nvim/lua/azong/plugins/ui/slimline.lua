@@ -8,7 +8,19 @@ return {
       style = "fg", -- or "bg"
 
       components = {
-        left = { "mode", "git", "searchcount", "selectioncount" },
+        left = {
+          "mode",
+          "git",
+          function()
+            local wrap = require("azong.utils.wrap")
+            local h = require("slimline.highlights")
+            local c = require("slimline").config
+
+            return h.hl_component({ primary = " " .. wrap.state }, h.hls.components["path"], c.sep)
+          end,
+          "searchcount",
+          "selectioncount",
+        },
         center = { "path" },
         right = { "filetype_lsp", "diagnostics", "progress" },
       },
