@@ -3,12 +3,28 @@ return {
   event = "InsertEnter",
   build = "cargo build --release",
   dependencies = {
-    "L3MON4D3/LuaSnip",
-    build = "make install_jsregexp",
-    dependencies = { "rafamadriz/friendly-snippets" },
-    config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-    end,
+    {
+      "supermaven-inc/supermaven-nvim",
+      opts = {
+        disable_inline_completion = false,
+        disable_keymaps = false,
+        keymaps = {
+          accept_suggestion = "<C-o>",
+        },
+        ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
+      },
+    },
+    {
+      "huijiro/blink-cmp-supermaven",
+    },
+    {
+      "L3MON4D3/LuaSnip",
+      build = "make install_jsregexp",
+      dependencies = { "rafamadriz/friendly-snippets" },
+      config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end,
+    },
   },
   opts = {
     enabled = function()
@@ -30,18 +46,28 @@ return {
       end,
     },
     sources = {
-      default = { "lsp", "path", "buffer", "snippets" },
+      default = { "lsp", "path", "supermaven", "buffer", "snippets" },
       providers = {
-        snippets = {
-          name = "snippets",
-          max_items = 5,
-        },
         lsp = {
           name = "lsp",
           module = "blink.cmp.sources.lsp",
           async = true,
           timeout_ms = 500,
           max_items = 20,
+        },
+        path = {
+          name = "path",
+          max_items = 5,
+          opts = {
+            get_cwd = function(_)
+              return vim.fn.getcwd()
+            end,
+          },
+        },
+        supermaven = {
+          name = "supermaven",
+          module = "blink-cmp-supermaven",
+          async = true,
         },
         buffer = {
           name = "buffer",
@@ -54,14 +80,9 @@ return {
             end,
           },
         },
-        path = {
-          name = "path",
+        snippets = {
+          name = "snippets",
           max_items = 5,
-          opts = {
-            get_cwd = function(_)
-              return vim.fn.getcwd()
-            end,
-          },
         },
       },
     },
