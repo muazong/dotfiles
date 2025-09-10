@@ -10,6 +10,8 @@ return {
         disable_keymaps = false,
         keymaps = {
           accept_suggestion = "<C-o>",
+          clear_suggestion = "<C-]>",
+          accept_word = "<C-j>",
         },
         ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
       },
