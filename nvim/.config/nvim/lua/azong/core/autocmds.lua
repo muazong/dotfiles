@@ -1,5 +1,6 @@
 -- Disable auto comment
 vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("disable_auto_comment", { clear = true }),
   pattern = "*",
   command = "setlocal formatoptions-=c formatoptions-=r formatoptions-=o",
 })
