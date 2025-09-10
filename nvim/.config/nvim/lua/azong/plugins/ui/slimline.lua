@@ -11,15 +11,21 @@ return {
         left = {
           "mode",
           "git",
+          "searchcount",
+          "selectioncount",
           function()
             local wrap = require("azong.utils.wrap")
             local h = require("slimline.highlights")
             local c = require("slimline").config
 
-            return h.hl_component({ primary = " " .. wrap.state }, h.hls.components["path"], c.sep)
+            local status = vim.g.supermaven_is_running and "󰚩 ON" or "󰜺 OFF"
+
+            return h.hl_component(
+              { secondary = " " .. wrap.state, primary = "Supermaven " .. status },
+              h.hls.components["path"],
+              c.sep
+            )
           end,
-          "searchcount",
-          "selectioncount",
         },
         center = { "path" },
         right = { "filetype_lsp", "diagnostics", "progress" },

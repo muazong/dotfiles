@@ -1,8 +1,8 @@
 return {
   "nvim-focus/focus.nvim",
   keys = {
-    { "<leader>ss", "<cmd>split<cr>" },
-    { "<leader>sv", "<cmd>vsplit<cr>" },
+    { "<leader>ss", "<cmd>split<cr>", desc = "Split horizontally" },
+    { "<leader>sv", "<cmd>vsplit<cr>", desc = "Split vertically" },
   },
   config = function()
     vim.api.nvim_create_autocmd("WinEnter", {

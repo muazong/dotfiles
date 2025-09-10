@@ -6,21 +6,21 @@ return {
     {
       "supermaven-inc/supermaven-nvim",
       opts = function()
-        local supermavenIsRunning = true
+        vim.g.supermaven_is_running = true
 
         vim.keymap.set("n", "<leader>sm", function()
-          if supermavenIsRunning then
+          if vim.g.supermaven_is_running then
             vim.cmd("SupermavenStop")
             vim.notify("󰜺 Supermaven stopped", vim.log.levels.INFO, {
               title = "Supermaven",
             })
-            supermavenIsRunning = false
+            vim.g.supermaven_is_running = false
           else
             vim.cmd("SupermavenStart")
             vim.notify("󰚩 Supermaven started", vim.log.levels.INFO, {
               title = "Supermaven",
             })
-            supermavenIsRunning = true
+            vim.g.supermaven_is_running = true
           end
         end, { desc = "Toggle Supermaven" })
 

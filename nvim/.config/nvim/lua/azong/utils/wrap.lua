@@ -16,6 +16,6 @@ map("n", "<Leader>ww", function()
     vim.notify(M.state .. " ↩", vim.log.levels.INFO, { title = "Wrap Toggle" })
     isWrap = true
   end
-end)
+end, { desc = "Toggle Wrap" })
 
 return M
