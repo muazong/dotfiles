@@ -13,11 +13,16 @@ return {
 
     require("toggleterm").setup({
       direction = "float",
+      auto_scroll = true,
       float_opts = {
         border = "rounded",
         title_pos = "center",
-        width = 126,
-        height = vim.o.lines - 3,
+        width = function()
+          return math.floor(vim.o.columns * 0.9)
+        end,
+        height = function()
+          return math.floor(vim.o.lines * 0.9)
+        end,
         winblend = 0,
         zindex = 100,
       },
