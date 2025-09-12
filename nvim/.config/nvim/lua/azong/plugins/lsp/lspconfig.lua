@@ -32,7 +32,7 @@ return {
       map("n", "gp", function()
         vim.diagnostic.jump({ count = -1 })
         vim.schedule(function()
-          vim.diagnostic.open_float(nil, { scope = "line", focus = false })
+          vim.diagnostic.open_float(nil, { scope = "cursor", focus = false })
         end)
       end, opts("Goto Previous Diagnostic"))
 
@@ -40,7 +40,7 @@ return {
       map("n", "gn", function()
         vim.diagnostic.jump({ count = 1 })
         vim.schedule(function()
-          vim.diagnostic.open_float(nil, { scope = "line", focus = false })
+          vim.diagnostic.open_float(nil, { scope = "cursor", focus = false })
         end)
       end, opts("Goto Next Diagnostic"))
 

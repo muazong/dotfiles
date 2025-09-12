@@ -7,6 +7,15 @@ return {
         enabled = true,
         updatetime = 50,
       },
+      float = {
+        enabled = true,
+        text = "💡",
+        lens_text = "🔎",
+        hl = "LightBulbFloatWin",
+        win_opts = {
+          focusable = false,
+        },
+      },
     })
   end,
 }
