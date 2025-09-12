@@ -29,7 +29,7 @@ return {
       },
     },
     scope = { enabled = true },
-    words = { enabled = true },
+    words = { enabled = false },
     input = { enabled = true },
     picker = { enabled = true },
     indent = { enabled = true },
