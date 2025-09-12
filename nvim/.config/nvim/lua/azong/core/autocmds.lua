@@ -87,3 +87,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
   end,
 })
+
+-- Exit all terminal windows with :wqa (alias :Wqa)
+vim.api.nvim_create_user_command("Wqa", function()
+  for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.bo[buf].buftype == "terminal" then
+      vim.api.nvim_buf_delete(buf, { force = true })
+    end
+  end
+  vim.cmd("wqa")
+end, {})
+
+vim.cmd("cabbrev wqa Wqa")
