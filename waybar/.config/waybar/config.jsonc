@@ -13,10 +13,10 @@
     "custom/weather"
   ],
   "modules-center": [
-    "clock",
-    "custom/notification"
+    "clock"
   ],
   "modules-right": [
+    "custom/notification",
     "custom/keyboard",
     "network",
     "custom/airplane",
