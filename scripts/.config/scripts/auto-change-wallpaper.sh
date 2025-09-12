@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mapfile -t WALLPAPERS < <(find ~/Pictures/wallpapers/TAWOG/ -type f)
+mapfile -t WALLPAPERS < <(find ~/Pictures/wallpapers/BMW/ -type f)
 
 INDEX=0
 
