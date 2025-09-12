@@ -63,6 +63,7 @@ return {
               "Migrations/",
               "%__virtual.cs$",
               "dist/",
+              "__pycache__/",
               -- "build/",
             },
             initial_mode = "insert",
