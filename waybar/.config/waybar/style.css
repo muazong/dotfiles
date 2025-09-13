@@ -54,6 +54,7 @@ window#waybar {
 #custom-notification,
 #custom-airplane,
 #custom-power,
+#window,
 #scratchpad {
   margin: 0 4px;
   padding: 2px 7px;
@@ -76,6 +77,7 @@ window#waybar {
 #custom-weather:hover,
 #custom-notification:hover,
 #custom-airplane:hover,
+#window:hover,
 #custom-power:hover {
   background: rgba(255, 255, 255, 0.2);
 }
@@ -99,6 +101,9 @@ window#waybar {
   color: @sky;
 }
 #memory {
+  color: @text;
+}
+#window {
   color: @text;
 }
 #temperature {

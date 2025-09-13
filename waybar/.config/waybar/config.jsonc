@@ -7,10 +7,11 @@
   "margin-bottom": 4,
   "modules-left": [
     "hyprland/workspaces",
-    "cpu",
+    // "cpu",
     "memory",
-    "temperature",
-    "custom/weather"
+    // "temperature",
+    "custom/weather",
+    "hyprland/window"
   ],
   "modules-center": [
     "clock"
@@ -86,7 +87,10 @@
     }
   },
   "hyprland/window": {
-    "separate-outputs": true
+    "format": "{initialClass}",
+    "separate-outputs": true,
+    "icon": true,
+    "icon-size": 14
   },
   "temperature": {
     "interval": 5,
