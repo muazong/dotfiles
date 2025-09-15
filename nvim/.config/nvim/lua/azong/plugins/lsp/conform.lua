@@ -19,6 +19,7 @@ return {
       lua = { "stylua" },
       sh = { "shfmt" },
       fish = { "shfmt" },
+      http = { "kulala-fmt" },
     },
     format_after_save = {
       lsp_fallback = true,

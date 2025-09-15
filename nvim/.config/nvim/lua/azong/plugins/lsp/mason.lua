@@ -60,6 +60,7 @@ return {
           "eslint_d",
           "black",
           "isort",
+          "kulala-fmt",
         },
       })
     end,
