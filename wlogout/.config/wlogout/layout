@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "hyprctl dispatch workspace 10 && hyprlock",
+    "action" : "hyprctl dispatch workspace 10 && loginctl lock-session",
     "text" : "Lock (l)",
     "keybind" : "l"
 }
