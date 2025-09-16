@@ -105,7 +105,7 @@ style = "bg:color_bg4 fg:#6295CB"
 symbol = " "
 
 [dotnet]
-format = '[$symbol]($style)'
+format = '[$symbol($version)]($style)'
 style = "bg:color_bg4 fg:#1180C3"
 symbol = "󰪮 "
 
