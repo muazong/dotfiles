@@ -49,6 +49,7 @@ return {
         },
         pickers = {
           find_files = {
+            find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".*" },
             previewer = false,
             hidden = false,
             no_ignore = true,
@@ -125,6 +126,7 @@ return {
             git_status = true,
             previewer = false,
             hijack_netrw = true,
+            follow_symlinks = true,
             select_buffer = true,
             path = "%:p:h",
             dir_icon = "",
