@@ -18,15 +18,15 @@
 }
 {
     "label" : "suspend",
-    "action" : "hyprctl dispatch workspace 10 && (sleep 0.5 && systemctl suspend) & hyprlock",
+    "action" : "hyprctl dispatch workspace 10 && (sleep 0.5 && systemctl suspend) & loginctl lock-session",
     "text" : "Suspend (u)",
     "keybind" : "u"
 }
 {
-    "label" : "suspend",
-    "action" : "hyprlock & systemctl suspend",
-    "text" : "Suspend (u)",
-    "keybind" : "u"
+    "label" : "shutdown",
+    "action" : "systemctl poweroff",
+    "text" : "Shutdown (s)",
+    "keybind" : "s"
 }
 {
     "label" : "reboot",
