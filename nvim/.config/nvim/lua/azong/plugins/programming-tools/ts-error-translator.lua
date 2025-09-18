@@ -1,6 +1,6 @@
 return {
   "dmmulroy/ts-error-translator.nvim",
-  event = "LspAttach",
+  ft = { "typescript", "typescriptreact", "ts", "tsx", "javascript", "javascriptreact", "js", "jsx", "vue" },
   config = function()
     local ts_error_translator = require("ts-error-translator")
 
