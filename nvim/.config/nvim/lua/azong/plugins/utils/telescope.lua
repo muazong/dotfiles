@@ -3,22 +3,22 @@ return {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5 && cmake --build build --config=Release && cmake --install build",
-      },
+      "nvim-telescope/telescope-file-browser.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     cmd = { "Telescope" },
     keys = {
-      { "<C-f>", "<CMD>Telescope find_files<CR>" },
-      { "<C-g>", "<CMD>Telescope live_grep<CR>" },
-      { "<C-s>", "<CMD>:Telescope grep_string<CR>" },
-      { "tb", "<CMD>:Telescope buffers<CR>" },
-      { "?", "<CMD>:Telescope help_tags<CR>" },
+      { "<C-f>", "<cmd>Telescope find_files<cr>" },
+      { "<C-b>", "<cmd>Telescope file_browser<cr>" },
+      { "<C-g>", "<cmd>Telescope live_grep<cr>" },
+      { "<C-s>", "<cmd>Telescope grep_string<cr>" },
+      { "tb", "<cmd>Telescope buffers<cr>" },
+      { "?", "<cmd>Telescope help_tags<cr>" },
     },
     config = function()
       local telescope = require("telescope")
       local actions = require("telescope.actions")
+      local fb_actions = telescope.extensions.file_browser.actions
 
       telescope.setup({
         defaults = {
@@ -49,32 +49,30 @@ return {
         },
         pickers = {
           find_files = {
-            find_command = { "fd", "--type", "f", "--hidden", "--follow", "--exclude", ".*" },
+            find_command = {
+              "fd",
+              "--type",
+              "f",
+              "--hidden",
+              "--follow",
+              "--exclude",
+              ".git",
+              "--exclude",
+              "node_modules",
+              "--exclude",
+              "dist",
+              "--exclude",
+              "venv",
+            },
             previewer = false,
             hidden = false,
-            no_ignore = true,
-            no_ignore_parent = true,
-            file_ignore_patterns = {
-              "node_modules/",
-              "obj/",
-              "bin/",
-              "android/",
-              "ios/",
-              "macos/",
-              "windows/",
-              "web/",
-              "venv/",
-              "Migrations/",
-              "%__virtual.cs$",
-              "dist/",
-              "__pycache__/",
-              -- "build/",
-            },
             initial_mode = "insert",
           },
           live_grep = {
-            grep_open_files = false,
             initial_mode = "insert",
+            additional_args = function()
+              return { "--glob", "!.git/*", "--glob", "!node_modules/*", "--glob", "!dist/*", "--glob", "!venv/*" }
+            end,
           },
           help_tags = {
             initial_mode = "insert",
@@ -83,34 +81,6 @@ return {
             previewer = false,
           },
         },
-      })
-    end,
-  },
-  { -- Telescope Bookmark
-    "MattesGroeger/vim-bookmarks",
-    dependencies = {
-      "tom-anders/telescope-vim-bookmarks.nvim",
-    },
-    keys = {
-      { "mm", "<Cmd> BookmarkToggle <CR>" },
-      { "ma", "<Cmd> lua require('telescope').extensions.vim_bookmarks.all() <CR>" },
-      { "mc", "<Cmd> lua require('telescope').extensions.vim_bookmarks.current_file() <CR>" },
-    },
-    config = function()
-      vim.g.bookmark_sign = "󰟙"
-      vim.g.bookmark_highlight_lines = 1
-
-      require("telescope").load_extension("vim_bookmarks")
-    end,
-  },
-  { -- Telescope File browser
-    "nvim-telescope/telescope-file-browser.nvim",
-    keys = { { "<C-b>", "<CMD>Telescope file_browser<CR>" } },
-    config = function()
-      local telescope = require("telescope")
-      local fb_actions = telescope.extensions.file_browser.actions
-
-      telescope.setup({
         extensions = {
           fzf = {
             fuzzy = true,
@@ -149,8 +119,27 @@ return {
           },
         },
       })
-      telescope.load_extension("file_browser")
+
       telescope.load_extension("fzf")
+      telescope.load_extension("file_browser")
+    end,
+  },
+  { -- Telescope Bookmark
+    "MattesGroeger/vim-bookmarks",
+    dependencies = {
+      "tom-anders/telescope-vim-bookmarks.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    keys = {
+      { "mm", "<cmd>BookmarkToggle<cr>" },
+      { "ma", "<cmd>lua require('telescope').extensions.vim_bookmarks.all()<cr>" },
+      { "mc", "<cmd>lua require('telescope').extensions.vim_bookmarks.current_file()<cr>" },
+    },
+    config = function()
+      vim.g.bookmark_sign = "󰟙"
+      vim.g.bookmark_highlight_lines = 1
+
+      require("telescope").load_extension("vim_bookmarks")
     end,
   },
 }
