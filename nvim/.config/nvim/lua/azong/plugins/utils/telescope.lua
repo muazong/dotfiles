@@ -10,11 +10,11 @@ return {
     },
     cmd = { "Telescope" },
     keys = {
-      { "<C-f>", "<CMD>Telescope find_files<CR>" },
-      { "<C-g>", "<CMD>Telescope live_grep<CR>" },
-      { "<C-s>", "<CMD>:Telescope grep_string<CR>" },
-      { "tb", "<CMD>:Telescope buffers<CR>" },
-      { "?", "<CMD>:Telescope help_tags<CR>" },
+      -- { "<C-f>", "<CMD>Telescope find_files<CR>" },
+      -- { "<C-g>", "<CMD>Telescope live_grep<CR>" },
+      -- { "<C-s>", "<CMD>:Telescope grep_string<CR>" },
+      -- { "tb", "<CMD>:Telescope buffers<CR>" },
+      -- { "?", "<CMD>:Telescope help_tags<CR>" },
     },
     config = function()
       local telescope = require("telescope")
