@@ -120,7 +120,7 @@ return {
     input = { enabled = true },
     indent = { enabled = true },
     bigfile = { enabled = true },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     statuscolumn = { enabled = true },
