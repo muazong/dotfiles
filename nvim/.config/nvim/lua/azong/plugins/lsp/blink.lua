@@ -45,6 +45,15 @@ return {
       dependencies = { "rafamadriz/friendly-snippets" },
       config = function()
         require("luasnip.loaders.from_vscode").lazy_load()
+
+        local ls = require("luasnip")
+
+        vim.keymap.set({ "i", "s" }, "<C-j>", function()
+          ls.jump(1)
+        end, { silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-k>", function()
+          ls.jump(-1)
+        end, { silent = true })
       end,
     },
   },
@@ -114,8 +123,8 @@ return {
       ["<C-e>"] = { "hide" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-      ["<Tab>"] = { "select_next", "snippet_forward", "fallback" },
-      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback" },
+      ["<Tab>"] = { "select_next", "fallback" },
+      ["<S-Tab>"] = { "select_prev", "fallback" },
 
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
