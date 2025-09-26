@@ -35,6 +35,7 @@ return {
         "vtsls",
         "cssls",
         "jsonls",
+        "markdown_oxide",
         "basedpyright",
         "lua_ls",
         "typos_lsp",
