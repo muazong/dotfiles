@@ -44,7 +44,17 @@ return {
       build = "make install_jsregexp",
       dependencies = { "rafamadriz/friendly-snippets" },
       config = function()
-        require("luasnip.loaders.from_vscode").lazy_load()
+        -- vscode format
+        require("luasnip.loaders.from_vscode").lazy_load({ exclude = vim.g.vscode_snippets_exclude or {} })
+        require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
+
+        -- snipmate format
+        require("luasnip.loaders.from_snipmate").load()
+        require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
+
+        -- lua format
+        require("luasnip.loaders.from_lua").load()
+        require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path or "" })
 
         local ls = require("luasnip")
 
@@ -123,7 +133,23 @@ return {
       ["<C-e>"] = { "hide" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-      ["<Tab>"] = { "select_next", "fallback" },
+      ["<Tab>"] = {
+        function(cmp)
+          local has_words_before = function()
+            local col = vim.api.nvim_win_get_cursor(0)[2]
+            if col == 0 then
+              return false
+            end
+            local line = vim.api.nvim_get_current_line()
+            return line:sub(col, col):match("%s") == nil
+          end
+
+          if has_words_before() then
+            return cmp.insert_next()
+          end
+        end,
+        "fallback",
+      },
       ["<S-Tab>"] = { "select_prev", "fallback" },
 
       ["<Up>"] = { "select_prev", "fallback" },
