@@ -6,9 +6,10 @@ return {
 
     return {
       segments = {
-        { sign = { namespace = { "gitsign*" } } },
-        { sign = { namespace = { "diagnostic*" }, colwidth = 2 } },
-        { sign = { name = { "Bookmark" } } },
+        { sign = { namespace = { "gitsign*" }, auto = true, colwidth = 2 } },
+        { sign = { namespace = { "diagnostic*" }, auto = true, colwidth = 2 } },
+        { sign = { name = { "Dap*" }, auto = true, colwidth = 2 } },
+        { sign = { name = { "Bookmark" }, auto = true, colwidth = 2 } },
         { text = { statuscol.lnumfunc, " " } },
         { text = { statuscol.foldfunc, " " } },
       },
