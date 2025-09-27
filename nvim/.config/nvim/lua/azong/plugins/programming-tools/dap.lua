@@ -39,6 +39,7 @@ return {
     local dap = require("dap")
     local dapui = require("dapui")
 
+    -- highlight
     vim.cmd("hi DapBreakpointColor guifg=#A7AAE1")
     vim.cmd("hi DapStoppedColor guifg=#98c379")
     vim.cmd("hi DapLogPointColor guifg=#61afef")
@@ -66,16 +67,18 @@ return {
 
     -- Mason adapter setup
     require("mason-nvim-dap").setup({
-      ensure_installed = { "js-debug-adapter", "debugpy" },
+      ensure_installed = { "js-debug-adapter", "debugpy", "netcoredbg" },
       automatic_installation = true,
     })
 
+    -- Python adapter
     dap.adapters.python = {
       type = "executable",
       command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
       args = { "-m", "debugpy.adapter" },
     }
 
+    -- Node adapter
     if not dap.adapters["pwa-node"] then
       dap.adapters["pwa-node"] = {
         type = "server",
@@ -91,9 +94,15 @@ return {
       }
     end
 
+    -- .NET / ASP.NET adapter
+    dap.adapters.coreclr = {
+      type = "executable",
+      command = vim.fn.stdpath("data") .. "/mason/packages/netcoredbg/netcoredbg",
+      args = { "--interpreter=vscode" },
+    }
+
     -- Config debug JS/TS + NestJS
     local js_ts_configs = {
-      -- Debug current file (Node.js)
       {
         type = "pwa-node",
         request = "launch",
@@ -104,7 +113,6 @@ return {
         protocol = "inspector",
         console = "integratedTerminal",
       },
-      -- Attach on process Node
       {
         type = "pwa-node",
         request = "attach",
@@ -112,7 +120,6 @@ return {
         processId = require("dap.utils").pick_process,
         cwd = "${workspaceFolder}",
       },
-      -- Debug NestJS with ts-node
       {
         type = "pwa-node",
         request = "launch",
@@ -124,7 +131,6 @@ return {
         internalConsoleOptions = "neverOpen",
         envFile = "${workspaceFolder}/.env",
       },
-      -- Debug NestJS build dist/
       {
         type = "pwa-node",
         request = "launch",
@@ -162,11 +168,42 @@ return {
       },
     }
 
+    -- Config debug .NET / ASP.NET
+    local dotnet_configs = {
+      {
+        type = "coreclr",
+        name = "Launch ASP.NET (auto DLL)",
+        request = "launch",
+        program = function()
+          local cwd = vim.fn.getcwd()
+          local dlls = vim.fn.glob(cwd .. "/bin/Debug/net*/**/*.dll", false, true)
+          if not dlls or vim.tbl_isempty(dlls) then
+            error("Not found DLL in bin/Debug/")
+          end
+          table.sort(dlls, function(a, b)
+            return vim.fn.getftime(a) > vim.fn.getftime(b)
+          end)
+          return dlls[1]
+        end,
+        cwd = "${workspaceFolder}",
+        stopAtEntry = false,
+        env = { ASPNETCORE_ENVIRONMENT = "Development" },
+      },
+      {
+        type = "coreclr",
+        name = "Attach to .NET process",
+        request = "attach",
+        processId = require("dap.utils").pick_process,
+      },
+    }
+
+    -- Register configs
     dap.configurations.javascript = js_ts_configs
     dap.configurations.typescript = js_ts_configs
     dap.configurations.javascriptreact = js_ts_configs
     dap.configurations.typescriptreact = js_ts_configs
     dap.configurations.json = js_ts_configs
     dap.configurations.python = python_configs
+    dap.configurations.cs = dotnet_configs
   end,
 }
