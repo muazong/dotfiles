@@ -19,6 +19,6 @@ return {
     }
   end,
   config = function()
-    require("ufo").setup({})
+    require("ufo").setup()
   end,
 }

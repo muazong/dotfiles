@@ -68,12 +68,6 @@ return {
     },
   },
   opts = {
-    enabled = function()
-      return not vim.tbl_contains({}, vim.bo.filetype)
-        and vim.bo.buftype ~= "nofile"
-        and vim.bo.buftype ~= "prompt"
-        and vim.b.completion ~= false
-    end,
     snippets = {
       preset = "luasnip",
       expand = function(snippet)
@@ -130,32 +124,16 @@ return {
     keymap = {
       preset = "none",
       ["<CR>"] = { "select_and_accept", "fallback" },
-      ["<C-e>"] = { "hide" },
+      ["<C-e>"] = { "hide", "fallback" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-      ["<Tab>"] = {
-        function(cmp)
-          local has_words_before = function()
-            local col = vim.api.nvim_win_get_cursor(0)[2]
-            if col == 0 then
-              return false
-            end
-            local line = vim.api.nvim_get_current_line()
-            return line:sub(col, col):match("%s") == nil
-          end
-
-          if has_words_before() then
-            return cmp.insert_next()
-          end
-        end,
-        "fallback",
-      },
-      ["<S-Tab>"] = { "select_prev", "fallback" },
+      ["<Tab>"] = { "select_prev", "fallback_to_mappings" },
+      ["<S-Tab>"] = { "select_next", "fallback_to_mappings" },
 
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },
-      ["<C-p>"] = { "select_prev", "fallback" },
-      ["<C-n>"] = { "select_next", "fallback" },
+      ["<C-p>"] = { "select_prev", "fallback_to_mappings" },
+      ["<C-n>"] = { "select_next", "fallback_to_mappings" },
 
       ["<C-d>"] = { "scroll_documentation_down", "fallback" },
       ["<C-u>"] = { "scroll_documentation_up", "fallback" },
