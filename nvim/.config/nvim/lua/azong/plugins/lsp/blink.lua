@@ -3,83 +3,13 @@ return {
   event = "InsertEnter",
   build = "cargo build --release",
   dependencies = {
-    {
-      "supermaven-inc/supermaven-nvim",
-      opts = function()
-        vim.g.supermaven_is_running = true
-
-        vim.keymap.set("n", "<leader>sm", function()
-          if vim.g.supermaven_is_running then
-            vim.cmd("SupermavenStop")
-            vim.notify("󰜺 Supermaven stopped", vim.log.levels.INFO, {
-              title = "Supermaven",
-            })
-            vim.g.supermaven_is_running = false
-          else
-            vim.cmd("SupermavenStart")
-            vim.notify("󰚩 Supermaven started", vim.log.levels.INFO, {
-              title = "Supermaven",
-            })
-            vim.g.supermaven_is_running = true
-          end
-        end, { desc = "Toggle Supermaven" })
-
-        return {
-          disable_inline_completion = false,
-          disable_keymaps = false,
-          keymaps = {
-            accept_suggestion = "<C-f>",
-            clear_suggestion = "<C-]>",
-            accept_word = "<C-j>",
-          },
-          ignore_filetypes = { "bigfile", "snacks_input", "snacks_notif" },
-        }
-      end,
-    },
-    {
-      "huijiro/blink-cmp-supermaven",
-    },
-    {
-      "L3MON4D3/LuaSnip",
-      build = "make install_jsregexp",
-      dependencies = { "rafamadriz/friendly-snippets" },
-      config = function()
-        -- vscode format
-        require("luasnip.loaders.from_vscode").lazy_load({ exclude = vim.g.vscode_snippets_exclude or {} })
-        require("luasnip.loaders.from_vscode").lazy_load({ paths = vim.g.vscode_snippets_path or "" })
-
-        -- snipmate format
-        require("luasnip.loaders.from_snipmate").load()
-        require("luasnip.loaders.from_snipmate").lazy_load({ paths = vim.g.snipmate_snippets_path or "" })
-
-        -- lua format
-        require("luasnip.loaders.from_lua").load()
-        require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path or "" })
-
-        local ls = require("luasnip")
-
-        vim.keymap.set({ "i", "s" }, "<C-j>", function()
-          ls.jump(1)
-        end, { silent = true })
-        vim.keymap.set({ "i", "s" }, "<C-k>", function()
-          ls.jump(-1)
-        end, { silent = true })
-      end,
-    },
+    "L3MON4D3/LuaSnip",
+    "supermaven-inc/supermaven-nvim",
+    "huijiro/blink-cmp-supermaven",
+    "rafamadriz/friendly-snippets",
   },
   opts = {
-    snippets = {
-      preset = "luasnip",
-      expand = function(snippet)
-        vim.snippet.expand(snippet)
-      end,
-      active = function(filter)
-        return vim.snippet.active(filter)
-      end,
-      jump = function(direction)
-        vim.snippet.jump(direction)
-      end,
-    },
+    snippets = { preset = "luasnip" },
     sources = {
       default = { "lsp", "path", "supermaven", "buffer", "snippets" },
       providers = {
@@ -127,8 +57,8 @@ return {
       ["<C-e>"] = { "hide", "fallback" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-      ["<Tab>"] = { "select_prev", "fallback_to_mappings" },
-      ["<S-Tab>"] = { "select_next", "fallback_to_mappings" },
+      ["<Tab>"] = { "select_next", "snippet_forward", "fallback_to_mappings" },
+      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback_to_mappings" },
 
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },

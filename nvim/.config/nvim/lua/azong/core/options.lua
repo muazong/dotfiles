@@ -44,6 +44,7 @@ opts.timeout = true
 opts.timeoutlen = 200
 
 opts.tabstop = 2
+opts.softtabstop = 2
 opts.smarttab = true
 opts.smartindent = true
 opts.shiftwidth = 2
