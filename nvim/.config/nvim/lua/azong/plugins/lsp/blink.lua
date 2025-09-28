@@ -57,8 +57,8 @@ return {
       ["<C-e>"] = { "hide", "fallback" },
       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
 
-      ["<Tab>"] = { "select_next", "snippet_forward", "fallback_to_mappings" },
-      ["<S-Tab>"] = { "select_prev", "snippet_backward", "fallback_to_mappings" },
+      ["<Tab>"] = { "select_next", "fallback_to_mappings" },
+      ["<S-Tab>"] = { "select_prev", "fallback_to_mappings" },
 
       ["<Up>"] = { "select_prev", "fallback" },
       ["<Down>"] = { "select_next", "fallback" },

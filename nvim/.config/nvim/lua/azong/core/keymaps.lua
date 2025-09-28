@@ -130,7 +130,6 @@ map("i", "<C-q>", "<Nop>")
 map("i", "<C-z>", "<Nop>")
 map("i", "<C-b>", "<Nop>")
 map("i", "<C-f>", "<Nop>")
-map("i", "<C-i>", "<Nop>")
 
 map("i", "<C-n>", "<Nop>", { noremap = true, silent = true })
 map("i", "<C-p>", "<Nop>", { noremap = true, silent = true })

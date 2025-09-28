@@ -15,5 +15,14 @@ return {
     -- lua format
     require("luasnip.loaders.from_lua").load()
     require("luasnip.loaders.from_lua").lazy_load({ paths = vim.g.lua_snippets_path or "" })
+
+    local ls = require("luasnip")
+
+    vim.keymap.set({ "s" }, "<Tab>", function()
+      ls.jump(1)
+    end, { silent = true })
+    vim.keymap.set({ "s" }, "<S-Tab>", function()
+      ls.jump(-1)
+    end, { silent = true })
   end,
 }
