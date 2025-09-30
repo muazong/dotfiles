@@ -2,16 +2,9 @@ vim.lsp.config("basedpyright", {
   settings = {
     basedpyright = {
       analysis = {
-        autoSearchPaths = false,
-        diagnosticMode = "workspace",
+        autoSearchPaths = true,
         useLibraryCodeForTypes = true,
-      },
-      inlayHints = {
-        callArgumentNames = true,
-        callArgumentNamesMatching = true,
-        functionReturnTypes = true,
-        genericTypes = true,
-        variableTypes = true,
+        diagnosticMode = "workspace",
       },
     },
   },
