@@ -141,6 +141,16 @@ return {
         sourceMaps = true,
         console = "integratedTerminal",
       },
+      {
+        type = "pwa-node",
+        request = "launch",
+        name = "Debug Next.js",
+        runtimeExecutable = "npm",
+        runtimeArgs = { "run", "dev" },
+        cwd = "${workspaceFolder}",
+        console = "integratedTerminal",
+        internalConsoleOptions = "neverOpen",
+      },
     }
 
     -- Config debug Python

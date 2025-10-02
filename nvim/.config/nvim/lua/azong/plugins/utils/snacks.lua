@@ -103,7 +103,7 @@ return {
           { icon = "󰒲 ", key = "l", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
           { icon = " ", key = "m", desc = "Mason", action = ":Mason" },
           { icon = " ", key = "L", desc = "LeetCode", action = ":Leet" },
-          { icon = " ", key = "c", desc = "Config", action = ":e ~/.config/nvim/init.lua" },
+          { icon = " ", key = "c", desc = "Config", action = ":cd ~/.config/nvim | :edit init.lua" },
           { icon = " ", key = "q", desc = "Quit", action = ":qa" },
         },
         header = [[
