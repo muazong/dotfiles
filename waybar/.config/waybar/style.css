@@ -12,6 +12,7 @@ window#waybar {
   color: @overlay0;
   padding: 4px 6px;
   border-radius: 6px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
 }
 
 #workspaces button {
@@ -59,8 +60,9 @@ window#waybar {
   margin: 0 4px;
   padding: 2px 7px;
   border-radius: 3px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease;
+  border: 1px solid rgba(0, 0, 0, 0.25);
 }
 
 #clock:hover,
@@ -79,7 +81,7 @@ window#waybar {
 #custom-airplane:hover,
 #window:hover,
 #custom-power:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 #clock {

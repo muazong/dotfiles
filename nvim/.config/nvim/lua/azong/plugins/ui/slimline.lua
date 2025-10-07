@@ -1,6 +1,8 @@
 return {
   "sschleemilch/slimline.nvim",
-  event = "BufReadPre",
+  dependencies = {
+    "rebelot/kanagawa.nvim",
+  },
   config = function()
     vim.opt.laststatus = 3
 
