@@ -1,6 +1,6 @@
 return {
   "rafcamlet/tabline-framework.nvim",
-  event = "VimEnter",
+  event = "VeryLazy",
   config = function()
     require("tabline_framework").setup({
       render = function(tab)
