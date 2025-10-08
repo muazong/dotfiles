@@ -94,27 +94,27 @@ set -U fish_complete_mode pager
 
 # --- Completion menu ---
 set -U fish_pager_color_prefix bryellow
-set -U fish_pager_color_completion white
-set -U fish_pager_color_description brblack
-set -U fish_pager_color_progress brmagenta
-set -U fish_color_selection --background=brblack --foreground=bryellow
+set -U fish_pager_color_completion 7aa2f7
+set -U fish_pager_color_description 565f89
+set -U fish_pager_color_progress c0caf5
+set -U fish_color_selection --background=2a2e36 --foreground=e6c384
 
 # --- Autosuggestion ---
-set -U fish_color_autosuggestion '555'
+set -U fish_color_autosuggestion 545c7e
 
 # --- Errors & highlights ---
-set -U fish_color_error 'red'
-set -U fish_color_command 'brgreen'
-set -U fish_color_param 'brwhite'
-set -U fish_color_quote 'yellow'
-set -U fish_color_operator 'brmagenta'
+set -U fish_color_error e46876
+set -U fish_color_command 7dcfff
+set -U fish_color_param dcd7ba
+set -U fish_color_quote e6c384
+set -U fish_color_operator 957fb8
 
 # --- Pager titles (header line) ---
-set -U fish_pager_color_prefix bryellow
-set -U fish_pager_color_selected_background --background=brblack
+set -U fish_pager_color_prefix e6c384
+set -U fish_pager_color_selected_background --background=2a2e36
 
 # --- Extra touch for Kanagawa vibe ---
-set -U fish_color_comment 'brblack'
-set -U fish_color_end 'brred'
-set -U fish_color_escape 'bryellow'
-set -U fish_color_valid_path 'brblue'
+set -U fish_color_comment 565f89
+set -U fish_color_end e46876
+set -U fish_color_escape e6c384
+set -U fish_color_valid_path 7aa2f7
