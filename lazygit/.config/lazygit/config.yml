@@ -1,3 +1,25 @@
+gui:
+  showIcons: true
+  nerdFontsVersion: "3"
+  theme:
+    activeBorderColor:
+      - "#E6C384"
+    inactiveBorderColor:
+      - "#51576D"
+    optionsTextColor:
+      - "#957FB8"
+    selectedLineBgColor:
+      - "#2A2E36"
+    cherryPickedCommitFgColor:
+      - "#7AA2F7"
+    cherryPickedCommitBgColor:
+      - "#51576D"
+    unstagedChangesColor:
+      - "#E46876"
+    stagedChangesColor:
+      - "#7DCFFF"
+
+
 customCommands:
   - key: "C"
     command: "git cz --disable-emoji"
