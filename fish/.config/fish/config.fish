@@ -88,3 +88,33 @@ end
 if [ -d ~/.local/share/gem/ruby/3.4.0/bin ]
     set --export PATH ~/.local/share/gem/ruby/3.4.0/bin $PATH
 end
+
+set -U fish_autosuggestion_enabled 1
+set -U fish_complete_mode pager
+
+# --- Completion menu ---
+set -U fish_pager_color_prefix bryellow
+set -U fish_pager_color_completion white
+set -U fish_pager_color_description brblack
+set -U fish_pager_color_progress brmagenta
+set -U fish_color_selection --background=brblack --foreground=bryellow
+
+# --- Autosuggestion ---
+set -U fish_color_autosuggestion '555'
+
+# --- Errors & highlights ---
+set -U fish_color_error 'red'
+set -U fish_color_command 'brgreen'
+set -U fish_color_param 'brwhite'
+set -U fish_color_quote 'yellow'
+set -U fish_color_operator 'brmagenta'
+
+# --- Pager titles (header line) ---
+set -U fish_pager_color_prefix bryellow
+set -U fish_pager_color_selected_background --background=brblack
+
+# --- Extra touch for Kanagawa vibe ---
+set -U fish_color_comment 'brblack'
+set -U fish_color_end 'brred'
+set -U fish_color_escape 'bryellow'
+set -U fish_color_valid_path 'brblue'
