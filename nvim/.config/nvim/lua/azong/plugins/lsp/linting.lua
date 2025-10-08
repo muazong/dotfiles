@@ -10,7 +10,7 @@ return {
       vue = { "eslint_d" },
       html = { "tidy" },
       bash = { "shellcheck" },
-      python = { "flake8", "mypy" },
+      -- python = { "flake8", "mypy" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
