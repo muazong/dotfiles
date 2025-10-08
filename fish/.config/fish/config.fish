@@ -5,14 +5,20 @@ set fish_greeting
 # Set fish startup
 if command -v starship > /dev/null
     starship init fish | source
+else
+    echo "Starship not found"
 end
 
 if command -v zoxide > /dev/null
     zoxide init fish | source
+else
+    echo "Zoxide not found"
 end
 
 if command -v atuin > /dev/null
     atuin init fish | source
+else
+    echo "Atuin not found"
 end
 
 if test -f ~/.env.fish
