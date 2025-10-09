@@ -110,8 +110,8 @@ set -U fish_color_quote e6c384
 set -U fish_color_operator 957fb8
 
 # --- Pager titles (header line) ---
-set -U fish_pager_color_prefix e6c384
-set -U fish_pager_color_selected_background --background=2a2e36
+set -U fish_pager_color_selected_background --background=3b4261
+set -U fish_pager_color_selected_prefix e6c384
 
 # --- Extra touch for Kanagawa vibe ---
 set -U fish_color_comment 565f89
