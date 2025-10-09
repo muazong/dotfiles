@@ -1,6 +1,8 @@
 return {
   "yetone/avante.nvim",
   build = "make",
+  event = "VeryLazy",
+  version = false,
   keys = { { "<leader>A", "<cmd>AvanteToggle<cr>", desc = "Avante Toggle" } },
   dependencies = {
     "nvim-lua/plenary.nvim",
