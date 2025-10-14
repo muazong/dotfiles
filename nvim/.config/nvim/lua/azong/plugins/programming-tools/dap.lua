@@ -13,7 +13,7 @@ return {
     { "<leader>sO", "<cmd>DapStepOver<cr>", desc = "Step Over" },
     { "<leader>O", "<cmd>DapStepOut<cr>", desc = "Step Out" },
     { "<leader>tn", "<cmd>DapTerminate<cr>", desc = "Terminate Debug" },
-    {
+    --[[ {
       "<leader>du",
       function()
         require("dapui").toggle()
@@ -33,7 +33,7 @@ return {
         require("dap").repl.toggle()
       end,
       desc = "Toggle Debug REPL",
-    },
+    }, ]]
   },
   config = function()
     local dap = require("dap")
