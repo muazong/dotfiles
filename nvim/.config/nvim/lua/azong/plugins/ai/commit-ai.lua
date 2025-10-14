@@ -4,6 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-telescope/telescope.nvim",
   },
+  cmd = { "Commit" },
   config = function()
     require("commit-ai").setup({
       icons = false,
