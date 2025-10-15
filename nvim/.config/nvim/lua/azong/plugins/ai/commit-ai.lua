@@ -8,8 +8,7 @@ return {
   config = function()
     require("commit-ai").setup({
       icons = false,
-      language = "en", -- default language
-      -- unopiniated commit conventions
+      language = "en",
       git_conventions = {
         docs = { icon = "", prefix = "docs", type = "Documentation changes" },
         fix = { icon = "", prefix = "fix", type = "Bug fix" },
