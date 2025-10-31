@@ -13,27 +13,27 @@ return {
     { "<leader>sO", "<cmd>DapStepOver<cr>", desc = "Step Over" },
     { "<leader>O", "<cmd>DapStepOut<cr>", desc = "Step Out" },
     { "<leader>tn", "<cmd>DapTerminate<cr>", desc = "Terminate Debug" },
-    --[[ {
-      "<leader>du",
+    {
+      "<leader>sU",
       function()
         require("dapui").toggle()
       end,
       desc = "Toggle Debug UI",
     },
     {
-      "<leader>de",
+      "<leader>se",
       function()
         require("dapui").eval()
       end,
       desc = "Add expression to watch",
     },
     {
-      "<leader>dr",
+      "<leader>sr",
       function()
         require("dap").repl.toggle()
       end,
       desc = "Toggle Debug REPL",
-    }, ]]
+    },
   },
   config = function()
     local dap = require("dap")
