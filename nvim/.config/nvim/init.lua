@@ -5,3 +5,5 @@ end
 require("azong.core")
 require("azong.utils")
 require("azong.lazy")
+
+-- Xin chao
