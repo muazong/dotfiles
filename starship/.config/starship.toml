@@ -110,7 +110,7 @@ style = "bg:color_bg4 fg:#1180C3"
 symbol = "󰪮 "
 
 [java]
-format = '[$symbol]($style)'
+format = '[$symbol($version)]($style)'
 style = "bg:color_bg4 fg:#F7901E"
 symbol = " "
 
