@@ -1,9 +1,12 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export JAVA_HOME:/home/azong/\x2esdkman/candidates/java/21\x2e0\x2e5\x2dtem
+SETUVAR --export --path PATH:/home/azong/\x2esdkman/candidates/java/21\x2e0\x2e5\x2dtem/bin\x1e/home/azong/\x2elocal/share/gem/ruby/3\x2e4\x2e0/bin\x1e/home/azong/\x2ebun/bin\x1e/home/azong/\x2elocal/share/gem/ruby/3\x2e4\x2e0/bin\x1e/home/azong/\x2ebun/bin\x1e/home/azong/\x2ecargo/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/azong/\x2edotnet/tools\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl\x1e/home/azong/\x2edotnet/tools
 SETUVAR __fish_initialized:3800
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:\x7e/\x2econfig/fish/functions/fisher\x2efish\x1e\x7e/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:\x7e/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_list\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e\x7e/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e\x7e/\x2econfig/fish/functions/nvm\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e\x7e/\x2econfig/fish/completions/nvm\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejorgebucaran/nvm\x2efish\x1ereitzig/sdkman\x2dfor\x2dfish\x40v2\x2e1\x2e0
+SETUVAR _fisher_reitzig_2F_sdkman_2D_for_2D_fish_40_v2_2E_31_2E_30__files:\x7e/\x2econfig/fish/functions/sdk\x2efish\x1e\x7e/\x2econfig/fish/conf\x2ed/sdk\x2efish\x1e\x7e/\x2econfig/fish/completions/sdk\x2efish
 SETUVAR _fisher_upgraded_to_4_4:\x1d
 SETUVAR fish_autosuggestion_enabled:1
 SETUVAR fish_color_autosuggestion:545c7e
