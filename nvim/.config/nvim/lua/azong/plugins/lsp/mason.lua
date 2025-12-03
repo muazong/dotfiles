@@ -62,6 +62,7 @@ return {
           "eslint_d",
           "black",
           "isort",
+          "google-java-format",
           -- "kulala-fmt",
         },
       })

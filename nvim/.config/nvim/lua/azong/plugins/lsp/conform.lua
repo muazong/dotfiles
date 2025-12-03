@@ -19,6 +19,7 @@ return {
       lua = { "stylua" },
       sh = { "shfmt" },
       fish = { "shfmt" },
+      java = { "google-java-format" },
       -- http = { "kulala-fmt" },
     },
     format_after_save = {
