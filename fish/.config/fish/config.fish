@@ -89,6 +89,11 @@ if [ -d ~/.local/share/gem/ruby/3.4.0/bin ]
     set --export PATH ~/.local/share/gem/ruby/3.4.0/bin $PATH
 end
 
+# Java
+if [ -d ~/.sdkman/candidates/java/current/bin ]
+  set --export PATH ~/.sdkman/candidates/springboot/current/bin $PATH
+end
+
 set -U fish_autosuggestion_enabled 1
 set -U fish_complete_mode pager
 
