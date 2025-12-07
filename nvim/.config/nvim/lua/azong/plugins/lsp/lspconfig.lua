@@ -25,10 +25,10 @@ return {
       map("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts("Goto Definitions"))
       map("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts("LSP Code Action"))
 
-      -- map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts("Goto Previous Diagnostic"))
-      -- map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts("Goto Next Diagnostic"))
+      map("n", "gp", "<cmd>lua vim.diagnostic.goto_prev()<cr>", opts("Goto Previous Diagnostic"))
+      map("n", "gn", "<cmd>lua vim.diagnostic.goto_next()<cr>", opts("Goto Next Diagnostic"))
 
-      -- Previous diagnostic + show float
+      --[[ -- Previous diagnostic + show float
       map("n", "gp", function()
         vim.diagnostic.jump({ count = -1 })
         vim.schedule(function()
@@ -42,7 +42,7 @@ return {
         vim.schedule(function()
           vim.diagnostic.open_float(nil, { scope = "cursor", focus = false })
         end)
-      end, opts("Goto Next Diagnostic"))
+      end, opts("Goto Next Diagnostic")) ]]
 
       map("n", "<S-k>", "<cmd>lua vim.lsp.buf.hover()<cr>", opts("Hover"))
       map("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<cr>", opts("Open Diagnostic Window Float"))
