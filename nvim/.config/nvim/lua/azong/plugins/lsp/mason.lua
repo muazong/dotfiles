@@ -38,7 +38,7 @@ return {
         "jdtls",
         "markdown_oxide",
         "basedpyright",
-        "lua_ls",
+        "lua_ls", -- NOTE: lua-language-server@3.15.0
         "typos_lsp",
         "tailwindcss",
         "css_variables",
