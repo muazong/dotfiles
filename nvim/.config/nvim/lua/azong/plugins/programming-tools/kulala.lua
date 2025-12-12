@@ -11,7 +11,6 @@ return {
       display_mode = "split", -- float
       split_direction = "vertical", -- vertical
       default_view = "headers_body",
-      show_variable_info_text = "float", -- false
       default_winbar_panes = { "headers_body", "headers", "body", "verbose" },
     },
     kulala_keymaps = {
