@@ -36,7 +36,7 @@ return {
         "cssls",
         "jsonls",
         "jdtls",
-        "markdown_oxide",
+        -- "markdown_oxide",
         "basedpyright",
         "lua_ls", -- NOTE: lua-language-server@3.15.0
         "typos_lsp",
