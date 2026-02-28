@@ -1,5 +1,8 @@
 return {
   "nvim-mini/mini.jump2d",
+  keys = {
+    { "<leader>ff", "<cmd>lua MiniJump2d.start()<cr>" },
+  },
   version = "*",
   opts = {
     spotter = nil,
