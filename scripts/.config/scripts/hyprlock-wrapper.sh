@@ -2,4 +2,4 @@
 
 hyprlock
 
-loginctl unlock-session
+loginctl unlock-session && killall hyprlock
