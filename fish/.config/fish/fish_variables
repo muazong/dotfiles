@@ -27,3 +27,4 @@ SETUVAR fish_pager_color_prefix:bryellow
 SETUVAR fish_pager_color_progress:c0caf5
 SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3d3b4261
 SETUVAR fish_pager_color_selected_prefix:e6c384
+SETUVAR fish_user_paths:/home/azong/\x2elocal/bin

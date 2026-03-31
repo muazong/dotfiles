@@ -32,7 +32,8 @@ return {
       ensure_installed = {
         "html",
         "vue_ls",
-        "vtsls",
+        -- "vtsls",
+        "tsgo",
         "cssls",
         "jsonls",
         "jdtls",

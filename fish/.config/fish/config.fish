@@ -69,6 +69,12 @@ alias lg 'lazygit'
 
 alias gdisplay 'env XDG_CURRENT_DESKTOP=gnome gnome-control-center display'
 
+
+# Claude
+if [ -d "/home/azong/.local/bin/claude" ]
+    set -Ua fish_user_paths /home/azong/.local/bin
+end
+
 # Bun
 if [ -d "$HOME/.bun" ]
     set --export BUN_INSTALL "$HOME/.bun"
@@ -123,3 +129,6 @@ set -U fish_color_comment 565f89
 set -U fish_color_end e46876
 set -U fish_color_escape e6c384
 set -U fish_color_valid_path 7aa2f7
+
+# OpenClaw Completion
+source "/home/azong/.openclaw/completions/openclaw.fish"
