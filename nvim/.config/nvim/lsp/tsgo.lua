@@ -1,4 +1,4 @@
-vim.lsp.config("tsgo", {
+return {
   typescript = {
     inlayHints = {
       enumMemberValues = {
@@ -22,4 +22,4 @@ vim.lsp.config("tsgo", {
       },
     },
   },
-})
+}

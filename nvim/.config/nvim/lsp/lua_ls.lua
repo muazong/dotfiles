@@ -1,4 +1,4 @@
-vim.lsp.config("lua_ls", {
+return {
   settings = {
     Lua = {
       hint = {
@@ -22,4 +22,4 @@ vim.lsp.config("lua_ls", {
       },
     },
   },
-})
+}
