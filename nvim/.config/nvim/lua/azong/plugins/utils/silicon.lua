@@ -1,5 +1,6 @@
 return {
   "michaelrommel/nvim-silicon",
+  enabled = false,
   lazy = true,
   cmd = "Silicon",
   main = "nvim-silicon",

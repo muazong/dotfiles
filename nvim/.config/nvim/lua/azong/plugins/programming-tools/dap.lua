@@ -35,6 +35,7 @@ return {
       desc = "Toggle Debug REPL",
     },
   },
+  enabled = false,
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")

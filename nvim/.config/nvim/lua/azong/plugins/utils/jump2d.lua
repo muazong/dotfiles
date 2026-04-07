@@ -1,5 +1,6 @@
 return {
   "nvim-mini/mini.jump2d",
+  enabled = false,
   keys = {
     { "<leader>ff", "<cmd>lua MiniJump2d.start()<cr>" },
   },

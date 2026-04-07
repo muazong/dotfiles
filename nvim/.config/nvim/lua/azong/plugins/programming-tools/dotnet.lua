@@ -1,5 +1,6 @@
 return {
   "seblyng/roslyn.nvim",
+  enabled = false,
   ft = { "cs", "razor" },
   dependencies = { { "tris203/rzls.nvim", config = true } },
   config = true,

@@ -1,5 +1,6 @@
 return {
   "josephburgess/nvumi",
+  enabled = false,
   dependencies = { "folke/snacks.nvim" },
   keys = { { "<leader>on", "<cmd>Nvumi<cr>", desc = "Open Nvumi" } },
   opts = {

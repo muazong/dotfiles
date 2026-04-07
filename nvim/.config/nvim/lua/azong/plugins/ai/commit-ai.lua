@@ -5,6 +5,7 @@ return {
     "nvim-telescope/telescope.nvim",
   },
   cmd = { "Commit" },
+  enabled = false,
   config = function()
     require("commit-ai").setup({
       icons = false,

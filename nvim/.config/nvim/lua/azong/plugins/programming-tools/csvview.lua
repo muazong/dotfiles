@@ -1,5 +1,6 @@
 return {
   "hat0uma/csvview.nvim",
+  enabled = false,
   opts = {
     parser = { comments = { "#", "//" } },
     keymaps = {
