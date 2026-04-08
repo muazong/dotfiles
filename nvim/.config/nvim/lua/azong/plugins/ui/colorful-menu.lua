@@ -12,6 +12,9 @@ return {
           add_colon_before_type = false,
           preserve_type_when_truncate = true,
         },
+        tsgo = {
+          extra_info_hl = "@comment",
+        },
         ts_ls = {
           extra_info_hl = "@comment",
         },

@@ -57,8 +57,8 @@ return {
           Type = { italic = true, fg = "#C4E4FF", bold = true },
           Number = { fg = "#FEF9D9" },
           Keyword = { fg = "#FDAF75" },
-          Statement = { fg = "#8967B3" },
-          Operator = { fg = "#E85C0D" },
+          Statement = { fg = "#7DAACB" },
+          Operator = { fg = "#FFF799" },
           Special = { fg = "#A0DEFF", italic = true },
 
           -- Virtual text

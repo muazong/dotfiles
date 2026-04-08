@@ -7,6 +7,7 @@ return {
     "supermaven-inc/supermaven-nvim",
     "huijiro/blink-cmp-supermaven",
     "rafamadriz/friendly-snippets",
+    "xzbdmw/colorful-menu.nvim",
   },
   opts = {
     snippets = { preset = "luasnip" },
