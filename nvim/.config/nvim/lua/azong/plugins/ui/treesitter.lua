@@ -1,9 +1,21 @@
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tsx", "jsx", "typescript", "typescriptreact", "javascript", "javascriptreact", "lua", "vim", "json" },
+  callback = function()
+    vim.treesitter.start() -- highlighting
+    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- folds
+    vim.wo.foldmethod = "expr"
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation
+  end,
+})
+
 return {
   { -- Treesitter
-    "nvim-treesitter/nvim-treesitter",
+    "neovim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    lazy = false,
     build = ":TSUpdate",
     opts = {
-      ensure_installed = { "typescript", "tsx", "javascript", "lua", "vim" },
+      ensure_installed = { "typescript", "tsx", "javascript", "jsx", "lua", "vim", "json" },
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
@@ -14,7 +26,7 @@ return {
   { -- Treesitter Context
     "nvim-treesitter/nvim-treesitter-context",
     event = { "BufReadPre", "BufNewFile" },
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    dependencies = { "neovim-treesitter/nvim-treesitter" },
     opts = {
       enable = true,
       max_lines = 0,

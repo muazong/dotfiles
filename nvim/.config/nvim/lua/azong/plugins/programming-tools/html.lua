@@ -13,7 +13,7 @@ return {
     "typescriptreact",
     "vue",
   },
-  dependencies = { "nvim-treesitter/nvim-treesitter" },
+  dependencies = { "neovim-treesitter/nvim-treesitter" },
   config = function()
     require("nvim-ts-autotag").setup({
       opts = {
