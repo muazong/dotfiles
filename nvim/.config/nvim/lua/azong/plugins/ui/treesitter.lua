@@ -1,27 +1,46 @@
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "tsx", "jsx", "typescript", "typescriptreact", "javascript", "javascriptreact", "lua", "vim", "json" },
-  callback = function()
-    vim.treesitter.start() -- highlighting
-    vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- folds
-    vim.wo.foldmethod = "expr"
-    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation
-  end,
-})
-
 return {
   { -- Treesitter
     "neovim-treesitter/nvim-treesitter",
     dependencies = { "nvim-lua/plenary.nvim" },
     lazy = false,
     build = ":TSUpdate",
-    opts = {
-      ensure_installed = { "typescript", "tsx", "javascript", "jsx", "lua", "vim", "json" },
-      highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-      },
-      indent = { enable = true },
-    },
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "tsx",
+          "jsx",
+          "typescript",
+          "typescriptreact",
+          "javascript",
+          "javascriptreact",
+          "lua",
+          "vim",
+          "json",
+        },
+        callback = function()
+          vim.treesitter.start() -- highlighting
+          vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- folds
+          vim.wo.foldmethod = "expr"
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" -- indentation
+        end,
+      })
+    end,
+    config = function()
+      local treesitter = require("nvim-treesitter")
+      treesitter.install({
+        "javascript",
+        "typescript",
+        "tsx",
+        "jsx",
+        "lua",
+        "vim",
+        "json",
+        "ecma",
+        "jsdoc",
+        "luadoc",
+        "vimdoc",
+      })
+    end,
   },
   { -- Treesitter Context
     "nvim-treesitter/nvim-treesitter-context",
