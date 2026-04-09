@@ -129,3 +129,6 @@ set -U fish_color_comment 565f89
 set -U fish_color_end e46876
 set -U fish_color_escape e6c384
 set -U fish_color_valid_path 7aa2f7
+
+# opencode
+fish_add_path /home/azong/.opencode/bin
