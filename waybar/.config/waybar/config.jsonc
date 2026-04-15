@@ -208,7 +208,7 @@
     ]
   },
   "bluetooth": {
-    "on-click": "blueberry",
+    "on-click": "kitty -e bluetui",
     "format-on": "󰂯 {status}",
     "format-off": "󰂲 {status}",
     "format-disabled": "󰂲 off",
