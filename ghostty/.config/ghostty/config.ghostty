@@ -1,2 +1,7 @@
+theme = Nvim Dark
+
 font-family = "JetBrainsMono NFM"
 keybind = ctrl+v=paste_from_clipboard  
+
+background-opacity = 0.7
+background-blur = 30
