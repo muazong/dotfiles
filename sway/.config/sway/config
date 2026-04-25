@@ -1,0 +1,174 @@
+# --- Variables ---
+set $mod Mod4
+set $term ghostty
+set $file nautilus
+set $browser firefox
+set $left h
+set $down j
+set $up k
+set $right l
+
+# --- Autostart ---
+exec dbus-update-activation-environment --all
+exec_always fcitx5 -d --replace
+exec swaync
+exec_always {
+    mkfifo $XDG_RUNTIME_DIR/wob.sock
+    tail -f $XDG_RUNTIME_DIR/wob.sock | wob
+}
+
+exec swayidle -w \
+    timeout 300 'swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 10b981 --key-hl-color 10b981 --inside-color 1f2937 --separator-color 00000000 --text-color ffffff --line-color 00000000' \
+    timeout 420 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+    timeout 480 'systemctl suspend' \
+    before-sleep 'swaylock -f --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 10b981 --key-hl-color 10b981 --inside-color 1f2937 --separator-color 00000000 --text-color ffffff --line-color 00000000'
+
+# --- Appearance & Gaps ---
+default_border pixel 2
+gaps inner 4
+gaps outer 4
+smart_gaps off
+client.focused          #10b981 #1f2937 #ffffff #10b981 #10b981
+client.unfocused        #4b5563 #1f2937 #9ca3af #4b5563 #4b5563
+client.focused_inactive #4b5563 #1f2937 #9ca3af #4b5563 #4b5563
+client.urgent           #ef4444 #ef4444 #ffffff #ef4444 #ef4444
+
+# --- Output & Input ---
+output * bg ~/Pictures/Wallpapers/wallpaper2.jpg fill
+output eDP-1 scale 0.9
+
+
+input type:touchpad {
+    dwt enabled
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+}
+
+input type:keyboard {
+    xkb_layout "us"
+}
+
+# --- Key Bindings ---
+
+# Swaync
+bindsym $mod+e exec swaync-client -t -sw
+
+# Basics
+bindsym $mod+q kill
+bindsym $mod+t exec $term
+bindsym $mod+b exec $browser
+bindsym $mod+f exec $file
+bindsym $mod+space exec wofi --show drun
+bindsym $mod+Escape exec wlogout
+bindsym XF86PowerOff exec swaymsg workspace number 10 && swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 10b981 --key-hl-color 10b981 --inside-color 1f2937 --separator-color 00000000 --text-color ffffff --line-color 00000000 & sleep 1 && systemctl suspend
+floating_modifier $mod normal
+bindsym $mod+Shift+r reload
+
+# Focus
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move containers
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Workspace controls
+bindsym Mod1+Tab focus next
+bindsym Mod1+Shift+Tab focus prev
+
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+bindsym $mod+Shift+n move container to workspace next; workspace next
+bindsym $mod+Shift+p move container to workspace prev; workspace prev
+
+# Workspace numbers (1-10)
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
+
+# Touchpad gestures
+bindgesture swipe:right workspace prev
+bindgesture swipe:left workspace next
+
+# Layout stuff
+bindsym $mod+m fullscreen
+bindsym $mod+Shift+space floating toggle
+
+# Resize mode
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Media keys with WOB integration
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+(?=%)' | head -n 1 > $XDG_RUNTIME_DIR/wob.sock"
+bindsym --locked XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && pactl get-sink-volume @DEFAULT_SINK@ | grep -oP '\\d+(?=%)' | head -n 1 > $XDG_RUNTIME_DIR/wob.sock"
+
+bindsym --locked XF86MonBrightnessDown exec "brightnessctl set 5%- -m | cut -d, -f4 | tr -d '%' > $XDG_RUNTIME_DIR/wob.sock"
+bindsym --locked XF86MonBrightnessUp exec "brightnessctl set 5%+ -m | cut -d, -f4 | tr -d '%' > $XDG_RUNTIME_DIR/wob.sock"
+
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# --- Screenshots ---
+bindsym $mod+Shift+Print exec sh -c 'grimshot save active /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/window_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Cửa sổ đã được lưu và copy!"'
+bindsym Print exec sh -c 'grimshot save output /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/full_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Toàn màn hình đã được lưu và copy!"'
+bindsym $mod+Print exec sh -c 'grimshot save area /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/region_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Vùng chọn đã được lưu và copy!"'
+
+# --- Bar ---
+bar {
+    position bottom
+    font pango:JetBrainsMono Nerd Font Light 10
+    tray_output none
+    
+    pango_markup enabled
+    status_command ~/.config/sway/status.sh
+
+    colors {
+        statusline #ffffff
+        background #00000000
+
+        inactive_workspace #00000000 #00000000 #6c7086
+        active_workspace   #b4befe #b4befe #11111b
+        urgent_workspace   #f38ba8 #f38ba8 #11111b
+    }
+}
+

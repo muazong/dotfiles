@@ -1,36 +1,36 @@
-{
-    "label" : "lock",
-    "action" : "hyprctl dispatch workspace 10 && loginctl lock-session",
-    "text" : "Lock (l)",
-    "keybind" : "l"
-}
-{
-    "label" : "hibernate",
-    "action" : "systemctl hibernate",
-    "text" : "Hibernate (h)",
-    "keybind" : "h"
-}
-{
-    "label" : "logout",
-    "action": "loginctl terminate-session $XDG_SESSION_ID",
-    "text" : "Logout (e)",
-    "keybind" : "e"
-}
-{
-    "label" : "suspend",
-    "action" : "hyprctl dispatch workspace 10 && (sleep 0.5 && systemctl suspend) & loginctl lock-session",
-    "text" : "Suspend (u)",
-    "keybind" : "u"
-}
-{
-    "label" : "shutdown",
-    "action" : "systemctl poweroff",
-    "text" : "Shutdown (s)",
-    "keybind" : "s"
-}
-{
-    "label" : "reboot",
-    "action" : "systemctl reboot",
-    "text" : "Reboot (r)",
-    "keybind" : "r"
-}
+    {
+        "label" : "lock",
+        "action" : "swaymsg workspace number 10 && swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 10b981 --key-hl-color 10b981 --inside-color 1f2937 --separator-color 00000000 --text-color ffffff --line-color 00000000",
+        "text" : "Lock (l)",
+        "keybind" : "l"
+    },
+    {
+        "label" : "hibernate",
+        "action" : "systemctl hibernate",
+        "text" : "Hibernate (h)",
+        "keybind" : "h"
+    },
+    {
+        "label" : "logout",
+        "action": "swaymsg exit",
+        "text" : "Logout (e)",
+        "keybind" : "e"
+    },
+    {
+        "label" : "suspend",
+        "action" : "swaymsg workspace number 10 && swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --ring-color 10b981 --key-hl-color 10b981 --inside-color 1f2937 --separator-color 00000000 --text-color ffffff --line-color 00000000 & sleep 1 && systemctl suspend",
+        "text" : "Suspend (u)",
+        "keybind" : "u"
+    },
+    {
+        "label" : "shutdown",
+        "action" : "systemctl poweroff",
+        "text" : "Shutdown (s)",
+        "keybind" : "s"
+    },
+    {
+        "label" : "reboot",
+        "action" : "systemctl reboot",
+        "text" : "Reboot (r)",
+        "keybind" : "r"
+    }

@@ -6,12 +6,12 @@
   "margin-right": 6,
   "margin-bottom": 4,
   "modules-left": [
-    "hyprland/workspaces",
+    "sway/workspaces",
     // "cpu",
     "memory",
     // "temperature",
     "custom/weather",
-    "hyprland/window"
+    "sway/window"
   ],
   "modules-center": [
     "clock"
@@ -69,7 +69,7 @@
   },
   //
   // Core modules
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "on-click": "activate",
     "active-only": false,
     "all-outputs": true,
@@ -86,7 +86,7 @@
       "*": 3
     }
   },
-  "hyprland/window": {
+  "sway/window": {
     "format": "{initialClass}",
     "separate-outputs": true,
     "icon": true,
