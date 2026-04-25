@@ -17,18 +17,18 @@ alias ll='eza -lg --icons=always'
 alias la='eza -lag --icons=always'
 
 alias lg='lazygit'
-alias gp 'git push'
-alias gc 'git commit'
-alias gs 'git status'
-alias gd 'git diff'
+alias gp='git push'
+alias gc='git commit'
+alias gs='git status'
+alias gd='git diff'
 
 alias grep='grep --color=auto'
 
-alias t 'tmux attach'
-alias tm 'tmux'
+alias t='tmux attach'
+alias tm='tmux'
 
 alias nv='nvim'
-alias nvc 'z ~/.config/nvim && nvim'
+alias nvc='z ~/.config/nvim && nvim'
 
 export PS1='[\u@\h \[\e[32m\]\w\[\e[0m\]]\$ '
 
