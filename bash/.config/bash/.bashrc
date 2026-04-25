@@ -11,6 +11,9 @@ aliases=(general)
 plugins=(git bashmarks)
 source "$OSH"/oh-my-bash.sh
 
+alias x='exit'
+alias cls='clear'
+
 alias l='eza --icons=always'
 alias ls='eza --icons=always'
 alias ll='eza -lg --icons=always'
@@ -32,3 +35,6 @@ alias nvc='z ~/.config/nvim && nvim'
 
 export PS1='[\u@\h \[\e[32m\]\w\[\e[0m\]]\$ '
 
+# nvm
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use
