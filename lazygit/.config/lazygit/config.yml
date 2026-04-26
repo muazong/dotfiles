@@ -18,12 +18,3 @@ gui:
       - "#E46876"
     stagedChangesColor:
       - "#7DCFFF"
-
-
-customCommands:
-  - key: "C"
-    command: "git cz --disable-emoji"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    output: terminal
