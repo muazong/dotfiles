@@ -35,7 +35,7 @@ client.urgent           #ef4444 #ef4444 #ffffff #ef4444 #ef4444
 
 # --- Output & Input ---
 output * bg ~/Pictures/Wallpapers/wallpaper2.jpg fill
-output eDP-1 scale 0.9
+output eDP-1 scale 1
 
 
 input type:touchpad {
@@ -150,9 +150,9 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 # --- Screenshots ---
-bindsym $mod+Shift+Print exec sh -c 'grimshot save active /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/window_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Cửa sổ đã được lưu và copy!"'
+bindsym $mod+Print exec sh -c 'grimshot save active /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/window_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Cửa sổ đã được lưu và copy!"'
 bindsym Print exec sh -c 'grimshot save output /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/full_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Toàn màn hình đã được lưu và copy!"'
-bindsym $mod+Print exec sh -c 'grimshot save area /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/region_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Vùng chọn đã được lưu và copy!"'
+bindsym shift+Print exec sh -c 'grimshot save area /tmp/shot.png && wl-copy < /tmp/shot.png && mv /tmp/shot.png ~/Pictures/Screenshots/region_$(date +'%Y-%m-%d_%H-%M-%S').png && notify-send "Screenshot" "Vùng chọn đã được lưu và copy!"'
 
 # --- Bar ---
 bar {
