@@ -49,6 +49,9 @@ input type:keyboard {
     xkb_layout "us"
 }
 
+# --- Cursor ---
+seat * xcursor_theme GoogleDot-Blue 18
+
 # --- Key Bindings ---
 
 # Swaync
