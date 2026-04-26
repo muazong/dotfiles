@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 			map("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", opts("Goto Definitions"))
 			map("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", opts("LSP Code Action"))
 
-			-- Previous diagnostic + show float
+			-- Goto previous diagnostic + show float
 			map("n", "gp", function()
 				vim.diagnostic.jump({ count = -1 })
 				vim.schedule(function()
@@ -37,7 +37,7 @@ vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile" }, {
 				end)
 			end, opts("Goto Previous Diagnostic"))
 
-			-- Next diagnostic + show float
+			-- Goto next diagnostic + show float
 			map("n", "gn", function()
 				vim.diagnostic.jump({ count = 1 })
 				vim.schedule(function()
