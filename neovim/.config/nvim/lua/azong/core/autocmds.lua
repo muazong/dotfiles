@@ -3,31 +3,31 @@ vim.cmd([[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatop
 
 -- Rebember folds
 vim.api.nvim_create_autocmd({ "BufWinLeave" }, {
-  group = vim.api.nvim_create_augroup("remember_folds", { clear = true }),
-  callback = function()
-    if vim.fn.expand("%") ~= "" and vim.bo.buftype == "" and vim.bo.ft ~= "help" then
-      vim.cmd("silent! mkview")
-    end
-  end,
+	group = vim.api.nvim_create_augroup("remember_folds", { clear = true }),
+	callback = function()
+		if vim.fn.expand("%") ~= "" and vim.bo.buftype == "" and vim.bo.ft ~= "help" then
+			vim.cmd("silent! mkview")
+		end
+	end,
 })
 
 vim.api.nvim_create_autocmd({ "BufWinEnter" }, {
-  group = vim.api.nvim_create_augroup("remember_folds_load", { clear = true }),
-  callback = function()
-    if vim.fn.expand("%") ~= "" and vim.bo.buftype == "" and vim.bo.ft ~= "help" then
-      vim.cmd("silent! loadview")
-    end
-  end,
+	group = vim.api.nvim_create_augroup("remember_folds_load", { clear = true }),
+	callback = function()
+		if vim.fn.expand("%") ~= "" and vim.bo.buftype == "" and vim.bo.ft ~= "help" then
+			vim.cmd("silent! loadview")
+		end
+	end,
 })
 
 -- Highlight on yank
 vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function()
-    vim.hl.on_yank({
-      higroup = "IncSearch",
-      timeout = 200,
-    })
-  end,
+	callback = function()
+		vim.hl.on_yank({
+			higroup = "IncSearch",
+			timeout = 200,
+		})
+	end,
 })
 
 -- Auto split vertical a help filetype opened
