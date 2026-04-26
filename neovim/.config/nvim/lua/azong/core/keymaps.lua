@@ -26,14 +26,14 @@ map("x", "p", [["_dP]])
 
 -- File Explorer
 vim.keymap.set("n", "<C-b>", function()
-  local current_file = vim.fn.expand("%:t")
-  vim.cmd("Lexplore " .. vim.fn.expand("%:p:h"))
-  vim.schedule(function()
-    if current_file ~= "" then
-      vim.fn.search(current_file)
-      vim.cmd("normal! zz")
-    end
-  end)
+	local current_file = vim.fn.expand("%:t")
+	vim.cmd("Lexplore " .. vim.fn.expand("%:p:h"))
+	vim.schedule(function()
+		if current_file ~= "" then
+			vim.fn.search(current_file)
+			vim.cmd("normal! zz")
+		end
+	end)
 end, { desc = "Lexplore focus currnent file open" })
 
 -- Increase/Decrease keys
@@ -106,17 +106,22 @@ map("n", "<C-k>", "<C-w>k", keymap_opts)
 map("n", "<C-l>", "<C-w>l", keymap_opts)
 map("n", "<C-h>", "<C-w>h", keymap_opts)
 
+-- Update plugins
+vim.api.nvim_create_user_command("PackUpdate", function()
+	vim.pack.update()
+end, { desc = "Update plugins" })
+
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "netrw",
-  callback = function()
-    -- Thiết lập phím tắt chỉ dành riêng cho buffer netrw
-    local opts = { buffer = true, remap = false, silent = true }
-    
-    vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
-    vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
-    vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
-    vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
-  end,
+	pattern = "netrw",
+	callback = function()
+		-- Thiết lập phím tắt chỉ dành riêng cho buffer netrw
+		local opts = { buffer = true, remap = false, silent = true }
+
+		vim.keymap.set("n", "<C-h>", "<C-w>h", opts)
+		vim.keymap.set("n", "<C-j>", "<C-w>j", opts)
+		vim.keymap.set("n", "<C-k>", "<C-w>k", opts)
+		vim.keymap.set("n", "<C-l>", "<C-w>l", opts)
+	end,
 })
 
 -- Disable keys
