@@ -18,3 +18,11 @@ gui:
       - "#E46876"
     stagedChangesColor:
       - "#7DCFFF"
+
+customCommands:
+  - key: "C"
+    command: 'bash -c "source $HOME/.nvm/nvm.sh && nvm use --lts > /dev/null && ai-commit"'
+    description: "commit with ai-commit"
+    context: "files"
+    loadingText: "committing..."
+    output: terminal
