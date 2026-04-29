@@ -2,7 +2,7 @@
 set $mod Mod4
 set $term ghostty
 set $file nautilus
-set $browser librewolf
+set $browser firefox
 set $left h
 set $down j
 set $up k
@@ -54,6 +54,9 @@ input type:keyboard {
 seat * xcursor_theme GoogleDot-Blue 18
 
 # --- Key Bindings ---
+
+# Swaybar
+bindsym $mod+w bar mode toggle
 
 # Swaync
 bindsym $mod+e exec swaync-client -t -sw
@@ -139,7 +142,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-bindsym $mod+w split toggle
+# bindsym $mod+w split toggle
 
 # Media keys with WOB integration
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -167,6 +170,8 @@ bar {
     pango_markup enabled
     status_command ~/.config/sway/status.sh
 
+    mode dock  
+
     colors {
         statusline #ffffff
         background #00000000
@@ -176,4 +181,3 @@ bar {
         urgent_workspace   #f38ba8 #f38ba8 #11111b
     }
 }
-
