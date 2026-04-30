@@ -142,7 +142,7 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-# bindsym $mod+w split toggle
+bindsym $mod+shift+w split toggle
 
 # Media keys with WOB integration
 bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
