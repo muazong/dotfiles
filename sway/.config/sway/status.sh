@@ -3,6 +3,7 @@
 wifi_info=" Off"
 bat_info=" --%"
 layout_info=" -"
+caps_info="󰪛 OFF"
 cnt=0
 
 while true; do
@@ -13,16 +14,23 @@ while true; do
         vol_icon=""
         vol_text="Mute"
     else
-        if [ "$vol" -lt 30 ]; then
-            vol_icon=""
-        else
-            vol_icon=""
-        fi
+        if [ "$vol" -lt 30 ]; then vol_icon=""; else vol_icon=""; fi
         vol_text="$vol%"
     fi
 
     fcitx_raw=$(fcitx5-remote -n 2>/dev/null)
     [[ "$fcitx_raw" == *"us"* ]] && fcitx_short="EN" || fcitx_short="VI"
+
+    if brightnessctl --device='input*::capslock' get >/dev/null 2>&1; then
+        caps_state=$(brightnessctl --device='input*::capslock' get)
+        if [ "$caps_state" -eq 1 ]; then
+            caps_info="󰪛 ON"
+        else
+            caps_info="󰪛 OFF"
+        fi
+    else
+        caps_info="" 
+    fi
 
     date_time=$(date +'%a, %d/%m/%Y | %H:%M')
 
@@ -71,7 +79,7 @@ while true; do
         fi
     fi
 
-    echo " $date_time | $layout_info |  $fcitx_short | $vol_icon $vol_text | $wifi_info | $bat_info"
+    echo " $date_time | $layout_info | $caps_info |  $fcitx_short | $vol_icon $vol_text | $wifi_info | $bat_info"
 
     cnt=$((cnt+1))
     if (( cnt > 1000 )); then cnt=0; fi
