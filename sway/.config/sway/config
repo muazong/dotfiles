@@ -9,7 +9,6 @@ set $up k
 set $right l
 
 # --- Autostart ---
-exec_always ~/.config/sway/auto-switch-wallpapers.sh
 exec dbus-update-activation-environment --all
 exec_always fcitx5 -d --replace
 exec swaync
@@ -36,6 +35,7 @@ client.focused_inactive #4b5563 #1f2937 #9ca3af #4b5563 #4b5563
 client.urgent           #ef4444 #ef4444 #ffffff #ef4444 #ef4444
 
 # --- Output & Input ---
+output * bg ~/Pictures/Wallpapers/3.jpg fill
 output eDP-1 scale 1
 
 input type:touchpad {
