@@ -61,6 +61,9 @@ bindsym $mod+w bar mode toggle
 # Swaync
 bindsym $mod+e exec swaync-client -t -sw
 
+# Swayidle toggle
+bindsym $mod+i exec ~/.config/sway/toggle-swayidle.sh
+
 # Basics
 bindsym $mod+q kill
 bindsym $mod+t exec $term
