@@ -93,8 +93,8 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Workspace controls
-bindsym Mod1+Tab focus next
-bindsym Mod1+Shift+Tab focus prev
+bindsym Mod1+Tab exec sh -c 'swaymsg -t get_tree | jq -e ".. | objects | select(.focused == true and .fullscreen_mode == 1)" > /dev/null 2>&1 && swaymsg "fullscreen disable; focus next; fullscreen enable" || swaymsg "focus next"'
+bindsym Mod1+Shift+Tab exec sh -c 'swaymsg -t get_tree | jq -e ".. | objects | select(.focused == true and .fullscreen_mode == 1)" > /dev/null 2>&1 && swaymsg "fullscreen disable; focus prev; fullscreen enable" || swaymsg "focus prev"'
 
 bindsym $mod+n workspace next
 bindsym $mod+p workspace prev
