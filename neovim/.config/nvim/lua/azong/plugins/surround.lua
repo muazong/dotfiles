@@ -1,3 +1,3 @@
 vim.pack.add({
-	"https://github.com/kylechui/nvim-surround",
+  "https://github.com/kylechui/nvim-surround",
 })

@@ -71,9 +71,9 @@ opts.splitbelow = true
 opts.splitkeep = "cursor"
 
 if vim.fn.has("unix") == 1 or vim.fn.has("mac") == 1 then
-	opts.clipboard:append("unnamedplus")
+  opts.clipboard:append("unnamedplus")
 elseif vim.fn.has("win32") == 1 then
-	opts.clipboard:append("unnamed")
+  opts.clipboard:append("unnamed")
 end
 
 vim.g.loaded_node_provider = 0
