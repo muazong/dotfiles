@@ -28,6 +28,8 @@ local function fzf_lazy(cmd)
 
   vim.keymap.set("n", "<c-f>", "<cmd>FzfLua files<cr>")
   vim.keymap.set("n", "<c-g>", "<cmd>FzfLua live_grep<cr>")
+  vim.keymap.set("n", "tb", "<cmd>FzfLua buffers<cr>")
+  vim.keymap.set("n", "<leader>xx", "<cmd>FzfLua diagnostics_workspace<cr>")
 
   require("fzf-lua")[cmd]()
 end
